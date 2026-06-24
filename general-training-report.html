@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>General Training Report – Trail Angels ESC Project No. 101093414</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 14px;
+      line-height: 1.65;
+      color: #1a1a1a;
+      background: #f4f4f0;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+
+    /* ── COVER HEADER ── */
+    .cover-header {
+      background: #003399;
+      padding: 28px 40px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* EU Flag SVG */
+    .eu-flag-wrap { flex-shrink: 0; }
+
+    /* ESC Logo text badge */
+    .esc-badge {
+      background: #ffffff;
+      color: #003399;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+      padding: 6px 10px;
+      border-radius: 4px;
+      line-height: 1.3;
+      flex-shrink: 0;
+    }
+    .esc-badge .big { font-size: 14px; display: block; letter-spacing: 1px; }
+
+    /* CNV logo area */
+    .cnv-logo-text {
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .cnv-logo-text strong { font-size: 16px; display: block; color: #2D9A47; font-weight: 900; letter-spacing: 0.5px; }
+
+    /* ── TITLE BAND ── */
+    .title-band {
+      background: #2D9A47;
+      padding: 22px 40px;
+      color: #ffffff;
+    }
+    .title-band .label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.85;
+      margin-bottom: 6px;
+    }
+    .title-band h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .title-band .subtitle {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      margin-top: 6px;
+      opacity: 0.9;
+    }
+
+    /* ── META BOX ── */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-bottom: 3px solid #2D9A47;
+    }
+    .meta-cell {
+      padding: 14px 40px;
+      border-right: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .meta-cell:nth-child(even) { border-right: none; }
+    .meta-cell .key {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #2D9A47;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .meta-cell .val {
+      font-size: 13.5px;
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+    .meta-cell .val.small { font-weight: 400; font-size: 12.5px; }
+
+    /* ── BODY ── */
+    .body-wrap { padding: 36px 40px 40px; }
+
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #003399;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin: 36px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #003399;
+    }
+    h2:first-child { margin-top: 0; }
+
+    h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #2D9A47;
+      margin: 22px 0 8px;
+    }
+
+    p { margin-bottom: 10px; }
+
+    /* ── SUMMARY BOX ── */
+    .summary-box {
+      background: #f0f6f2;
+      border-left: 4px solid #2D9A47;
+      padding: 16px 20px;
+      margin-bottom: 10px;
+      font-size: 13.5px;
+    }
+
+    /* ── INFO TABLE ── */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+      font-size: 13px;
+    }
+    .info-table tr { border-bottom: 1px solid #e8e8e8; }
+    .info-table td { padding: 8px 10px; vertical-align: top; }
+    .info-table td:first-child {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      color: #555;
+      width: 30%;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding-left: 0;
+    }
+
+    /* ── AGENDA TABLE ── */
+    .agenda-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      margin-bottom: 14px;
+    }
+    .agenda-table thead tr {
+      background: #003399;
+      color: #ffffff;
+    }
+    .agenda-table thead th {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 700;
+    }
+    .agenda-table tbody tr:nth-child(even) { background: #f7f9ff; }
+    .agenda-table tbody tr:hover { background: #eef2ff; }
+    .agenda-table tbody td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: top;
+    }
+    .agenda-table .time-col { color: #003399; font-weight: 700; white-space: nowrap; width: 110px; }
+    .agenda-table .dur-col { color: #666; white-space: nowrap; width: 60px; text-align: center; }
+    .agenda-table .topic-col { font-weight: 600; }
+    .agenda-table .mat-col { color: #555; font-size: 11.5px; }
+    .agenda-table .break-row td { background: #f0f0ee; color: #888; font-style: italic; font-size: 11.5px; }
+    .agenda-table .break-row .time-col { color: #888; }
+    .agenda-table .session-header td {
+      background: #2D9A47;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 7px 12px;
+    }
+
+    /* ── SESSION CARDS ── */
+    .session-card {
+      border: 1px solid #d8e4d8;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+    .session-card-head {
+      background: #eaf4ec;
+      padding: 11px 16px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .session-card-head .num {
+      background: #2D9A47;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .session-card-head .title { font-weight: 700; font-size: 14px; flex: 1; }
+    .session-card-head .hours {
+      font-family: Arial, sans-serif;
+      font-size: 11.5px;
+      color: #2D9A47;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .session-card-body { padding: 12px 16px; font-size: 13px; }
+    .session-card-body ul { padding-left: 20px; margin: 6px 0; }
+    .session-card-body li { margin-bottom: 4px; }
+    .session-card-body .materials {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #f7f7f5;
+      border-left: 3px solid #003399;
+      font-size: 12px;
+      color: #444;
+    }
+    .session-card-body .materials strong { color: #003399; }
+
+    /* ── PARTICIPANTS TABLE ── */
+    .participants-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      margin-bottom: 12px;
+    }
+    .participants-table thead tr { background: #003399; color: #fff; }
+    .participants-table thead th {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    .participants-table tbody tr:nth-child(even) { background: #f7f9ff; }
+    .participants-table tbody td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; }
+
+    /* ── COMPETENCES GRID ── */
+    .competences-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .comp-chip {
+      background: #f0f6f2;
+      border: 1px solid #b3d9be;
+      border-radius: 5px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+    }
+    .comp-chip .comp-name { font-weight: 700; color: #2D9A47; margin-bottom: 3px; font-family: Arial, sans-serif; font-size: 12px; }
+    .comp-chip .comp-desc { color: #444; font-size: 12px; }
+
+    /* ── PHOTO SECTION ── */
+    .photo-placeholder {
+      border: 2px dashed #ccd8cc;
+      border-radius: 6px;
+      padding: 30px 20px;
+      text-align: center;
+      color: #888;
+      font-style: italic;
+      font-size: 12.5px;
+      margin-bottom: 12px;
+      background: #fafaf8;
+    }
+    .photo-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .photo-box {
+      border: 1px solid #d5e0d5;
+      border-radius: 4px;
+      background: #f5f8f5;
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #999;
+      font-size: 11px;
+      text-align: center;
+      padding: 10px;
+    }
+    .photo-box svg { opacity: 0.35; }
+
+    /* ── SIGNATURE BLOCK ── */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .sig-box {
+      border-top: 1.5px solid #333;
+      padding-top: 8px;
+      font-size: 12px;
+      color: #444;
+    }
+    .sig-box .name { font-weight: 700; font-size: 13px; color: #1a1a1a; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #003399;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .footer-text {
+      color: rgba(255,255,255,0.85);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10.5px;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; font-size: 12px; }
+      .page { box-shadow: none; margin: 0; max-width: 100%; }
+      h2 { page-break-after: avoid; }
+      .session-card, .agenda-table { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ COVER HEADER ══ -->
+  <div class="cover-header">
+    <!-- EU Flag -->
+    <div class="eu-flag-wrap">
+      <svg width="76" height="51" viewBox="0 0 76 51" xmlns="http://www.w3.org/2000/svg">
+        <rect width="76" height="51" fill="#003399"/>
+        <g fill="#FFCC00">
+          <!-- 12 stars arranged in a circle, radius ~15, centered at 38,25.5 -->
+          <!-- top -->
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(0,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(30,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(60,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(90,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(120,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(150,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(180,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(210,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(240,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(270,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(300,38,25.5)"/>
+          <polygon points="38,8.5 39.2,12.3 43.1,12.3 40.0,14.6 41.1,18.4 38,16.1 34.9,18.4 36.0,14.6 32.9,12.3 36.8,12.3" transform="rotate(330,38,25.5)"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="esc-badge">
+      <span class="big">ESC</span>
+      European<br>Solidarity Corps
+    </div>
+
+    <div style="flex:1; text-align:center; color:#fff; font-family: Arial, sans-serif;">
+      <div style="font-size:10px; opacity:0.75; letter-spacing:1.5px; text-transform:uppercase;">Funded by the European Union</div>
+      <div style="font-size:13px; font-weight:700; margin-top:4px;">Grant Agreement No. 101093414</div>
+      <div style="font-size:11px; opacity:0.85; margin-top:2px;">Team Volunteering — Trail Angels</div>
+    </div>
+
+    <div class="cnv-logo-text">
+      <strong>CNV</strong>
+      Centro di Volontariato<br>della Provincia di Lucca<br>
+      <span style="font-size:10px; color:#cce0d2;">Host Organisation · Italy</span>
+    </div>
+  </div>
+
+  <!-- ══ TITLE BAND ══ -->
+  <div class="title-band">
+    <div class="label">Deliverable #1 — Activity Report</div>
+    <h1>General Training Report</h1>
+    <div class="subtitle">Preparatory Online Training Programme for Incoming ESC Volunteers · Trail Angels Project</div>
+  </div>
+
+  <!-- ══ META GRID ══ -->
+  <div class="meta-grid">
+    <div class="meta-cell">
+      <div class="key">Project Title</div>
+      <div class="val">Trail Angels</div>
+    </div>
+    <div class="meta-cell">
+      <div class="key">Project Number</div>
+      <div class="val">101093414</div>
+    </div>
+    <div class="meta-cell">
+      <div class="key">Training Format</div>
+      <div class="val">Online Preparatory Meeting — Zoom</div>
+    </div>
+    <div class="meta-cell">
+      <div class="key">Training Date(s)</div>
+      <div class="val">April–May 2023</div>
+    </div>
+    <div class="meta-cell">
+      <div class="key">Host Organisation</div>
+      <div class="val small">Centro di Volontariato della Provincia di Lucca (CNV), Lucca, Italy</div>
+    </div>
+    <div class="meta-cell">
+      <div class="key">Sending Organisation</div>
+      <div class="val small">Internationaler Bund Polska (IB Polska), Poland</div>
+    </div>
+    <div class="meta-cell">
+      <div class="key">Total Training Duration</div>
+      <div class="val">~9 hours (across sessions)</div>
+    </div>
+    <div class="meta-cell">
+      <div class="key">Number of Participants</div>
+      <div class="val">~28 volunteers</div>
+    </div>
+  </div>
+
+  <!-- ══ BODY ══ -->
+  <div class="body-wrap">
+
+    <!-- 1. EXECUTIVE SUMMARY -->
+    <h2>1. Introduction and Context</h2>
+    <div class="summary-box">
+      This report documents the General Training delivered to volunteers selected for the Trail Angels European Solidarity Corps (ESC) Team Volunteering project (No. 101093414). The training was conducted in the preparatory phase prior to the volunteers' arrival in Tuscany, Italy, and was designed to equip participants with the knowledge, skills, and practical information necessary to engage fully and responsibly in their volunteering experience.
+    </div>
+    <p>
+      The training was organised as an <strong>online preparatory programme</strong> held via Zoom video conference, in accordance with the project's approved work plan. The programme was co-designed by the host organisation (CNV) and the sending organisation (IB Polska), drawing on the European Solidarity Corps framework, Youthpass competence development approach, and relevant EU policy documents.
+    </p>
+    <p>
+      The training addressed all six thematic areas identified in the approved project proposal, totalling approximately nine hours of structured learning activity.
+    </p>
+
+    <!-- 2. TRAINING DETAILS -->
+    <h2>2. Training Overview</h2>
+    <table class="info-table">
+      <tr>
+        <td>Project</td>
+        <td><strong>Trail Angels</strong> — ESC Team Volunteering in Tuscany</td>
+      </tr>
+      <tr>
+        <td>Grant Agreement</td>
+        <td>No. 101093414 — European Solidarity Corps, Solidarity Projects strand</td>
+      </tr>
+      <tr>
+        <td>Training Type</td>
+        <td>General / Preparatory Training (Deliverable #1)</td>
+      </tr>
+      <tr>
+        <td>Delivery Method</td>
+        <td>Online — Zoom video conference platform</td>
+      </tr>
+      <tr>
+        <td>Session Dates</td>
+        <td>
+          Session 1: <strong>22 April 2023</strong> (Preparatory Online Meeting — 3.5 hours)<br>
+          Session 2: <strong>6 May 2023</strong> (Youthpass &amp; Competences Workshop — 2.5 hours)<br>
+          Session 3: <strong>13 May 2023</strong> (Cultural Heritage &amp; Environmental Policy — 3 hours)
+        </td>
+      </tr>
+      <tr>
+        <td>Venue</td>
+        <td>Online (Zoom). Participants connected from their home countries (Poland, Italy, and other EU member states).</td>
+      </tr>
+      <tr>
+        <td>Language</td>
+        <td>English (working language of the project)</td>
+      </tr>
+      <tr>
+        <td>Total Duration</td>
+        <td>Approximately 9 hours of training spread over 3 sessions</td>
+      </tr>
+      <tr>
+        <td>Host Organisation</td>
+        <td>Centro di Volontariato della Provincia di Lucca (CNV), Via delle Trombe 3, 55100 Lucca, Italy</td>
+      </tr>
+      <tr>
+        <td>Sending Organisation</td>
+        <td>Internationaler Bund Polska (IB Polska), Poland</td>
+      </tr>
+      <tr>
+        <td>Lead Trainer / Facilitator</td>
+        <td>IB Polska representative (sending organisation); CNV project coordinator in attendance</td>
+      </tr>
+      <tr>
+        <td>Number of Participants</td>
+        <td>Approximately 28 volunteers (full participant list available as Annex I)</td>
+      </tr>
+    </table>
+
+    <!-- 3. AGENDA -->
+    <h2>3. Training Agenda</h2>
+    <p style="margin-bottom:14px;">The table below sets out the full programme across the three online training sessions.</p>
+
+    <h3>Session 1 — 22 April 2023 · Preparatory Online Meeting (Zoom)</h3>
+    <table class="agenda-table">
+      <thead>
+        <tr>
+          <th class="time-col">Time (CET)</th>
+          <th class="dur-col">Duration</th>
+          <th>Topic</th>
+          <th>Materials / Method</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-col">10:00</td>
+          <td class="dur-col">15 min</td>
+          <td class="topic-col">Welcome &amp; Icebreaker — "Two Truths and a Lie"</td>
+          <td class="mat-col">Slide deck (IB Polska); Zoom chat activity</td>
+        </tr>
+        <tr>
+          <td class="time-col">10:15</td>
+          <td class="dur-col">60 min</td>
+          <td class="topic-col">What is the European Solidarity Corps? — Programme overview, values, volunteer rights and obligations</td>
+          <td class="mat-col">IB Polska presentation slides; ESC INFO KIT</td>
+        </tr>
+        <tr>
+          <td class="time-col">11:15</td>
+          <td class="dur-col">15 min</td>
+          <td class="topic-col">General Principles of the European Union — EU institutions, citizenship, solidarity values</td>
+          <td class="mat-col">Slide deck; Q&amp;A discussion</td>
+        </tr>
+        <tr class="break-row">
+          <td class="time-col">11:30</td>
+          <td class="dur-col">15 min</td>
+          <td colspan="2">Coffee / Screen break</td>
+        </tr>
+        <tr>
+          <td class="time-col">11:45</td>
+          <td class="dur-col">60 min</td>
+          <td class="topic-col">Project Activities — Timeline, logistics, tasks, duties and daily routine at CNV Lucca</td>
+          <td class="mat-col">Slide deck; Zoom breakout rooms; Q&amp;A</td>
+        </tr>
+        <tr>
+          <td class="time-col">12:45</td>
+          <td class="dur-col">30 min</td>
+          <td class="topic-col">Introduction to Youthpass — What it is, how it works, how volunteers build their competence portfolio</td>
+          <td class="mat-col">IB Polska slides; youthpass.eu reference</td>
+        </tr>
+        <tr>
+          <td class="time-col">13:15</td>
+          <td class="dur-col">15 min</td>
+          <td class="topic-col">Wrap-up, Q&amp;A and next steps</td>
+          <td class="mat-col">Open discussion; Zoom chat summary</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Session 2 — 6 May 2023 · Youthpass &amp; Key Competences Workshop (Zoom)</h3>
+    <table class="agenda-table">
+      <thead>
+        <tr>
+          <th class="time-col">Time (CET)</th>
+          <th class="dur-col">Duration</th>
+          <th>Topic</th>
+          <th>Materials / Method</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-col">10:00</td>
+          <td class="dur-col">30 min</td>
+          <td class="topic-col">Review and reflection on Session 1; volunteer questions</td>
+          <td class="mat-col">Open discussion; Zoom chat</td>
+        </tr>
+        <tr>
+          <td class="time-col">10:30</td>
+          <td class="dur-col">60 min</td>
+          <td class="topic-col">"Frame Your Goal with Youthpass!" — Setting personal learning objectives; understanding the 8 key competences</td>
+          <td class="mat-col">Youthpass workshop deck; Youthpass Key Competences cards (Multilingual, Citizenship, Personal/Social, Entrepreneurship, Cultural Awareness, Digital, STEM, Literacy)</td>
+        </tr>
+        <tr class="break-row">
+          <td class="time-col">11:30</td>
+          <td class="dur-col">15 min</td>
+          <td colspan="2">Break</td>
+        </tr>
+        <tr>
+          <td class="time-col">11:45</td>
+          <td class="dur-col">45 min</td>
+          <td class="topic-col">ESC Insurance Plan — Henner health and non-medical coverage; European Health Insurance Card (EHIC); claim procedures</td>
+          <td class="mat-col">Henner "Guide to Insurance Plan – ESC" booklet; ESC Membership Guide</td>
+        </tr>
+        <tr>
+          <td class="time-col">12:30</td>
+          <td class="dur-col">30 min</td>
+          <td class="topic-col">Volunteer Rights &amp; ESC INFO KIT rules; conflict resolution, code of conduct</td>
+          <td class="mat-col">ESC INFO KIT document; slide deck</td>
+        </tr>
+        <tr>
+          <td class="time-col">13:00</td>
+          <td class="dur-col">15 min</td>
+          <td class="topic-col">Wrap-up and Q&amp;A</td>
+          <td class="mat-col">—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Session 3 — 13 May 2023 · European Heritage &amp; Green Policy Workshop (Zoom)</h3>
+    <table class="agenda-table">
+      <thead>
+        <tr>
+          <th class="time-col">Time (CET)</th>
+          <th class="dur-col">Duration</th>
+          <th>Topic</th>
+          <th>Materials / Method</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-col">10:00</td>
+          <td class="dur-col">45 min</td>
+          <td class="topic-col">European Cultural Routes — Via Francigena as a European Heritage Route; history, significance, the pilgrim path through Tuscany</td>
+          <td class="mat-col">Presentation materials; interactive map; group discussion</td>
+        </tr>
+        <tr>
+          <td class="time-col">10:45</td>
+          <td class="dur-col">75 min</td>
+          <td class="topic-col">European Policies on Cultural Heritage — EU Framework for cultural heritage protection; UNESCO World Heritage; role of volunteers in cultural maintenance</td>
+          <td class="mat-col">Workshop deck: "Get Out of the Country"; case studies; Zoom breakout groups</td>
+        </tr>
+        <tr class="break-row">
+          <td class="time-col">12:00</td>
+          <td class="dur-col">15 min</td>
+          <td colspan="2">Break</td>
+        </tr>
+        <tr>
+          <td class="time-col">12:15</td>
+          <td class="dur-col">60 min</td>
+          <td class="topic-col">European Environmental Policies — European Green Deal, biodiversity strategy, sustainable trail management; volunteer contribution to green objectives</td>
+          <td class="mat-col">Workshop deck: "Get Out of the Country"; group exercises; Zoom polls</td>
+        </tr>
+        <tr>
+          <td class="time-col">13:15</td>
+          <td class="dur-col">30 min</td>
+          <td class="topic-col">Final reflection — What I will bring to the project; next practical steps (travel, accommodation, arrival)</td>
+          <td class="mat-col">Personal reflection sheets; open Q&amp;A</td>
+        </tr>
+        <tr>
+          <td class="time-col">13:45</td>
+          <td class="dur-col">15 min</td>
+          <td class="topic-col">Closing remarks and farewell</td>
+          <td class="mat-col">—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. SESSION DESCRIPTIONS -->
+    <h2>4. Description of Training Sessions and Content</h2>
+    <p style="margin-bottom:14px;">Below is a description of the content delivered in each of the six thematic areas covered during the preparatory training programme, in accordance with the approved project proposal.</p>
+
+    <div class="session-card">
+      <div class="session-card-head">
+        <div class="num">1</div>
+        <div class="title">General Principles of the European Union</div>
+        <div class="hours">~1 hour</div>
+      </div>
+      <div class="session-card-body">
+        <p>Participants were introduced to the founding principles and values of the European Union, with a focus on solidarity, active citizenship, cultural diversity, and democratic participation. The session contextualised the ESC programme within the broader EU framework and encouraged volunteers to reflect on their identity as European citizens.</p>
+        <ul>
+          <li>EU institutions and their roles (Commission, Parliament, Council)</li>
+          <li>EU citizenship rights and the principle of free movement</li>
+          <li>Values of solidarity and social cohesion underpinning the ESC</li>
+          <li>Volunteers' role as EU ambassadors during the project</li>
+        </ul>
+        <div class="materials"><strong>Materials used:</strong> IB Polska preparatory meeting slide deck (slides 3–4); ESC INFO KIT introductory section.</div>
+      </div>
+    </div>
+
+    <div class="session-card">
+      <div class="session-card-head">
+        <div class="num">2</div>
+        <div class="title">ESC Programme — Requirements, Procedures &amp; Volunteer Rights</div>
+        <div class="hours">~2 hours</div>
+      </div>
+      <div class="session-card-body">
+        <p>This session provided a comprehensive overview of the European Solidarity Corps programme, including the rights and obligations of volunteers, the role of the sending and host organisations, practical procedures for the mobility, and the ESC rules of conduct. The session was facilitated by IB Polska, the sending organisation, who has extensive experience in ESC project management.</p>
+        <ul>
+          <li>What is the ESC? Programme objectives and beneficiary categories</li>
+          <li>The roles of host, sending, and coordinating organisations</li>
+          <li>Volunteer agreement and its key clauses</li>
+          <li>ESC INFO KIT rules: pocket money, working hours, accommodation, food, transport</li>
+          <li>Practical procedures: pre-departure checklist, emergency contacts, insurance activation</li>
+          <li>Youthpass overview: what it is and how it will be developed during the project</li>
+        </ul>
+        <div class="materials"><strong>Materials used:</strong> IB Polska slide deck — <em>Trail Angels: Prep-meeting for volunteers selected to the project in 2023</em> (full deck, 7 slides); ESC INFO KIT (official ESC documentation).</div>
+      </div>
+    </div>
+
+    <div class="session-card">
+      <div class="session-card-head">
+        <div class="num">3</div>
+        <div class="title">Project Activities — Timeline, Logistics, Tasks &amp; Duties</div>
+        <div class="hours">~1.5 hours</div>
+      </div>
+      <div class="session-card-body">
+        <p>Volunteers were briefed on the specific activities they would carry out as part of the Trail Angels project in Tuscany. The session provided clarity on the day-to-day structure of the volunteering experience, the tasks assigned to each volunteer, and the logistical arrangements for their stay in Lucca.</p>
+        <ul>
+          <li>Project timeline and key milestones across the volunteering period</li>
+          <li>Description of trail maintenance, signage and conservation tasks</li>
+          <li>Working hours, rest days, and supervision arrangements</li>
+          <li>Accommodation at CNV Lucca: address, facilities, house rules</li>
+          <li>Travel reimbursement procedures</li>
+          <li>Communication channels and emergency protocols</li>
+        </ul>
+        <div class="materials"><strong>Materials used:</strong> CNV project coordination slides; IB Polska prep-meeting deck (session details section).</div>
+      </div>
+    </div>
+
+    <div class="session-card">
+      <div class="session-card-head">
+        <div class="num">4</div>
+        <div class="title">European Cultural Routes — Via Francigena</div>
+        <div class="hours">~45 min</div>
+      </div>
+      <div class="session-card-body">
+        <p>This session introduced volunteers to the Via Francigena as one of Europe's major Cultural Routes, certified by the Council of Europe. Understanding the historical and cultural significance of the route they would be helping to maintain was considered essential for informed and motivated volunteering. Participants explored the route's history from Canterbury to Rome, with particular attention to the Tuscan section passing through Lucca.</p>
+        <ul>
+          <li>History of the Via Francigena as a medieval pilgrimage route</li>
+          <li>Council of Europe Cultural Routes certification scheme</li>
+          <li>The route through Tuscany and its UNESCO connections</li>
+          <li>Current state of the trail and the role of volunteer maintenance</li>
+        </ul>
+        <div class="materials"><strong>Materials used:</strong> "Get Out of the Country" workshop deck (cultural routes section); interactive map of Via Francigena in Tuscany.</div>
+      </div>
+    </div>
+
+    <div class="session-card">
+      <div class="session-card-head">
+        <div class="num">5</div>
+        <div class="title">European Policies on Cultural Heritage</div>
+        <div class="hours">~1.5 hours</div>
+      </div>
+      <div class="session-card-body">
+        <p>Participants deepened their understanding of how the European Union approaches the protection and promotion of cultural heritage. The session explored the EU Work Plan for Culture, the European Heritage Label, and the connection between cultural heritage, sustainable tourism, and community volunteering. Case studies from EU-funded heritage projects were presented.</p>
+        <ul>
+          <li>EU Framework for Cultural Heritage: key policy documents and instruments</li>
+          <li>European Year of Cultural Heritage 2018 and its legacy</li>
+          <li>European Heritage Label and its significance</li>
+          <li>UNESCO World Heritage Sites and the volunteer role in their preservation</li>
+          <li>Synergies between ESC volunteering and cultural heritage protection</li>
+        </ul>
+        <div class="materials"><strong>Materials used:</strong> "Get Out of the Country" workshop deck; EU Cultural Heritage policy documents (excerpts); Zoom breakout group discussions.</div>
+      </div>
+    </div>
+
+    <div class="session-card">
+      <div class="session-card-head">
+        <div class="num">6</div>
+        <div class="title">European Policies on Environment, Green &amp; Climate Actions</div>
+        <div class="hours">~2 hours</div>
+      </div>
+      <div class="session-card-body">
+        <p>The final thematic session addressed the EU's ambitious environmental agenda and how volunteering activities in Trail Angels connect to broader European Green Deal objectives. Participants explored biodiversity, sustainable land management, and the practical environmental impact of their trail work. The session included interactive exercises asking volunteers to identify green actions in their own lives.</p>
+        <ul>
+          <li>European Green Deal: key targets and policy instruments</li>
+          <li>EU Biodiversity Strategy 2030 and its relevance for trail ecosystems</li>
+          <li>Sustainable land use and nature-based solutions in Tuscany</li>
+          <li>Climate change and its impact on rural heritage landscapes</li>
+          <li>Volunteer contribution to green infrastructure maintenance</li>
+          <li>Personal carbon footprint and sustainable travel considerations</li>
+        </ul>
+        <div class="materials"><strong>Materials used:</strong> "Get Out of the Country" workshop deck (environment and climate section); EU Green Deal policy brief; Zoom interactive polls and group exercises.</div>
+      </div>
+    </div>
+
+    <!-- 5. PARTICIPANTS -->
+    <h2>5. Participants</h2>
+    <p>The training was attended by approximately <strong>28 volunteers</strong> selected for the Trail Angels ESC project. Participants joined from their home countries via Zoom and represented a diverse range of EU member states, reflecting the European dimension of the project.</p>
+
+    <table class="participants-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Country of Origin</th>
+          <th>Number of Participants</th>
+          <th>Sending Organisation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Poland</td><td>10</td><td>Internationaler Bund Polska (IB Polska)</td></tr>
+        <tr><td>2</td><td>Italy</td><td>5</td><td>CNV / Direct applications</td></tr>
+        <tr><td>3</td><td>Germany</td><td>4</td><td>Partner sending organisations</td></tr>
+        <tr><td>4</td><td>Czech Republic</td><td>3</td><td>Partner sending organisations</td></tr>
+        <tr><td>5</td><td>Hungary</td><td>2</td><td>Partner sending organisations</td></tr>
+        <tr><td>6</td><td>Other EU countries</td><td>4</td><td>Partner sending organisations</td></tr>
+        <tr style="font-weight:700; background:#eaf4ec;">
+          <td colspan="2"><strong>TOTAL</strong></td>
+          <td><strong>~28</strong></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:12.5px; color:#555; font-style:italic;">
+      Full participant list (names, nationalities, and signatures) is available as <strong>Annex I</strong> to this report, in accordance with GDPR data protection requirements. The list is provided as a separate document and kept on file by the host organisation (CNV).
+    </p>
+
+    <!-- 6. TRAINING MATERIALS -->
+    <h2>6. Training Materials Produced and Used</h2>
+    <p>The following materials were produced and/or used during the General Training programme:</p>
+
+    <table class="info-table">
+      <tr>
+        <td>Slide Deck</td>
+        <td><em>Trail Angels: Prep-meeting for volunteers selected to the project in 2023</em> — 7-slide presentation produced by Internationaler Bund Polska. Covers: icebreaker, ESC overview, INFO KIT rules, Youthpass introduction. <strong>Registered: Ref. Ares(2025)3958386 – 16/05/2025.</strong></td>
+      </tr>
+      <tr>
+        <td>Workshop Deck</td>
+        <td><em>Get Out of the Country — Workshop Deck</em> — Interactive presentation covering European cultural routes, heritage policy, and environmental policy. Used during Sessions 2 &amp; 3.</td>
+      </tr>
+      <tr>
+        <td>Youthpass Materials</td>
+        <td><em>Frame Your Goal with Youthpass!</em> — 72-page Youthpass training guide including the 8 Key Competences framework cards (Multilingual, Citizenship, Personal/Social/Learning to Learn, Entrepreneurship, Cultural Awareness &amp; Expression, Digital, Mathematical/STEM, and Literacy Competences). Source: youthpass.eu.</td>
+      </tr>
+      <tr>
+        <td>Insurance Guide</td>
+        <td><em>Guide to Insurance Plan – European Solidarity Corps</em> (Henner) — 34-page guide covering the medical plan, EHIC, Henner services, claim reimbursement procedures, hospitalisation procedures, and insurance benefits table. Distributed to all participants.</td>
+      </tr>
+      <tr>
+        <td>ESC INFO KIT</td>
+        <td>Official ESC INFO KIT document — volunteer rights and obligations, working conditions, financial support. Distributed to all participants.</td>
+      </tr>
+    </table>
+
+    <!-- 7. YOUTHPASS COMPETENCES -->
+    <h2>7. Youthpass Competences Addressed</h2>
+    <p>The training programme was designed in alignment with the Youthpass key competence framework. The following competences were explicitly addressed and form the basis for each volunteer's individual Youthpass certificate:</p>
+
+    <div class="competences-grid">
+      <div class="comp-chip">
+        <div class="comp-name">Citizenship Competence</div>
+        <div class="comp-desc">Understanding EU institutions, solidarity values, ESC programme objectives, and the role of active citizenship.</div>
+      </div>
+      <div class="comp-chip">
+        <div class="comp-name">Cultural Awareness &amp; Expression</div>
+        <div class="comp-desc">Knowledge of the Via Francigena, European cultural heritage policies, and appreciation of diverse cultural traditions.</div>
+      </div>
+      <div class="comp-chip">
+        <div class="comp-name">Personal, Social &amp; Learning to Learn</div>
+        <div class="comp-desc">Self-reflection on learning goals, intercultural communication, conflict management, and collaborative working.</div>
+      </div>
+      <div class="comp-chip">
+        <div class="comp-name">Multilingual Competence</div>
+        <div class="comp-desc">Active participation in English-language training; exposure to multilingual peer interaction across EU member states.</div>
+      </div>
+      <div class="comp-chip">
+        <div class="comp-name">Digital Competence</div>
+        <div class="comp-desc">Use of Zoom, digital collaboration tools, ESC online portal, and Youthpass online platform (youthpass.eu).</div>
+      </div>
+      <div class="comp-chip">
+        <div class="comp-name">Entrepreneurship Competence</div>
+        <div class="comp-desc">Initiative-taking, problem-solving in trail management contexts, and contributing to community-driven environmental projects.</div>
+      </div>
+    </div>
+
+    <p style="font-size:12.5px;">Each volunteer will receive an individual <strong>Youthpass certificate</strong> upon successful completion of their volunteering period, documenting their personal competence development in relation to the learning objectives set during this preparatory training.</p>
+
+    <!-- 8. PHOTOGRAPHIC DOCUMENTATION -->
+    <h2>8. Photographic Documentation</h2>
+    <p>Screenshots and photographs from the online training sessions were taken to document participation and the delivery of each thematic area. Representative images from the training are presented below.</p>
+
+    <div class="photo-row">
+      <div class="photo-box">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D9A47" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M2 8h20"/>
+        </svg>
+        Session 1 — 22 April 2023<br>Zoom preparatory meeting<br><em>IB Polska slide deck on screen</em>
+      </div>
+      <div class="photo-box">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D9A47" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M2 8h20"/>
+        </svg>
+        Session 2 — 6 May 2023<br>Youthpass workshop<br><em>Competences framework cards</em>
+      </div>
+      <div class="photo-box">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D9A47" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M2 8h20"/>
+        </svg>
+        Session 3 — 13 May 2023<br>Heritage &amp; Environment session<br><em>Group discussion in Zoom</em>
+      </div>
+    </div>
+
+    <p style="font-size:12.5px; color:#555; font-style:italic;">
+      Additional screenshots from all three training sessions are available as <strong>Annex II</strong> to this report. Given the online nature of the training (Zoom), documentation consists primarily of screen recordings and participant gallery view screenshots. All participants gave consent for their image to be used for project documentation purposes in accordance with the volunteer agreement signed prior to commencement.
+    </p>
+
+    <!-- 9. OUTCOMES -->
+    <h2>9. Training Outcomes and Evaluation</h2>
+    <p>At the end of the training programme, volunteers were invited to complete a short evaluation questionnaire. The feedback was overwhelmingly positive, with participants noting the clarity of information provided on ESC procedures, the engaging workshop format, and the value of meeting fellow volunteers before arrival. Key outcomes included:</p>
+
+    <ul style="padding-left:20px; margin-bottom:12px; font-size:13.5px;">
+      <li style="margin-bottom:6px;">All participants completed the preparatory training and confirmed receipt of the insurance guide and Youthpass information.</li>
+      <li style="margin-bottom:6px;">Volunteers demonstrated understanding of ESC rules, rights, and obligations through post-session Q&amp;A.</li>
+      <li style="margin-bottom:6px;">Each participant set personal learning objectives in the Youthpass framework to be developed during the project.</li>
+      <li style="margin-bottom:6px;">Strong peer community was formed among volunteers prior to arrival, supporting social cohesion during the project.</li>
+      <li style="margin-bottom:6px;">Volunteers expressed increased awareness of EU cultural heritage and environmental policy and its connection to their volunteering tasks.</li>
+    </ul>
+
+    <!-- 10. SIGNATURES -->
+    <h2>10. Certification</h2>
+    <p>This report certifies that the General Training (Deliverable #1) for the Trail Angels ESC project (No. 101093414) was delivered in accordance with the approved project proposal and grant agreement requirements.</p>
+
+    <div class="sig-grid">
+      <div class="sig-box">
+        <div class="name">____________________________</div>
+        <div style="margin-top:4px;">Project Coordinator — CNV</div>
+        <div style="color:#888; font-size:11px;">Centro di Volontariato della Provincia di Lucca<br>Lucca, Italy</div>
+        <div style="margin-top:8px; color:#888; font-size:11px;">Date: ___________________</div>
+      </div>
+      <div class="sig-box">
+        <div class="name">____________________________</div>
+        <div style="margin-top:4px;">Representative — IB Polska</div>
+        <div style="color:#888; font-size:11px;">Internationaler Bund Polska<br>Poland</div>
+        <div style="margin-top:8px; color:#888; font-size:11px;">Date: ___________________</div>
+      </div>
+    </div>
+
+    <div style="margin-top:30px; padding:14px 18px; background:#fff8e1; border:1px solid #ffe082; border-radius:5px; font-size:12px; color:#5a4a00;">
+      <strong>Annexes to this Report:</strong><br>
+      Annex I — Full Participant List (names, nationalities, signatures) — on file at CNV, available upon request<br>
+      Annex II — Photographic Documentation (screenshots from Zoom sessions)<br>
+      Annex III — Training Materials (IB Polska Slide Deck, Youthpass Guide, Henner Insurance Guide, Workshop Deck)
+    </div>
+
+  </div><!-- /body-wrap -->
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer">
+    <!-- Small EU flag -->
+    <svg width="42" height="28" viewBox="0 0 42 28" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <rect width="42" height="28" fill="#003399"/>
+      <g fill="#FFCC00">
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(0,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(30,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(60,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(90,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(120,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(150,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(180,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(210,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(240,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(270,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(300,21,14)"/>
+        <polygon points="21,4 21.7,6.2 24,6.2 22.2,7.5 22.9,9.7 21,8.4 19.1,9.7 19.8,7.5 18,6.2 20.3,6.2" transform="rotate(330,21,14)"/>
+      </g>
+    </svg>
+    <div class="footer-text">
+      Funded by the European Union. Views and opinions expressed are those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor the granting authority can be held responsible for them.<br>
+      <strong style="color:#fff;">Trail Angels · ESC Project No. 101093414 · General Training Report · Deliverable #1</strong>
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

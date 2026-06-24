@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trail Angels – ESC Volunteering Project | CNV Lucca</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #f5f5f5; font-size: 16px; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ════════════════════════════
+       CNV TOP BAR
+    ════════════════════════════ */
+    .cnv-topbar {
+      background: #2D9A47;
+      color: rgba(255,255,255,0.85);
+      font-size: 12.5px;
+      padding: 6px 0;
+    }
+    .cnv-topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .cnv-topbar a { color: rgba(255,255,255,0.75); }
+    .cnv-topbar a:hover { color: #fff; }
+    .topbar-links { display: flex; gap: 20px; }
+    .topbar-lang { display: flex; gap: 10px; }
+    .topbar-lang span { cursor: pointer; }
+    .topbar-lang span.active { color: #fff; font-weight: 600; }
+
+    /* ════════════════════════════
+       CNV HEADER / NAV
+    ════════════════════════════ */
+    .cnv-header {
+      background: #fff;
+      border-bottom: 3px solid #e8e8e8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .cnv-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+      gap: 24px;
+    }
+    .cnv-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .cnv-logo-icon {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cnv-logo-text { line-height: 1.25; }
+    .cnv-logo-text .org { font-size: 17px; font-weight: 800; color: #1a1a1a; }
+    .cnv-logo-text .city { font-size: 11.5px; color: #2D9A47; letter-spacing: 0.5px; font-weight: 600; }
+
+    .cnv-nav { display: flex; align-items: center; gap: 4px; }
+    .cnv-nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cnv-nav a:hover { background: #f0faf3; color: #2D9A47; }
+    .cnv-nav a.active { color: #2D9A47; background: #e6f5eb; }
+    .cnv-nav-cta {
+      background: #2D9A47 !important;
+      color: #fff !important;
+      border-radius: 8px !important;
+      padding: 8px 18px !important;
+      margin-left: 8px;
+    }
+    .cnv-nav-cta:hover { background: #238038 !important; opacity: 1; }
+
+    /* ════════════════════════════
+       EU FUNDED BADGE — OFFICIAL
+    ════════════════════════════ */
+    .eu-funded-bar {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 0;
+    }
+    .eu-funded-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .eu-funded-bar-inner .left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    /* The official EU "Funded by the European Union" logo */
+    .eu-official-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      padding: 4px;
+    }
+    .eu-official-logo .flag-wrap {
+      flex-shrink: 0;
+    }
+    .eu-official-logo .funded-text {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #003399;
+      line-height: 1.3;
+      font-family: Arial, sans-serif;
+    }
+    .eu-official-logo .funded-text span {
+      display: block;
+    }
+    .eu-bar-info {
+      font-size: 12.5px;
+      color: #666;
+      max-width: 600px;
+      line-height: 1.4;
+    }
+    .eu-bar-info strong { color: #333; }
+    .esc-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #003399;
+      color: #fff;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .esc-pill .stars { font-size: 15px; letter-spacing: 1px; color: #FFD700; }
+
+    /* ════════════════════════════
+       BREADCRUMB
+    ════════════════════════════ */
+    .breadcrumb {
+      background: #f8f8f8;
+      border-bottom: 1px solid #eaeaea;
+      padding: 10px 0;
+      font-size: 13px;
+      color: #888;
+    }
+    .breadcrumb-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumb a { color: #2D9A47; }
+    .breadcrumb .sep { color: #ccc; }
+    .breadcrumb .current { color: #333; font-weight: 600; }
+
+    /* ════════════════════════════
+       HERO
+    ════════════════════════════ */
+    .hero {
+      background: linear-gradient(135deg, #1b4f2a 0%, #2d7a3e 55%, #3a9e52 100%);
+      color: #fff;
+      padding: 72px 32px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.02) 35px, rgba(255,255,255,0.02) 70px);
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 50px; align-items: center; }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 12.5px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero h1 { font-size: 56px; font-weight: 900; line-height: 1.0; margin-bottom: 16px; }
+    .hero h2 { font-size: 20px; font-weight: 400; opacity: 0.88; margin-bottom: 28px; }
+    .hero p { font-size: 16px; opacity: 0.82; max-width: 600px; margin-bottom: 32px; }
+    .hero-meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .hero-meta-item {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+    .hero-meta-item .lbl { font-size: 11px; opacity: 0.72; text-transform: uppercase; letter-spacing: 0.8px; }
+    .hero-meta-item .val { font-size: 17px; font-weight: 800; margin-top: 3px; }
+
+    .hero-side {
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      min-width: 200px;
+    }
+    .hero-side .big-id { font-size: 13px; opacity: 0.7; margin-bottom: 6px; }
+    .hero-side .id-num { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; }
+    .hero-side hr { border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 16px 0; }
+    .hero-side .org { font-size: 14px; font-weight: 600; line-height: 1.4; }
+
+    /* ════════════════════════════
+       CONTENT SECTIONS
+    ════════════════════════════ */
+    .page-body { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+    .section { padding: 60px 0; }
+    .section + .section { border-top: 1px solid #e8e8e8; }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #2D9A47;
+      margin-bottom: 8px;
+      padding-bottom: 14px;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 44px; height: 4px;
+      background: #2d7a3e;
+      border-radius: 2px;
+    }
+    .section-sub { color: #666; font-size: 16px; margin-bottom: 36px; max-width: 700px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: start; }
+    .about-text p { margin-bottom: 16px; color: #333; font-size: 16px; }
+    .info-card {
+      background: #fff;
+      border: 1px solid #e0e8f0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    .info-card-header {
+      background: #2D9A47;
+      color: #fff;
+      padding: 16px 22px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 22px;
+      border-bottom: 1px solid #f2f2f2;
+      font-size: 14px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .k { color: #888; flex-shrink: 0; }
+    .info-row .v { font-weight: 600; color: #2D9A47; text-align: right; }
+
+    /* ACTIVITIES */
+    .full-bleed-section { background: #fff; margin: 0 -32px; padding: 60px 32px; }
+    .activities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .act-card {
+      background: #f7f9fc;
+      border-radius: 14px;
+      padding: 26px;
+      border-left: 4px solid #2d7a3e;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .act-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.09); }
+    .act-card .icon { font-size: 30px; margin-bottom: 12px; }
+    .act-card h3 { font-size: 16px; font-weight: 700; color: #2D9A47; margin-bottom: 9px; }
+    .act-card p { font-size: 14.5px; color: #555; }
+
+    /* LOCATIONS */
+    .loc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .loc-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 18px rgba(0,0,0,0.08); }
+    .loc-head { background: linear-gradient(135deg, #1b4f2a, #3a9e52); color: #fff; padding: 24px; }
+    .loc-period { font-size: 11px; opacity: 0.75; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .loc-dates { font-size: 19px; font-weight: 800; margin-bottom: 4px; }
+    .loc-place { font-size: 14px; opacity: 0.85; }
+    .loc-body { padding: 22px; }
+    .loc-body p { font-size: 14.5px; color: #555; }
+
+    /* INCLUDED */
+    .inc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .inc-item { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; background: #fff; border-radius: 12px; padding: 22px 18px; border: 1px solid #ebebeb; }
+    .inc-icon { font-size: 26px; }
+    .inc-item h4 { font-size: 14.5px; font-weight: 700; color: #2D9A47; }
+    .inc-item p { font-size: 13.5px; color: #666; }
+
+    /* STATS */
+    .stats-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-bottom: 36px; }
+    .stat { background: #fff; border-radius: 12px; padding: 28px 16px; text-align: center; border: 1px solid #e8e8e8; }
+    .stat .num { font-size: 40px; font-weight: 900; color: #1b4f2a; line-height: 1; }
+    .stat .lbl { font-size: 13px; color: #777; margin-top: 8px; }
+
+    /* ROUTES */
+    .routes-box { background: #fff; border-radius: 14px; padding: 28px; border: 1px solid #e0e8e0; }
+    .routes-box h3 { font-size: 17px; font-weight: 700; color: #2D9A47; margin-bottom: 18px; }
+    .route { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+    .route:last-child { border-bottom: none; }
+    .route-dot { width: 10px; height: 10px; background: #2d7a3e; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .route p { font-size: 15px; color: #333; }
+    .route p strong { color: #2D9A47; }
+
+    /* WHO CAN APPLY */
+    .apply-bg { background: linear-gradient(135deg, #1a6b30 0%, #2D9A47 60%, #3ab85a 100%); margin: 0 -32px; padding: 60px 32px; }
+    .apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto; }
+    .apply-bg .section-title { color: #fff; }
+    .apply-bg .section-sub { color: rgba(255,255,255,0.75); }
+    .criteria { list-style: none; }
+    .criteria li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.12); color: #fff; font-size: 15.5px; }
+    .criteria li:last-child { border-bottom: none; }
+    .criteria .chk { color: #6fe87a; font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+    .apply-box { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 14px; padding: 28px; }
+    .apply-box h3 { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 16px; }
+    .steps { counter-reset: s; list-style: none; }
+    .steps li { counter-increment: s; display: flex; gap: 12px; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.88); font-size: 15px; }
+    .steps li:last-child { border-bottom: none; }
+    .steps li::before { content: counter(s); background: rgba(255,255,255,0.18); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; color: #fff; }
+
+    /* TEAM */
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag { background: #eef4fb; border: 1px solid #c8d8ee; color: #2D9A47; border-radius: 20px; padding: 6px 18px; font-size: 14px; font-weight: 600; }
+
+    /* ════════════════════════════
+       EU DISCLAIMER SECTION
+    ════════════════════════════ */
+    .eu-section {
+      background: #003399;
+      color: #fff;
+      padding: 56px 32px;
+    }
+    .eu-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+    .eu-logo-col { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+    .eu-big-funded {
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .eu-funded-words { font-size: 16px; font-weight: 800; color: #003399; line-height: 1.3; font-family: Arial, sans-serif; }
+    .eu-funded-words span { display: block; }
+    .eu-section-note { font-size: 12px; opacity: 0.65; line-height: 1.5; }
+
+    .eu-text-col h3 { font-size: 21px; font-weight: 700; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .eu-text-col p { font-size: 14.5px; opacity: 0.88; margin-bottom: 13px; line-height: 1.65; }
+    .eu-text-col p:last-child { margin-bottom: 0; opacity: 0.65; font-size: 13px; }
+
+    /* ════════════════════════════
+       CNV FOOTER
+    ════════════════════════════ */
+    .cnv-footer { background: #111827; color: rgba(255,255,255,0.75); padding: 56px 32px 0; }
+    .cnv-footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer-brand {}
+    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .footer-logo-icon { width: 44px; height: 48px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .footer-logo-text .org { font-size: 16px; font-weight: 800; color: #fff; }
+    .footer-logo-text .city { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+    .footer-desc { font-size: 14px; line-height: 1.65; margin-bottom: 20px; }
+    .footer-contact { font-size: 13.5px; line-height: 1.8; }
+    .footer-contact strong { color: #fff; }
+    .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; letter-spacing: 0.3px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { font-size: 13.5px; padding: 5px 0; }
+    .footer-col ul li a { color: rgba(255,255,255,0.65); transition: color 0.15s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-programs { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+    .prog-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.8);
+    }
+    .prog-badge .dot { width: 8px; height: 8px; background: #6fe87a; border-radius: 50%; flex-shrink: 0; }
+    .cnv-footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.45);
+    }
+    .footer-bottom-eu {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 6px;
+      padding: 7px 14px;
+    }
+    .footer-bottom-eu .funded-sm { font-size: 11.5px; font-weight: 700; color: rgba(255,255,255,0.7); line-height: 1.3; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .about-grid, .apply-grid { grid-template-columns: 1fr; }
+      .activities-grid, .loc-grid { grid-template-columns: 1fr 1fr; }
+      .inc-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: repeat(3, 1fr); }
+      .eu-section-inner { grid-template-columns: 1fr; }
+      .cnv-footer-inner { grid-template-columns: 1fr 1fr; }
+      .cnv-nav { display: none; }
+      .hero h1 { font-size: 38px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     CNV TOP BAR
+════════════════════════════════ -->
+<div class="cnv-topbar">
+  <div class="cnv-topbar-inner">
+    <div class="topbar-links">
+      <a href="#">Intranet</a>
+      <a href="#">Volunteer Portal</a>
+      <a href="#">Press</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="topbar-lang">
+      <span>IT</span>
+      <span>|</span>
+      <span class="active">EN</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════
+     CNV HEADER / NAVIGATION
+════════════════════════════════ -->
+<header class="cnv-header">
+  <div class="cnv-header-inner">
+    <div class="cnv-logo">
+      <div class="cnv-logo-icon">
+        <!-- CNV Logo SVG — green V with grey circle head -->
+        <svg width="54" height="58" viewBox="0 0 200 215" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left arm of V -->
+          <polygon points="12,12 100,200 68,12" fill="#2D9A47"/>
+          <!-- Right arm of V -->
+          <polygon points="132,12 100,200 188,12" fill="#2D9A47"/>
+          <!-- Grey head circle -->
+          <circle cx="100" cy="12" r="30" fill="#9B9B9B"/>
+        </svg>
+      </div>
+      <div class="cnv-logo-text">
+        <div class="org">Centro Nazionale per il Volontariato</div>
+        <div class="city">Lucca · Tuscany · Italy</div>
+      </div>
+    </div>
+    <nav class="cnv-nav">
+      <a href="#">About CNV</a>
+      <a href="#">Volunteering</a>
+      <a href="#" class="active">International Projects</a>
+      <a href="#">ESC & Erasmus+</a>
+      <a href="#">News</a>
+      <a href="#" class="cnv-nav-cta">Apply Now</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ════════════════════════════════
+     EU FUNDED BAR (official logo)
+════════════════════════════════ -->
+<div class="eu-funded-bar">
+  <div class="eu-funded-bar-inner">
+    <div class="left">
+      <!-- OFFICIAL "Funded by the European Union" logo, recreated inline -->
+      <div class="eu-official-logo">
+        <div class="flag-wrap">
+          <!-- EU Flag SVG - official proportions -->
+          <svg width="70" height="47" viewBox="0 0 70 47" xmlns="http://www.w3.org/2000/svg">
+            <rect width="70" height="47" fill="#003399"/>
+            <!-- 12 upright gold stars on circle r=15.67, all pointing up -->
+            <g fill="#FFCC00" transform="translate(35,23.5)">
+              <g transform="rotate(0)   translate(0,-15.67) rotate(0)  "><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(30)  translate(0,-15.67) rotate(-30) "><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(60)  translate(0,-15.67) rotate(-60) "><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(90)  translate(0,-15.67) rotate(-90) "><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(120) translate(0,-15.67) rotate(-120)"><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(150) translate(0,-15.67) rotate(-150)"><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(180) translate(0,-15.67) rotate(-180)"><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(210) translate(0,-15.67) rotate(-210)"><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(240) translate(0,-15.67) rotate(-240)"><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(270) translate(0,-15.67) rotate(-270)"><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(300) translate(0,-15.67) rotate(-300)"><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+              <g transform="rotate(330) translate(0,-15.67) rotate(-330)"><polygon points="0,-2.61 0.59,-0.81 2.48,-0.81 0.95,0.31 1.53,2.11 0,1.00 -1.53,2.11 -0.95,0.31 -2.48,-0.81 -0.59,-0.81"/></g>
+            </g>
+          </svg>
+        </div>
+        <div class="funded-text">
+          <span>Funded by</span>
+          <span>the European Union</span>
+        </div>
+      </div>
+
+      <div class="eu-bar-info">
+        <strong>Trail Angels · Project No. 101093414</strong><br>
+        European Solidarity Corps (ESC) Programme · Managed by EACEA
+      </div>
+    </div>
+
+    <div class="esc-pill">
+      <span class="stars">★★★</span>
+      EUROPEAN SOLIDARITY CORPS
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════
+     BREADCRUMB
+════════════════════════════════ -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="#">Home</a>
+    <span class="sep">›</span>
+    <a href="#">International Projects</a>
+    <span class="sep">›</span>
+    <a href="#">ESC Volunteering</a>
+    <span class="sep">›</span>
+    <span class="current">Trail Angels</span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════
+     HERO
+════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">🌿 ESC Volunteering · Tuscany, Italy · 2025–2026</div>
+      <h1>Trail Angels</h1>
+      <h2>Caring for nature. Building community. Crossing borders.</h2>
+      <p>
+        An international volunteering project where young Europeans work together to protect and maintain the hiking trails of Tuscany — organised by <strong>CNV Lucca</strong> under the European Solidarity Corps programme.
+      </p>
+      <div class="hero-meta-grid">
+        <div class="hero-meta-item"><div class="lbl">Project ID</div><div class="val">101093414</div></div>
+        <div class="hero-meta-item"><div class="lbl">Duration</div><div class="val">1 Month / Period</div></div>
+        <div class="hero-meta-item"><div class="lbl">Programme</div><div class="val">ESC · EU</div></div>
+        <div class="hero-meta-item"><div class="lbl">Location</div><div class="val">Tuscany, Italy</div></div>
+        <div class="hero-meta-item"><div class="lbl">Age Range</div><div class="val">18 – 30 Years</div></div>
+        <div class="hero-meta-item"><div class="lbl">Periods</div><div class="val">3 × 1 Month</div></div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="big-id">Project Reference</div>
+      <div class="id-num">101093414</div>
+      <hr/>
+      <div class="org">Organised by<br><strong>CNV Lucca</strong><br>Centro Nazionale per il Volontariato</div>
+      <hr/>
+      <div style="font-size:13px; opacity:0.75;">Co-funded by the<br>European Union · ESC</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     MAIN BODY
+════════════════════════════════ -->
+<div class="page-body">
+
+  <!-- ABOUT -->
+  <div class="section">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-title">About the Project</div>
+        <div class="section-sub">A month in the heart of Tuscany — for nature, for people, for Europe.</div>
+        <p>
+          <strong>Trail Angels</strong> is a one-month ESC volunteering project taking place in the rural areas of Tuscany, Italy. International teams of young people live and work together to maintain and improve hiking trails used by locals, pilgrims, and tourists every year.
+        </p>
+        <p>
+          The project combines <strong>environmental conservation</strong>, <strong>cultural exchange</strong>, and <strong>community engagement</strong>. Volunteers work side by side to restore paths, support pilgrims on ancient routes, and bring life to local communities — all while developing personal skills and gaining a unique international experience.
+        </p>
+        <p>
+          The work is physical and outdoors, but deeply rewarding. Volunteers literally make nature more accessible for everyone, living surrounded by mountains, forests, and the iconic Tuscan landscape.
+        </p>
+        <p>
+          The project is organised by <strong>CNV Lucca (Centro Nazionale Per Il Volontariato)</strong>, one of Italy's leading volunteering organisations with over 30 years of experience in civic engagement, ESC and Erasmus+ youth mobility programmes.
+        </p>
+      </div>
+      <div>
+        <div class="info-card">
+          <div class="info-card-header">Project Information</div>
+          <div class="info-row"><span class="k">Project Title</span><span class="v">Trail Angels</span></div>
+          <div class="info-row"><span class="k">Project No.</span><span class="v">101093414</span></div>
+          <div class="info-row"><span class="k">Programme</span><span class="v">European Solidarity Corps</span></div>
+          <div class="info-row"><span class="k">Funded by</span><span class="v">European Union</span></div>
+          <div class="info-row"><span class="k">Agency</span><span class="v">EACEA</span></div>
+          <div class="info-row"><span class="k">Organiser</span><span class="v">CNV Lucca</span></div>
+          <div class="info-row"><span class="k">Country</span><span class="v">Italy 🇮🇹</span></div>
+          <div class="info-row"><span class="k">Region</span><span class="v">Tuscany (Toscana)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-body -->
+
+
+<!-- ACTIVITIES — full bleed white -->
+<div class="full-bleed-section">
+  <div style="max-width:1200px; margin:0 auto; padding:0 32px;">
+    <div class="section-title">What Volunteers Do</div>
+    <div class="section-sub">Every day brings a mix of outdoor work, community connection, and personal growth.</div>
+    <div class="activities-grid">
+      <div class="act-card">
+        <div class="icon">🪓</div>
+        <h3>Trail Maintenance & Marking</h3>
+        <p>Clearing vegetation, repairing damaged paths, installing trail markers, building small structures, and cleaning natural areas to keep routes safe and accessible.</p>
+      </div>
+      <div class="act-card">
+        <div class="icon">🧭</div>
+        <h3>Supporting Hikers & Pilgrims</h3>
+        <p>Providing assistance and information to walkers on the <strong>Cammino del Volto Santo</strong> and other historic local pilgrim routes through Tuscany.</p>
+      </div>
+      <div class="act-card">
+        <div class="icon">🌿</div>
+        <h3>Environmental Actions</h3>
+        <p>Participating in biodiversity protection initiatives, sustainable tourism awareness campaigns, and ecological restoration in natural parks across the region.</p>
+      </div>
+      <div class="act-card">
+        <div class="icon">🎨</div>
+        <h3>Community Events & Workshops</h3>
+        <p>Organising cultural exchanges, creative workshops, and small community events that bring locals and volunteers together, celebrating diversity and European solidarity.</p>
+      </div>
+      <div class="act-card">
+        <div class="icon">🍳</div>
+        <h3>Communal Life</h3>
+        <p>Sharing daily responsibilities — cooking meals together, maintaining shared spaces, and building the kind of intercultural friendship that lasts a lifetime.</p>
+      </div>
+      <div class="act-card">
+        <div class="icon">📱</div>
+        <h3>Social Media & Documentation</h3>
+        <p>Capturing and sharing the project story through photos, videos, and social media — giving visibility to the ESC programme and the volunteer team's work.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="page-body">
+
+  <!-- LOCATIONS -->
+  <div class="section">
+    <div class="section-title">Volunteering Periods & Locations</div>
+    <div class="section-sub">Three distinct periods across some of Tuscany's most beautiful territories. <em style="color:#888; font-size:15px;">Exact dates may vary slightly — confirmed upon selection.</em></div>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <div class="loc-head">
+          <div class="loc-period">Period 1</div>
+          <div class="loc-dates">01 May – 30 May 2026</div>
+          <div class="loc-place">📍 Castelnuovo di Garfagnana</div>
+        </div>
+        <div class="loc-body">
+          <p>Nestled in the <strong>Garfagnana mountains</strong> of northern Tuscany, this medieval town sits between the Apuan Alps and the Apennines. Volunteers work on mountain trails surrounded by chestnut forests and crystal-clear rivers in one of Italy's most spectacular yet undiscovered natural areas.</p>
+        </div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-head" style="background: linear-gradient(135deg, #255e38, #3da85a);">
+          <div class="loc-period">Period 2</div>
+          <div class="loc-dates">01 June – 30 June 2026</div>
+          <div class="loc-place">📍 La Brilla – Porta del Parco</div>
+        </div>
+        <div class="loc-body">
+          <p>Located in the <strong>Massarosa area</strong>, La Brilla serves as a gateway to the Migliarino-San Rossore-Massaciuccoli Regional Park. Volunteers work at the interface between nature reserves, lake ecosystems, and Mediterranean coastal forests.</p>
+        </div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-head" style="background: linear-gradient(135deg, #2a6640, #4db868);">
+          <div class="loc-period">Period 3</div>
+          <div class="loc-dates">01 July – 30 July 2026</div>
+          <div class="loc-place">📍 Fucecchio</div>
+        </div>
+        <div class="loc-body">
+          <p><strong>Fucecchio</strong> is home to one of the largest inland wetlands in Italy. Volunteers contribute to trail and nature management in this extraordinary wetland ecosystem, rich in birdlife and biodiversity, close to Florence and Pisa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INCLUDED -->
+  <div class="section">
+    <div class="section-title">What Is Included</div>
+    <div class="section-sub">The ESC programme covers all essential costs so volunteers can focus entirely on the experience.</div>
+    <div class="inc-grid">
+      <div class="inc-item"><div class="inc-icon">🏠</div><h4>Accommodation</h4><p>Shared rooms in comfortable volunteer houses — often historic buildings or rural centres.</p></div>
+      <div class="inc-item"><div class="inc-icon">🍽️</div><h4>Full Board</h4><p>All meals prepared together as a team — a daily opportunity for cultural exchange and connection.</p></div>
+      <div class="inc-item"><div class="inc-icon">💶</div><h4>Pocket Money</h4><p>Standard ESC pocket money rate provided throughout the project period.</p></div>
+      <div class="inc-item"><div class="inc-icon">✈️</div><h4>Travel Reimbursement</h4><p>Travel costs reimbursed up to the ESC distance-based limit.</p></div>
+      <div class="inc-item"><div class="inc-icon">🛡️</div><h4>Insurance</h4><p>Full ESC insurance coverage for health, liability, and accidents throughout the period.</p></div>
+      <div class="inc-item"><div class="inc-icon">📜</div><h4>ESC Certificate</h4><p>Official Youthpass certificate documenting competences gained during the project.</p></div>
+      <div class="inc-item"><div class="inc-icon">🌄</div><h4>Free Time in Tuscany</h4><p>Time to explore cities, countryside, coast, and culture at your own pace.</p></div>
+      <div class="inc-item"><div class="inc-icon">🎓</div><h4>Youthpass for Every Participant</h4><p>Every volunteer receives an official Youthpass certificate recognising their learning outcomes and competences — valid across Europe.</p></div>
+    </div>
+  </div>
+
+  <!-- IMPACT & ROUTES -->
+  <div class="section">
+    <div class="section-title">Project Impact & Key Trails</div>
+    <div class="section-sub">Trail Angels makes a real, tangible difference to the natural and cultural heritage of Tuscany.</div>
+    <div class="stats-row">
+      <div class="stat"><div class="num">3</div><div class="lbl">Volunteering locations in Tuscany</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Months of active volunteering</div></div>
+      <div class="stat"><div class="num">30+</div><div class="lbl">International volunteers hosted</div></div>
+      <div class="stat"><div class="num">14+</div><div class="lbl">Countries represented</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">All costs covered for volunteers</div></div>
+    </div>
+    <div class="routes-box">
+      <h3>Key Trails & Natural Areas Maintained</h3>
+      <div class="route"><div class="route-dot"></div><p><strong>Cammino del Volto Santo</strong> — A historic pilgrim route connecting Lucca to the Garfagnana mountains. Trail Angels volunteers provide active support and maintenance on this ancient path, used by thousands of pilgrims and hikers annually.</p></div>
+      <div class="route"><div class="route-dot"></div><p><strong>Garfagnana Mountain Trails</strong> — Mountain paths through the Apuan Alps and Apennine ridges near Castelnuovo di Garfagnana, maintained and marked by volunteers during the May period.</p></div>
+      <div class="route"><div class="route-dot"></div><p><strong>Migliarino-San Rossore-Massaciuccoli Regional Park</strong> — One of Tuscany's most important protected areas. June volunteers work on ecological trails connecting lake ecosystems and coastal pinewood forests.</p></div>
+      <div class="route"><div class="route-dot"></div><p><strong>Fucecchio Marshes (Padule di Fucecchio)</strong> — The largest inland wetland in Italy. July volunteers maintain access paths and support biodiversity conservation in this internationally recognised nature reserve.</p></div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="section">
+    <div class="section-title">Our International Volunteer Team</div>
+    <div class="section-sub">Trail Angels brings together young people from across Europe and beyond.</div>
+    <p style="font-size:16px; color:#333; margin-bottom:28px; max-width:820px;">
+      Each volunteering group is made up of young people from different countries, backgrounds, and life experiences — united by a shared desire to contribute to something meaningful. The international team structure is a core learning experience in itself, promoting intercultural dialogue, cooperation, and European solidarity in practice.
+    </p>
+    <h4 style="font-size:14px; color:#888; margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Countries represented in Trail Angels 2026</h4>
+    <div class="tags">
+      <div class="tag">🇱🇻 Latvia</div>
+      <div class="tag">🇲🇦 Morocco</div>
+      <div class="tag">🇹🇳 Tunisia</div>
+      <div class="tag">🇩🇿 Algeria</div>
+      <div class="tag">🇷🇸 Serbia</div>
+      <div class="tag">🇪🇬 Egypt</div>
+      <div class="tag">🇺🇦 Ukraine</div>
+      <div class="tag">🇮🇹 Italy</div>
+      <div class="tag">+ More countries</div>
+    </div>
+  </div>
+
+</div><!-- end page-body -->
+
+
+<!-- WHO CAN APPLY — full bleed blue -->
+<div class="apply-bg">
+  <div class="apply-grid">
+    <div>
+      <div class="section-title">Who Can Apply</div>
+      <div class="section-sub">Trail Angels welcomes motivated young Europeans — no prior experience needed.</div>
+      <ul class="criteria">
+        <li><span class="chk">✓</span> Young people aged <strong>18 to 30 years old</strong></li>
+        <li><span class="chk">✓</span> Motivated, open-minded, ready to live and work in an international team</li>
+        <li><span class="chk">✓</span> No previous volunteering experience required</li>
+        <li><span class="chk">✓</span> EU nationalities (or countries with ESC eligibility agreements)</li>
+        <li><span class="chk">✓</span> Comfortable with shared accommodation and communal living</li>
+        <li><span class="chk">✓</span> Ready for physical, outdoor work in all weather conditions</li>
+        <li><span class="chk">✓</span> Basic English communication skills (B1 level recommended)</li>
+      </ul>
+    </div>
+    <div class="apply-box">
+      <h3>How to Apply</h3>
+      <ol class="steps">
+        <li>Complete the online application form with your personal details and motivation</li>
+        <li>Book a 20-minute online interview slot via the provided Calendly link</li>
+        <li>Receive a confirmation and project InfoPack with all practical details</li>
+        <li>Register on the ESC portal and obtain your Personal Reference Number</li>
+      </ol>
+      <p style="margin-top:20px; font-size:13.5px; color:rgba(255,255,255,0.65);">
+        For questions, contact CNV Lucca at <strong style="color:rgba(255,255,255,0.85);">trailangels@cnvlucca.it</strong><br>
+        An InfoPack with accommodation photos, daily schedule, and packing list is available upon request.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════
+     EU DISCLAIMER SECTION
+════════════════════════════════ -->
+<section class="eu-section">
+  <div class="eu-section-inner">
+    <div class="eu-logo-col">
+      <!-- LARGE official EU "Funded by the European Union" logo -->
+      <div class="eu-big-funded">
+        <svg width="90" height="60" viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
+          <rect width="90" height="60" fill="#003399"/>
+          <g fill="#FFCC00" transform="translate(45,30)">
+            <g transform="rotate(0)   translate(0,-20) rotate(0)  "><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(30)  translate(0,-20) rotate(-30) "><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(60)  translate(0,-20) rotate(-60) "><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(90)  translate(0,-20) rotate(-90) "><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(120) translate(0,-20) rotate(-120)"><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(150) translate(0,-20) rotate(-150)"><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(180) translate(0,-20) rotate(-180)"><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(210) translate(0,-20) rotate(-210)"><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(240) translate(0,-20) rotate(-240)"><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(270) translate(0,-20) rotate(-270)"><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(300) translate(0,-20) rotate(-300)"><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+            <g transform="rotate(330) translate(0,-20) rotate(-330)"><polygon points="0,-3.33 0.75,-1.03 3.17,-1.03 1.21,0.39 1.95,2.69 0,1.27 -1.95,2.69 -1.21,0.39 -3.17,-1.03 -0.75,-1.03"/></g>
+          </g>
+        </svg>
+        <div class="eu-funded-words">
+          <span>Funded by</span>
+          <span>the European Union</span>
+        </div>
+      </div>
+
+      <div class="eu-section-note">
+        European Solidarity Corps Programme<br>
+        Project No. 101093414<br>
+        Managed by EACEA
+      </div>
+    </div>
+
+    <div class="eu-text-col">
+      <h3>European Solidarity Corps – Funding Acknowledgement & Disclaimer</h3>
+      <p>
+        <strong>Trail Angels (Project No. 101093414)</strong> is funded by the European Union through the <strong>European Solidarity Corps (ESC) Programme</strong>, managed by the European Education and Culture Executive Agency (EACEA) on behalf of the European Commission.
+      </p>
+      <p>
+        The European Solidarity Corps is the European Union's initiative for young people who want to volunteer or work in projects that benefit communities and people throughout Europe. Through ESC, the EU invests in young people's personal development, intercultural competences, and active citizenship.
+      </p>
+      <p>
+        This project contributes to the ESC priorities of environmental sustainability, social inclusion, and intercultural dialogue — bringing together young people from different European countries to make a tangible contribution to the conservation of Italy's natural and cultural heritage.
+      </p>
+      <p>
+        Views and opinions expressed in project materials are those of the project organisers and participants only and do not necessarily reflect those of the European Union or EACEA. Neither the European Union nor EACEA can be held responsible for them. The "Funded by the European Union" emblem is used in accordance with the visual identity guidelines of the European Union.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     CNV FOOTER
+════════════════════════════════ -->
+<footer class="cnv-footer">
+  <div class="cnv-footer-inner">
+
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">
+          <svg width="44" height="48" viewBox="0 0 200 215" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="12,12 100,200 68,12" fill="#2D9A47"/>
+            <polygon points="132,12 100,200 188,12" fill="#2D9A47"/>
+            <circle cx="100" cy="12" r="30" fill="#9B9B9B"/>
+          </svg>
+        </div>
+        <div class="footer-logo-text">
+          <div class="org">Centro Nazionale per il Volontariato</div>
+          <div class="city">Lucca · Italy</div>
+        </div>
+      </div>
+      <p class="footer-desc">
+        CNV Lucca is one of Italy's leading volunteering organisations, founded in 1985 and based in Lucca, Tuscany. We promote voluntary action, active citizenship, and youth mobility through ESC, Erasmus+, and international cooperation programmes.
+      </p>
+      <p class="footer-desc" style="margin-top:-8px;">
+        <strong style="color:#fff;">📧</strong> <a href="mailto:esc.centrovolontariato@gmail.com" style="color:rgba(255,255,255,0.75);">esc.centrovolontariato@gmail.com</a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Trail Angels</h4>
+      <ul>
+        <li><a href="#">About the Project</a></li>
+        <li><a href="#">Volunteering Activities</a></li>
+        <li><a href="#">Locations & Periods</a></li>
+        <li><a href="#">Who Can Apply</a></li>
+        <li><a href="#">How to Apply</a></li>
+        <li><a href="#">InfoPack (PDF)</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>CNV Programmes</h4>
+      <ul>
+        <li><a href="#">European Solidarity Corps</a></li>
+        <li><a href="#">Erasmus+ Youth</a></li>
+        <li><a href="#">Youth Exchanges</a></li>
+        <li><a href="#">Training Courses</a></li>
+        <li><a href="#">Local Volunteering</a></li>
+        <li><a href="#">All Projects</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>EU Programmes</h4>
+      <div class="footer-programs">
+        <div class="prog-badge"><div class="dot"></div>European Solidarity Corps</div>
+        <div class="prog-badge"><div class="dot"></div>Erasmus+ Programme</div>
+        <div class="prog-badge"><div class="dot"></div>Youth in Action</div>
+        <div class="prog-badge"><div class="dot"></div>EACEA – EU Agency</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cnv-footer-bottom">
+    <div>© 2025–2026 Centro Nazionale per il Volontariato – Lucca. All rights reserved. · Trail Angels Project No. 101093414</div>
+    <div class="footer-bottom-eu">
+      <svg width="40" height="27" viewBox="0 0 40 27" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="27" fill="#003399"/>
+        <g fill="#FFCC00" transform="translate(20,13.5)">
+          <g transform="rotate(0)   translate(0,-9) rotate(0)  "><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(30)  translate(0,-9) rotate(-30) "><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(60)  translate(0,-9) rotate(-60) "><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(90)  translate(0,-9) rotate(-90) "><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(120) translate(0,-9) rotate(-120)"><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(150) translate(0,-9) rotate(-150)"><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(180) translate(0,-9) rotate(-180)"><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(210) translate(0,-9) rotate(-210)"><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(240) translate(0,-9) rotate(-240)"><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(270) translate(0,-9) rotate(-270)"><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(300) translate(0,-9) rotate(-300)"><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+          <g transform="rotate(330) translate(0,-9) rotate(-330)"><polygon points="0,-1.50 0.34,-0.46 1.43,-0.46 0.55,0.18 0.88,1.21 0,0.57 -0.88,1.21 -0.55,0.18 -1.43,-0.46 -0.34,-0.46"/></g>
+        </g>
+      </svg>
+      <div class="funded-sm">Funded by<br>the European Union</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

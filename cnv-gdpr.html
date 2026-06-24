@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="it" data-lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Informativa Privacy – Centro Nazionale per il Volontariato</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #f7f8fa; font-size: 16px; line-height: 1.75; }
+    a { color: #2D9A47; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── TOP BAR ── */
+    .topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; }
+    .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .topbar-left { display: flex; gap: 20px; align-items: center; }
+    .topbar-left a { color: rgba(255,255,255,0.8); }
+    .topbar-left a:hover { color: #fff; text-decoration: none; }
+    .topbar-left span { opacity: 0.5; }
+    .lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
+    .lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
+    .lang-btn.active { background: #fff; color: #2D9A47; }
+
+    /* ── HEADER ── */
+    .header { background: #fff; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .logo-text .org { font-size: 16px; font-weight: 800; color: #1a1a1a; line-height: 1.2; }
+    .logo-text .sub { font-size: 11px; color: #2D9A47; font-weight: 600; }
+    .back-link { display: flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; color: #555; padding: 7px 14px; border-radius: 8px; border: 1px solid #e0e0e0; transition: background 0.15s, color 0.15s; }
+    .back-link:hover { background: #f4faf5; color: #2D9A47; text-decoration: none; }
+    .back-link svg { flex-shrink: 0; }
+
+    /* ── GDPR HERO ── */
+    .gdpr-hero { background: #111827; color: #fff; padding: 48px 32px 44px; }
+    .gdpr-hero-inner { max-width: 860px; margin: 0 auto; }
+    .gdpr-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(45,154,71,0.25); border: 1px solid rgba(45,154,71,0.4); color: #6ee88a; border-radius: 20px; padding: 4px 14px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 18px; }
+    .gdpr-hero h1 { font-size: 36px; font-weight: 800; line-height: 1.1; margin-bottom: 8px; }
+    .gdpr-hero .subtitle { font-size: 16px; opacity: 0.65; margin-bottom: 28px; }
+    .gdpr-meta-row { display: flex; gap: 28px; flex-wrap: wrap; }
+    .gdpr-meta-item { display: flex; gap: 8px; align-items: center; font-size: 13px; color: rgba(255,255,255,0.6); }
+    .gdpr-meta-item strong { color: rgba(255,255,255,0.88); font-weight: 600; }
+
+    /* ── CONTROLLER CARD ── */
+    .controller-bar { background: #fff; border-bottom: 1px solid #e5e7eb; }
+    .controller-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px; display: flex; gap: 40px; flex-wrap: wrap; align-items: center; }
+    .ctrl-item { display: flex; flex-direction: column; gap: 2px; }
+    .ctrl-label { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #999; }
+    .ctrl-value { font-size: 14px; color: #333; font-weight: 500; }
+    .ctrl-value a { color: #2D9A47; }
+
+    /* ── GDPR LAYOUT: sidebar + content ── */
+    .gdpr-layout { max-width: 1100px; margin: 0 auto; padding: 40px 32px 80px; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+
+    /* ── TOC SIDEBAR ── */
+    .gdpr-toc { position: sticky; top: 88px; }
+    .toc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #e5e7eb; }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 2px; }
+    .toc-list a { display: flex; gap: 9px; align-items: baseline; font-size: 13px; color: #666; padding: 5px 10px; border-radius: 7px; transition: background 0.12s, color 0.12s; line-height: 1.4; }
+    .toc-list a:hover { background: #f0faf3; color: #2D9A47; text-decoration: none; }
+    .toc-list .toc-num { font-size: 11px; color: #2D9A47; font-weight: 700; flex-shrink: 0; min-width: 16px; }
+    .toc-intro-link { display: block; font-size: 13px; color: #666; padding: 5px 10px; border-radius: 7px; margin-bottom: 6px; transition: background 0.12s, color 0.12s; }
+    .toc-intro-link:hover { background: #f0faf3; color: #2D9A47; text-decoration: none; }
+
+    /* ── CONTENT ── */
+    .gdpr-content { background: #fff; border-radius: 12px; padding: 48px 52px; border: 1px solid #e5e7eb; }
+
+    .intro-block { margin-bottom: 36px; padding-bottom: 32px; border-bottom: 1px solid #eee; }
+    .intro-block p { font-size: 15.5px; color: #444; line-height: 1.75; }
+
+    .gdpr-section { margin-bottom: 44px; padding-bottom: 44px; border-bottom: 1px solid #f0f0f0; scroll-margin-top: 96px; }
+    .gdpr-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .section-header { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; }
+    .section-num { width: 34px; height: 34px; background: #edf7f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #2D9A47; flex-shrink: 0; margin-top: 3px; }
+    .section-header h2 { font-size: 21px; font-weight: 800; color: #111; line-height: 1.2; }
+    .section-sub { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #2D9A47; margin-top: 3px; }
+
+    .gdpr-content p { font-size: 15px; color: #333; margin-bottom: 14px; line-height: 1.78; }
+    .gdpr-content p:last-child { margin-bottom: 0; }
+
+    .gdpr-list { margin: 12px 0 16px 0; padding-left: 0; list-style: none; }
+    .gdpr-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: #333; padding: 8px 0; border-bottom: 1px solid #f5f5f5; line-height: 1.6; }
+    .gdpr-list li:last-child { border-bottom: none; }
+    .gdpr-list .bullet { width: 6px; height: 6px; background: #2D9A47; border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+
+    /* ── LEGAL BASIS TABLE ── */
+    .legal-table-wrap { overflow-x: auto; margin: 16px 0; }
+    .legal-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .legal-table th { background: #111827; color: rgba(255,255,255,0.88); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; padding: 12px 16px; text-align: left; }
+    .legal-table th:first-child { border-radius: 0; }
+    .legal-table td { padding: 13px 16px; border-bottom: 1px solid #f0f0f0; color: #333; vertical-align: top; line-height: 1.6; font-size: 14px; }
+    .legal-table tr:last-child td { border-bottom: none; }
+    .legal-table tr:nth-child(even) td { background: #fafafa; }
+    .legal-table td:nth-child(2) { white-space: nowrap; font-weight: 700; color: #2D9A47; font-size: 13px; }
+    .legal-table-note { font-size: 13.5px; color: #555; margin-top: 12px; font-style: italic; }
+
+    /* ── RIGHTS GRID ── */
+    .rights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+    .right-card { background: #f8faf8; border: 1px solid #e0ece0; border-radius: 10px; padding: 16px 18px; }
+    .right-card h4 { font-size: 14px; font-weight: 800; color: #1a1a1a; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+    .right-card h4 .right-icon { font-size: 16px; }
+    .right-card p { font-size: 13.5px; color: #555; line-height: 1.55; margin: 0; }
+
+    /* ── CONTACT BLOCK ── */
+    .contact-block { background: #f4faf5; border: 1px solid #c8e6c9; border-radius: 12px; padding: 24px 28px; margin-top: 16px; }
+    .contact-block address { font-style: normal; font-size: 15px; color: #333; line-height: 1.8; }
+    .contact-block address a { color: #2D9A47; font-weight: 600; }
+    .garante-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 14px; font-weight: 600; color: #2D9A47; }
+
+    /* ── FOOTER ── */
+    .footer { background: #111827; color: rgba(255,255,255,0.7); padding: 44px 32px 0; }
+    .footer-bottom-only { max-width: 1200px; margin: 0 auto; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: rgba(255,255,255,0.5); border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: rgba(255,255,255,0.55); font-size: 12.5px; transition: color 0.15s; }
+    .footer-links a:hover { color: #fff; text-decoration: none; }
+    .footer-eu { display: flex; align-items: center; gap: 10px; }
+    .funded-sm { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.55); line-height: 1.3; }
+
+    @media (max-width: 860px) {
+      .gdpr-layout { grid-template-columns: 1fr; padding: 24px 20px 60px; }
+      .gdpr-toc { display: none; }
+      .gdpr-content { padding: 32px 24px; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .controller-inner { padding: 18px 20px; }
+      .gdpr-hero { padding: 36px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="mailto:cnv@centrovolontariato.it">cnv@centrovolontariato.it</a>
+      <span>|</span>
+      <a href="tel:+390583419500">0583 419500</a>
+    </div>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('it')" id="btn-it">IT</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="cnv-website.html" class="logo" style="text-decoration:none;">
+      <svg width="44" height="48" viewBox="0 0 200 215" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="12,12 100,200 68,12" fill="#2D9A47"/>
+        <polygon points="132,12 100,200 188,12" fill="#2D9A47"/>
+        <circle cx="100" cy="12" r="30" fill="#9B9B9B"/>
+      </svg>
+      <div class="logo-text">
+        <div class="org">Centro Nazionale per il Volontariato</div>
+        <div class="sub" data-it="Lucca · Toscana" data-en="Lucca · Tuscany">Lucca · Toscana</div>
+      </div>
+    </a>
+    <a href="cnv-website.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      <span data-it="Torna al sito" data-en="Back to site">Torna al sito</span>
+    </a>
+  </div>
+</header>
+
+
+<!-- GDPR HERO -->
+<div class="gdpr-hero">
+  <div class="gdpr-hero-inner">
+    <div class="gdpr-badge">GDPR · Reg. UE 2016/679</div>
+    <h1 data-it="Informativa sulla Privacy" data-en="Privacy & Data Protection">Informativa sulla Privacy</h1>
+    <p class="subtitle" data-it="Domande di progetto e gestione partecipanti · Centro Nazionale per il Volontariato" data-en="Project Applications Privacy Notice · Centro Nazionale per il Volontariato">Domande di progetto e gestione partecipanti · Centro Nazionale per il Volontariato</p>
+    <div class="gdpr-meta-row">
+      <div class="gdpr-meta-item">
+        <span data-it="📅 Ultimo aggiornamento:" data-en="📅 Last updated:">📅 Ultimo aggiornamento:</span>
+        <strong>30 Marzo 2026</strong>
+      </div>
+      <div class="gdpr-meta-item">
+        <span data-it="📧 Contatti:" data-en="📧 Contact:">📧 Contatti:</span>
+        <strong><a href="mailto:esc.centrovolontariato@gmail.com" style="color:rgba(255,255,255,0.88);">esc.centrovolontariato@gmail.com</a></strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTROLLER BAR -->
+<div class="controller-bar">
+  <div class="controller-inner">
+    <div class="ctrl-item">
+      <span class="ctrl-label" data-it="Titolare del Trattamento" data-en="Data Controller">Titolare del Trattamento</span>
+      <span class="ctrl-value">Centro Nazionale per il Volontariato</span>
+    </div>
+    <div class="ctrl-item">
+      <span class="ctrl-label" data-it="Sede" data-en="Address">Sede</span>
+      <span class="ctrl-value">Via Alfredo Catalani, 158 – 55100 Lucca, Italia</span>
+    </div>
+    <div class="ctrl-item">
+      <span class="ctrl-label" data-it="Email per i dati personali" data-en="Data enquiries email">Email per i dati personali</span>
+      <span class="ctrl-value"><a href="mailto:esc.centrovolontariato@gmail.com">esc.centrovolontariato@gmail.com</a></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- MAIN LAYOUT -->
+<div class="gdpr-layout">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="gdpr-toc">
+    <div class="toc-title" data-it="Indice" data-en="Contents">Indice</div>
+    <a href="#intro" class="toc-intro-link" data-it="Introduzione" data-en="Introduction">Introduzione</a>
+    <ul class="toc-list">
+      <li><a href="#s1"><span class="toc-num">1</span><span data-it="Categorie di dati" data-en="Categories of data">Categorie di dati</span></a></li>
+      <li><a href="#s2"><span class="toc-num">2</span><span data-it="Finalità e basi giuridiche" data-en="Purposes & legal bases">Finalità e basi giuridiche</span></a></li>
+      <li><a href="#s3"><span class="toc-num">3</span><span data-it="Destinatari" data-en="Recipients">Destinatari</span></a></li>
+      <li><a href="#s4"><span class="toc-num">4</span><span data-it="Trasferimenti internazionali" data-en="International transfers">Trasferimenti internazionali</span></a></li>
+      <li><a href="#s5"><span class="toc-num">5</span><span data-it="Conservazione" data-en="Retention">Conservazione</span></a></li>
+      <li><a href="#s6"><span class="toc-num">6</span><span data-it="Obbligo di fornitura" data-en="Required data">Obbligo di fornitura</span></a></li>
+      <li><a href="#s7"><span class="toc-num">7</span><span data-it="I tuoi diritti" data-en="Your rights">I tuoi diritti</span></a></li>
+      <li><a href="#s8"><span class="toc-num">8</span><span data-it="Contatti e reclami" data-en="Contact & complaints">Contatti e reclami</span></a></li>
+      <li><a href="#s9"><span class="toc-num">9</span><span data-it="Decisioni automatizzate" data-en="Automated decisions">Decisioni automatizzate</span></a></li>
+      <li><a href="#s10"><span class="toc-num">10</span><span data-it="Sicurezza" data-en="Security">Sicurezza</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="gdpr-content">
+
+    <!-- INTRO -->
+    <div class="intro-block" id="intro">
+      <p data-it="La presente informativa si applica ai dati personali trattati nell'ambito delle domande di progetto, delle procedure di selezione, della partecipazione ai progetti, della rendicontazione e dell'amministrazione dei contributi. I dati personali sono raccolti e utilizzati solo nella misura necessaria per la relativa domanda e progetto." data-en="This privacy notice applies to personal data processed in connection with project applications, selection procedures, project participation, reporting, and grant administration. Personal data is collected and used only where necessary for the relevant application and project.">La presente informativa si applica ai dati personali trattati nell'ambito delle domande di progetto, delle procedure di selezione, della partecipazione ai progetti, della rendicontazione e dell'amministrazione dei contributi. I dati personali sono raccolti e utilizzati solo nella misura necessaria per la relativa domanda e progetto.</p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="gdpr-section" id="s1">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div>
+          <h2 data-it="Categorie di Dati Personali" data-en="Categories of Personal Data">Categorie di Dati Personali</h2>
+          <div class="section-sub" data-it="Cosa raccogliamo" data-en="What we may collect">Cosa raccogliamo</div>
+        </div>
+      </div>
+      <p data-it="Di norma raccogliamo i dati personali direttamente da voi tramite moduli di domanda, documenti giustificativi, scambi di e-mail, colloqui e amministrazione del progetto. A seconda del progetto e del modulo di domanda, potremmo raccogliere:" data-en="We usually collect personal data directly from you through application forms, supporting documents, email exchanges, interviews, and project administration. Depending on the project and the application form, we may collect:">Di norma raccogliamo i dati personali direttamente da voi tramite moduli di domanda, documenti giustificativi, scambi di e-mail, colloqui e amministrazione del progetto. A seconda del progetto e del modulo di domanda, potremmo raccogliere:</p>
+      <ul class="gdpr-list">
+        <li><div class="bullet"></div><span data-it="dati identificativi e di contatto, quali nome, indirizzo, numero di telefono, indirizzo e-mail, data di nascita, nazionalità e luogo di residenza" data-en="identity and contact details, such as name, address, phone number, email address, date of birth, nationality, and place of residence">dati identificativi e di contatto, quali nome, indirizzo, numero di telefono, indirizzo e-mail, data di nascita, nazionalità e luogo di residenza</span></li>
+        <li><div class="bullet"></div><span data-it="informazioni sulla domanda e sull'idoneità, quali istruzione, esperienza, competenze linguistiche, motivazione, dati del CV, disponibilità e preferenze di progetto" data-en="application and eligibility information, such as education, experience, language skills, motivation, CV details, availability, and project preferences">informazioni sulla domanda e sull'idoneità, quali istruzione, esperienza, competenze linguistiche, motivazione, dati del CV, disponibilità e preferenze di progetto</span></li>
+        <li><div class="bullet"></div><span data-it="informazioni amministrative e di gestione del progetto, quali corrispondenza, registrazioni della partecipazione, documentazione relativa al contributo, presenze, spese di viaggio o rimborso e materiale di rendicontazione" data-en="administrative and project-management information, such as correspondence, participation records, grant documentation, attendance, travel or reimbursement details, and reporting material">informazioni amministrative e di gestione del progetto, quali corrispondenza, registrazioni della partecipazione, documentazione relativa al contributo, presenze, spese di viaggio o rimborso e materiale di rendicontazione</span></li>
+        <li><div class="bullet"></div><span data-it="informazioni tecniche generate da moduli online o sistemi di invio, ove applicabile, quali timestamp e log di accesso di base" data-en="technical information generated by online forms or submission systems, where applicable, such as timestamps and basic access logs">informazioni tecniche generate da moduli online o sistemi di invio, ove applicabile, quali timestamp e log di accesso di base</span></li>
+      </ul>
+      <p style="background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:14px 18px; font-size:14px; color:#78350f; margin-top:8px;" data-it="⚠️ Dati di categoria particolare: si prega di non fornire dati relativi alla salute o altri dati di categoria particolare, a meno che la domanda non lo richieda espressamente per motivi di accessibilità, inclusione, sicurezza o conformità di legge. Tali dati saranno trattati solo ove consentito dall'art. 9 GDPR, dalla normativa italiana applicabile e dalle ulteriori garanzie richieste dal programma specifico." data-en="⚠️ Special category data: please do not provide health data or other special category data unless the application expressly requires it for accessibility, inclusion, safety, or legal compliance reasons. If such data is needed, it will be processed only where permitted by Article 9 GDPR, applicable Italian law, and any additional safeguards required by the specific programme.">⚠️ Dati di categoria particolare: si prega di non fornire dati relativi alla salute o altri dati di categoria particolare, a meno che la domanda non lo richieda espressamente per motivi di accessibilità, inclusione, sicurezza o conformità di legge. Tali dati saranno trattati solo ove consentito dall'art. 9 GDPR, dalla normativa italiana applicabile e dalle ulteriori garanzie richieste dal programma specifico.</p>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="gdpr-section" id="s2">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div>
+          <h2 data-it="Finalità e Basi Giuridiche" data-en="Purposes and Legal Bases">Finalità e Basi Giuridiche</h2>
+          <div class="section-sub" data-it="Perché utilizziamo i vostri dati" data-en="Why we use your data">Perché utilizziamo i vostri dati</div>
+        </div>
+      </div>
+      <div class="legal-table-wrap">
+        <table class="legal-table">
+          <thead>
+            <tr>
+              <th data-it="Finalità" data-en="Purpose">Finalità</th>
+              <th data-it="Base giuridica" data-en="Legal basis">Base giuridica</th>
+              <th data-it="Dettagli" data-en="Details">Dettagli</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-it="Ricevere, esaminare e valutare le domande" data-en="Receiving, reviewing, and evaluating applications">Ricevere, esaminare e valutare le domande</td>
+              <td>Art. 6(1)(b) GDPR</td>
+              <td data-it="Il trattamento è necessario per adottare misure su richiesta dell'interessato prima della partecipazione, selezione o accordo relativo al progetto." data-en="Processing is necessary to take steps at your request before participation, selection, or a project-related arrangement is made.">Il trattamento è necessario per adottare misure su richiesta dell'interessato prima della partecipazione, selezione o accordo relativo al progetto.</td>
+            </tr>
+            <tr>
+              <td data-it="Gestire la selezione, le comunicazioni, la partecipazione al progetto e l'amministrazione" data-en="Managing selection, communication, project participation, and administration">Gestire la selezione, le comunicazioni, la partecipazione al progetto e l'amministrazione</td>
+              <td>Art. 6(1)(b) GDPR</td>
+              <td data-it="Abbiamo bisogno di determinati dati per organizzare il progetto, comunicare con i candidati e i partecipanti e svolgere le relative attività." data-en="We need certain data to organise the project, communicate with applicants and participants, and carry out the related activity.">Abbiamo bisogno di determinati dati per organizzare il progetto, comunicare con i candidati e i partecipanti e svolgere le relative attività.</td>
+            </tr>
+            <tr>
+              <td data-it="Adempiere agli obblighi di rendicontazione, audit, contabilità e legali" data-en="Meeting grant, audit, reporting, record-keeping, accountability, and legal obligations">Adempiere agli obblighi di rendicontazione, audit, contabilità e legali</td>
+              <td>Art. 6(1)(c) GDPR</td>
+              <td data-it="Alcuni trattamenti sono richiesti da obblighi UE, nazionali, di finanziamento, contabilità, trasparenza, antifrode o amministrativi." data-en="Some processing is required by EU, national, funding, accounting, transparency, anti-fraud, or administrative obligations.">Alcuni trattamenti sono richiesti da obblighi UE, nazionali, di finanziamento, contabilità, trasparenza, antifrode o amministrativi.</td>
+            </tr>
+            <tr>
+              <td data-it="Tutela dell'organizzazione, documentazione delle decisioni e gestione di controversie o pretese legali" data-en="Protecting our organisation, documenting decisions, and handling disputes or legal claims">Tutela dell'organizzazione, documentazione delle decisioni e gestione di controversie o pretese legali</td>
+              <td>Art. 6(1)(f) GDPR</td>
+              <td data-it="Potremmo conservare registrazioni limitate ove necessario per tutelare legittimi interessi organizzativi, a condizione che tali interessi non prevalgano sui vostri diritti e libertà." data-en="We may retain limited records where necessary to protect legitimate organisational interests, provided those interests do not override your rights and freedoms.">Potremmo conservare registrazioni limitate ove necessario per tutelare legittimi interessi organizzativi, a condizione che tali interessi non prevalgano sui vostri diritti e libertà.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="legal-table-note" data-it="Ove il consenso sia richiesto per un'attività separata, verrà richiesto separatamente e potrà essere revocato in qualsiasi momento senza pregiudicare il trattamento precedentemente effettuato lecitamente." data-en="Where consent is required for a separate activity, it will be requested separately and may be withdrawn at any time without affecting prior lawful processing.">Ove il consenso sia richiesto per un'attività separata, verrà richiesto separatamente e potrà essere revocato in qualsiasi momento senza pregiudicare il trattamento precedentemente effettuato lecitamente.</p>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="gdpr-section" id="s3">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div>
+          <h2 data-it="Destinatari e Divulgazione" data-en="Recipients and Disclosure">Destinatari e Divulgazione</h2>
+          <div class="section-sub" data-it="Chi può ricevere i vostri dati" data-en="Who may receive your data">Chi può ricevere i vostri dati</div>
+        </div>
+      </div>
+      <p data-it="Potremmo condividere i dati personali pertinenti solo ove necessario con:" data-en="We may share relevant personal data only where necessary with:">Potremmo condividere i dati personali pertinenti solo ove necessario con:</p>
+      <ul class="gdpr-list">
+        <li><div class="bullet"></div><span data-it="membri del personale autorizzato, collaboratori e volontari vincolati da obblighi di riservatezza" data-en="authorised staff members, collaborators, and volunteers acting under confidentiality obligations">membri del personale autorizzato, collaboratori e volontari vincolati da obblighi di riservatezza</span></li>
+        <li><div class="bullet"></div><span data-it="fornitori di servizi che supportano hosting, archiviazione cloud, e-mail, moduli, archiviazione, sicurezza IT o amministrazione, operanti in qualità di responsabili del trattamento ove richiesto" data-en="service providers supporting hosting, cloud storage, email, forms, archiving, IT security, or administration, acting as processors where required">fornitori di servizi che supportano hosting, archiviazione cloud, e-mail, moduli, archiviazione, sicurezza IT o amministrazione, operanti in qualità di responsabili del trattamento ove richiesto</span></li>
+        <li><div class="bullet"></div><span data-it="partner di progetto o membri del consorzio direttamente coinvolti nella valutazione o nell'attuazione del progetto pertinente" data-en="project partners or consortium members directly involved in evaluating or delivering the relevant project">partner di progetto o membri del consorzio direttamente coinvolti nella valutazione o nell'attuazione del progetto pertinente</span></li>
+        <li><div class="bullet"></div><span data-it="la Commissione europea, le agenzie nazionali, gli enti erogatori, i revisori e le competenti autorità pubbliche ove la divulgazione sia richiesta o necessaria per la valutazione, la contrattualizzazione, il monitoraggio, la rendicontazione, l'audit, l'antifrode o la conformità" data-en="the European Commission, national agencies, granting organisations, auditors, and competent public authorities where disclosure is required or necessary for evaluation, contracting, monitoring, reporting, audit, anti-fraud, or compliance purposes">la Commissione europea, le agenzie nazionali, gli enti erogatori, i revisori e le competenti autorità pubbliche ove la divulgazione sia richiesta o necessaria per la valutazione, la contrattualizzazione, il monitoraggio, la rendicontazione, l'audit, l'antifrode o la conformità</span></li>
+      </ul>
+      <p data-it="I dati personali sono divulgati solo ove la divulgazione sia connessa alla domanda, al progetto o a un requisito legale o di finanziamento." data-en="Personal data is disclosed only where the disclosure is connected with the application, the project, or a legal or funding requirement.">I dati personali sono divulgati solo ove la divulgazione sia connessa alla domanda, al progetto o a un requisito legale o di finanziamento.</p>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="gdpr-section" id="s4">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <div>
+          <h2 data-it="Trasferimenti Internazionali" data-en="International Transfers">Trasferimenti Internazionali</h2>
+          <div class="section-sub" data-it="Trasferimenti al di fuori del SEE" data-en="Transfers outside the EEA">Trasferimenti al di fuori del SEE</div>
+        </div>
+      </div>
+      <p data-it="Di norma, miriamo a trattare e conservare i dati delle domande di progetto all'interno dello Spazio Economico Europeo. Qualora i dati personali debbano essere trasferiti al di fuori del SEE, lo faremo solo in conformità al Capo V del GDPR, ad esempio sulla base di una decisione di adeguatezza, di clausole contrattuali standard o di un altro meccanismo di trasferimento lecito. La condivisione di dati con istituzioni o organi dell'UE, compresa la Commissione europea, non costituisce di per sé un trasferimento al di fuori del SEE." data-en="As a rule, we aim to process and store project-application data within the European Economic Area. If personal data must be transferred outside the EEA, we will do so only in accordance with Chapter V GDPR, for example on the basis of an adequacy decision, standard contractual clauses, or another lawful transfer mechanism. Sharing data with EU institutions or bodies, including the European Commission, does not by itself constitute a transfer outside the EEA.">Di norma, miriamo a trattare e conservare i dati delle domande di progetto all'interno dello Spazio Economico Europeo. Qualora i dati personali debbano essere trasferiti al di fuori del SEE, lo faremo solo in conformità al Capo V del GDPR, ad esempio sulla base di una decisione di adeguatezza, di clausole contrattuali standard o di un altro meccanismo di trasferimento lecito. La condivisione di dati con istituzioni o organi dell'UE, compresa la Commissione europea, non costituisce di per sé un trasferimento al di fuori del SEE.</p>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="gdpr-section" id="s5">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <div>
+          <h2 data-it="Conservazione dei Dati" data-en="Data Retention">Conservazione dei Dati</h2>
+          <div class="section-sub" data-it="Per quanto tempo conserviamo i vostri dati" data-en="How long we keep your data">Per quanto tempo conserviamo i vostri dati</div>
+        </div>
+      </div>
+      <p data-it="Conserviamo i dati personali solo per il tempo necessario ai fini descritti nella presente informativa. I periodi di conservazione dipendono dal tipo di progetto e dagli obblighi applicabili." data-en="We keep personal data only for as long as necessary for the purposes described in this notice. Retention periods depend on the type of project and the applicable obligations.">Conserviamo i dati personali solo per il tempo necessario ai fini descritti nella presente informativa. I periodi di conservazione dipendono dal tipo di progetto e dagli obblighi applicabili.</p>
+      <ul class="gdpr-list">
+        <li><div class="bullet"></div><span data-it="i dati della domanda sono conservati per la durata della selezione e di qualsiasi successivo follow-up amministrativo" data-en="application data is kept for the duration of the selection and any related administrative follow-up">i dati della domanda sono conservati per la durata della selezione e di qualsiasi successivo follow-up amministrativo</span></li>
+        <li><div class="bullet"></div><span data-it="qualora una domanda conduca alla partecipazione a un progetto, i relativi documenti possono essere conservati per l'intero ciclo di vita del progetto e per qualsiasi periodo aggiuntivo richiesto dalle regole del contributo, dagli obblighi di revisione, dalle regole contabili o dai termini di prescrizione" data-en="where an application leads to participation in a project, relevant records may be retained for the full project lifecycle and for any additional period required by grant rules, audit obligations, accounting rules, or limitation periods">qualora una domanda conduca alla partecipazione a un progetto, i relativi documenti possono essere conservati per l'intero ciclo di vita del progetto e per qualsiasi periodo aggiuntivo richiesto dalle regole del contributo, dagli obblighi di revisione, dalle regole contabili o dai termini di prescrizione</span></li>
+        <li><div class="bullet"></div><span data-it="in caso di controversia, ispezione o richiesta legale in corso, i relativi documenti possono essere conservati per il tempo ragionevolmente necessario a tutelare i diritti legali e a rispettare gli obblighi" data-en="where a dispute, inspection, or legal claim is ongoing, relevant records may be kept for as long as reasonably necessary to protect legal rights and comply with obligations">in caso di controversia, ispezione o richiesta legale in corso, i relativi documenti possono essere conservati per il tempo ragionevolmente necessario a tutelare i diritti legali e a rispettare gli obblighi</span></li>
+      </ul>
+      <p data-it="Una volta che la conservazione non è più giustificata, i dati saranno eliminati in modo sicuro, anonimizzati o archiviati solo ove la conservazione continuata sia richiesta dalla legge." data-en="Once retention is no longer justified, data will be securely deleted, anonymised, or archived only where continued retention is required by law.">Una volta che la conservazione non è più giustificata, i dati saranno eliminati in modo sicuro, anonimizzati o archiviati solo ove la conservazione continuata sia richiesta dalla legge.</p>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="gdpr-section" id="s6">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <div>
+          <h2 data-it="Obbligo di Fornitura dei Dati" data-en="Required Data">Obbligo di Fornitura dei Dati</h2>
+          <div class="section-sub" data-it="Se siete obbligati a fornire i dati" data-en="Whether you must provide the data">Se siete obbligati a fornire i dati</div>
+        </div>
+      </div>
+      <p data-it="Alcuni dati sono necessari affinché possiamo ricevere, valutare e gestire una domanda o un progetto. Se non vengono fornite le informazioni obbligatorie, potremmo non essere in grado di valutare la domanda, completare la procedura di selezione o amministrare la partecipazione al progetto pertinente." data-en="Some data is required so that we can receive, assess, and manage an application or project. If mandatory information is not provided, we may be unable to evaluate the application, complete the selection procedure, or administer participation in the relevant project.">Alcuni dati sono necessari affinché possiamo ricevere, valutare e gestire una domanda o un progetto. Se non vengono fornite le informazioni obbligatorie, potremmo non essere in grado di valutare la domanda, completare la procedura di selezione o amministrare la partecipazione al progetto pertinente.</p>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="gdpr-section" id="s7">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <div>
+          <h2 data-it="I Tuoi Diritti" data-en="Your Rights">I Tuoi Diritti</h2>
+          <div class="section-sub" data-it="Cosa puoi chiederci di fare" data-en="What you can ask us to do">Cosa puoi chiederci di fare</div>
+        </div>
+      </div>
+      <div class="rights-grid">
+        <div class="right-card">
+          <h4><span class="right-icon">👁</span><span data-it="Accesso" data-en="Access">Accesso</span></h4>
+          <p data-it="Chiedere se trattiamo i vostri dati e riceverne una copia." data-en="Ask whether we process your data and receive a copy of it.">Chiedere se trattiamo i vostri dati e riceverne una copia.</p>
+        </div>
+        <div class="right-card">
+          <h4><span class="right-icon">✏️</span><span data-it="Rettifica" data-en="Rectification">Rettifica</span></h4>
+          <p data-it="Chiederci di correggere dati personali inesatti o incompleti." data-en="Ask us to correct inaccurate or incomplete personal data.">Chiederci di correggere dati personali inesatti o incompleti.</p>
+        </div>
+        <div class="right-card">
+          <h4><span class="right-icon">🗑</span><span data-it="Cancellazione" data-en="Erasure">Cancellazione</span></h4>
+          <p data-it="Chiedere la cancellazione ove la legge lo consenta." data-en="Ask for deletion where the law allows it.">Chiedere la cancellazione ove la legge lo consenta.</p>
+        </div>
+        <div class="right-card">
+          <h4><span class="right-icon">⏸</span><span data-it="Limitazione" data-en="Restriction">Limitazione</span></h4>
+          <p data-it="Chiedere di limitare il trattamento nelle situazioni previste dal GDPR." data-en="Ask us to limit processing in the situations provided by the GDPR.">Chiedere di limitare il trattamento nelle situazioni previste dal GDPR.</p>
+        </div>
+        <div class="right-card">
+          <h4><span class="right-icon">🚫</span><span data-it="Opposizione" data-en="Objection">Opposizione</span></h4>
+          <p data-it="Opporsi al trattamento basato su interessi legittimi, ove applicabile." data-en="Object to processing based on legitimate interests, where applicable.">Opporsi al trattamento basato su interessi legittimi, ove applicabile.</p>
+        </div>
+        <div class="right-card">
+          <h4><span class="right-icon">📤</span><span data-it="Portabilità" data-en="Portability">Portabilità</span></h4>
+          <p data-it="Ricevere determinati dati in formato strutturato ove il GDPR si applichi." data-en="Receive certain data in a structured format where the GDPR applies.">Ricevere determinati dati in formato strutturato ove il GDPR si applichi.</p>
+        </div>
+      </div>
+      <p style="margin-top:16px;" data-it="Se il trattamento è basato sul consenso per un'attività specifica, avete anche il diritto di revocare tale consenso in qualsiasi momento." data-en="If processing is based on consent for a specific activity, you also have the right to withdraw that consent at any time.">Se il trattamento è basato sul consenso per un'attività specifica, avete anche il diritto di revocare tale consenso in qualsiasi momento.</p>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="gdpr-section" id="s8">
+      <div class="section-header">
+        <div class="section-num">8</div>
+        <div>
+          <h2 data-it="Contatti e Reclami" data-en="Contact and Complaints">Contatti e Reclami</h2>
+          <div class="section-sub" data-it="Come esercitare i tuoi diritti" data-en="How to exercise your rights">Come esercitare i tuoi diritti</div>
+        </div>
+      </div>
+      <p data-it="Per esercitare i vostri diritti o per porre domande sul trattamento dei vostri dati personali, scrivete a:" data-en="To exercise your rights or ask questions about the processing of your personal data, please write to:">Per esercitare i vostri diritti o per porre domande sul trattamento dei vostri dati personali, scrivete a:</p>
+      <div class="contact-block">
+        <address>
+          <strong>Centro Nazionale per il Volontariato</strong><br>
+          Via Alfredo Catalani, 158<br>
+          55100 Lucca, Italia<br><br>
+          <a href="mailto:esc.centrovolontariato@gmail.com">esc.centrovolontariato@gmail.com</a>
+        </address>
+      </div>
+      <p style="margin-top:16px;" data-it="Avete inoltre il diritto di presentare un reclamo all'autorità di controllo competente. In Italia, questa è il Garante per la protezione dei dati personali." data-en="You also have the right to lodge a complaint with the competent supervisory authority. In Italy, this is the Garante per la protezione dei dati personali.">Avete inoltre il diritto di presentare un reclamo all'autorità di controllo competente. In Italia, questa è il Garante per la protezione dei dati personali.</p>
+      <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener" class="garante-link">
+        Garante per la protezione dei dati personali →
+      </a>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="gdpr-section" id="s9">
+      <div class="section-header">
+        <div class="section-num">9</div>
+        <div>
+          <h2 data-it="Decisioni Automatizzate" data-en="Automated Decision-Making">Decisioni Automatizzate</h2>
+          <div class="section-sub" data-it="Nessuna decisione esclusivamente automatizzata" data-en="No solely automated decisions">Nessuna decisione esclusivamente automatizzata</div>
+        </div>
+      </div>
+      <p data-it="Non prendiamo decisioni che producono effetti giuridici o effetti significativi sui candidati esclusivamente con mezzi automatizzati. I controlli amministrativi possono supportare la gestione delle domande, ma la valutazione finale e le decisioni relative al progetto vengono prese con il coinvolgimento umano." data-en="We do not make decisions producing legal or similarly significant effects on applicants solely by automated means. Administrative checks may support the handling of applications, but final assessment and project-related decisions are made with human involvement.">Non prendiamo decisioni che producono effetti giuridici o effetti significativi sui candidati esclusivamente con mezzi automatizzati. I controlli amministrativi possono supportare la gestione delle domande, ma la valutazione finale e le decisioni relative al progetto vengono prese con il coinvolgimento umano.</p>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="gdpr-section" id="s10">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <div>
+          <h2 data-it="Sicurezza dei Dati" data-en="Data Security">Sicurezza dei Dati</h2>
+          <div class="section-sub" data-it="Come proteggiamo i vostri dati" data-en="How we protect your data">Come proteggiamo i vostri dati</div>
+        </div>
+      </div>
+      <p data-it="Applichiamo misure tecniche e organizzative adeguate alla natura dei dati e ai rischi coinvolti, inclusi controlli di accesso, autorizzazione basata sui ruoli, archiviazione sicura, misure di riservatezza e procedure per ridurre il rischio di divulgazione non autorizzata, perdita, alterazione o uso improprio." data-en="We apply technical and organisational measures appropriate to the nature of the data and the risks involved, including access controls, role-based authorisation, secure storage, confidentiality measures, and procedures to reduce the risk of unauthorised disclosure, loss, alteration, or misuse.">Applichiamo misure tecniche e organizzative adeguate alla natura dei dati e ai rischi coinvolti, inclusi controlli di accesso, autorizzazione basata sui ruoli, archiviazione sicura, misure di riservatezza e procedure per ridurre il rischio di divulgazione non autorizzata, perdita, alterazione o uso improprio.</p>
+    </section>
+
+  </main>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-bottom-only">
+    <span data-it="© 2026 Centro Nazionale per il Volontariato – Lucca. Tutti i diritti riservati." data-en="© 2026 Centro Nazionale per il Volontariato – Lucca. All rights reserved.">© 2026 Centro Nazionale per il Volontariato – Lucca. Tutti i diritti riservati.</span>
+    <div class="footer-links">
+      <a href="cnv-website.html" data-it="Torna al sito" data-en="Back to site">Torna al sito</a>
+      <a href="mailto:esc.centrovolontariato@gmail.com">esc.centrovolontariato@gmail.com</a>
+    </div>
+    <div class="footer-eu">
+      <svg width="36" height="24" viewBox="0 0 38 26" xmlns="http://www.w3.org/2000/svg">
+        <rect width="38" height="26" fill="#003399"/>
+        <g fill="#FFCC00" transform="translate(19,13)">
+          <g transform="rotate(0)   translate(0,-8.67) rotate(0)  "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(30)  translate(0,-8.67) rotate(-30) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(60)  translate(0,-8.67) rotate(-60) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(90)  translate(0,-8.67) rotate(-90) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(120) translate(0,-8.67) rotate(-120)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(150) translate(0,-8.67) rotate(-150)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(180) translate(0,-8.67) rotate(-180)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(210) translate(0,-8.67) rotate(-210)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(240) translate(0,-8.67) rotate(-240)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(270) translate(0,-8.67) rotate(-270)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(300) translate(0,-8.67) rotate(-300)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(330) translate(0,-8.67) rotate(-330)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+        </g>
+      </svg>
+      <div class="funded-sm" data-it="Finanziato dall'<br>Unione Europea" data-en="Funded by<br>the European Union">Finanziato dall'<br>Unione Europea</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-it][data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text !== null) el.innerHTML = text;
+    });
+    document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    localStorage.setItem('cnv-lang', lang);
+  }
+  (function() {
+    const saved = localStorage.getItem('cnv-lang');
+    const browser = navigator.language.startsWith('en') ? 'en' : 'it';
+    setLang(saved || browser);
+  })();
+</script>
+
+</body>
+</html>
