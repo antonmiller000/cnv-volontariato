@@ -64,7 +64,7 @@
     .bg-light { background: #f4faf5; }
 
     /* ── ABOUT ── */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
     .about-text p { font-size: 16px; color: #333; margin-bottom: 16px; }
     .about-feats { display: flex; flex-direction: column; gap: 20px; }
     .feat { display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid #e0ece0; border-radius: 12px; padding: 18px 20px; }
@@ -73,15 +73,15 @@
     .feat-text p { font-size: 13.5px; color: #666; margin: 0; }
 
     /* ── PROGRAMMES ── */
-    .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .prog-card { border-radius: 16px; overflow: hidden; border: 1px solid #e8ede8; transition: transform 0.18s, box-shadow 0.18s; background: #fff; }
+    .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+    .prog-card { border-radius: 16px; overflow: hidden; border: 1px solid #e8ede8; transition: transform 0.18s, box-shadow 0.18s; background: #fff; display: flex; flex-direction: column; }
     .prog-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.09); }
-    .prog-head { padding: 26px 26px 20px; }
+    .prog-head { padding: 26px 26px 20px; flex: 1; }
     .prog-icon { font-size: 34px; margin-bottom: 12px; }
     .prog-card h3 { font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; }
     .prog-tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #2D9A47; background: #edf7f0; border-radius: 4px; padding: 2px 8px; margin-bottom: 10px; }
     .prog-card p { font-size: 14px; color: #555; line-height: 1.6; }
-    .prog-foot { padding: 16px 26px; background: #f8faf8; border-top: 1px solid #eee; display: flex; align-items: center; justify-content: space-between; }
+    .prog-foot { padding: 16px 26px; background: #f8faf8; border-top: 1px solid #eee; display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
     .prog-foot a { font-size: 14px; font-weight: 700; color: #2D9A47; }
     .prog-foot .badge { font-size: 12.5px; color: #888; }
 
