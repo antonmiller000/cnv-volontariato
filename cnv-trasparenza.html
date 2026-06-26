@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it" data-lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trasparenza – Centro Nazionale per il Volontariato</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #f7f8fa; font-size: 16px; line-height: 1.75; }
+    a { color: #2D9A47; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── TOP BAR ── */
+    .topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; }
+    .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .topbar-left { display: flex; gap: 20px; align-items: center; }
+    .topbar-left a { color: rgba(255,255,255,0.8); }
+    .topbar-left a:hover { color: #fff; text-decoration: none; }
+    .topbar-left span { opacity: 0.5; }
+    .lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
+    .lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
+    .lang-btn.active { background: #fff; color: #2D9A47; }
+
+    /* ── HEADER ── */
+    .header { background: #fff; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .logo-text .org { font-size: 16px; font-weight: 800; color: #1a1a1a; line-height: 1.2; }
+    .logo-text .sub { font-size: 11px; color: #2D9A47; font-weight: 600; }
+    .back-link { display: flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; color: #555; padding: 7px 14px; border-radius: 8px; border: 1px solid #e0e0e0; transition: background 0.15s, color 0.15s; }
+    .back-link:hover { background: #f4faf5; color: #2D9A47; text-decoration: none; }
+
+    /* ── HERO ── */
+    .page-hero { background: #111827; color: #fff; padding: 48px 32px 44px; }
+    .page-hero-inner { max-width: 900px; margin: 0 auto; }
+    .page-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(45,154,71,0.22); border: 1px solid rgba(45,154,71,0.38); color: #6ee88a; border-radius: 20px; padding: 4px 14px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 18px; }
+    .page-hero h1 { font-size: 36px; font-weight: 800; line-height: 1.1; margin-bottom: 8px; }
+    .page-hero .subtitle { font-size: 15px; opacity: 0.6; margin-bottom: 28px; }
+    .page-meta-row { display: flex; gap: 28px; flex-wrap: wrap; }
+    .page-meta-item { display: flex; gap: 8px; align-items: center; font-size: 13px; color: rgba(255,255,255,0.55); }
+    .page-meta-item strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+    /* ── MAIN CONTENT ── */
+    .page-body { max-width: 900px; margin: 0 auto; padding: 44px 32px 80px; }
+
+    /* ── LEGAL NOTICE ── */
+    .legal-notice { background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; padding: 16px 22px; font-size: 13.5px; color: #78590a; line-height: 1.6; margin-bottom: 36px; }
+
+    /* ── DOC CARDS ── */
+    .docs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .doc-card { background: #fff; border: 1px solid #e0ece0; border-radius: 14px; padding: 28px 26px; display: flex; flex-direction: column; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+    .doc-icon { width: 48px; height: 48px; background: #fef3c7; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; flex-shrink: 0; }
+    .doc-type { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #999; margin-bottom: 6px; }
+    .doc-card h4 { font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; line-height: 1.3; }
+    .doc-card > p { font-size: 13.5px; color: #666; line-height: 1.6; flex: 1; }
+    .doc-date { font-size: 12px; color: #bbb; margin-top: 12px; }
+    .doc-download { display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; background: #2D9A47; color: #fff; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 9px; transition: background 0.15s; align-self: flex-start; }
+    .doc-download:hover { background: #238038; color: #fff; text-decoration: none; }
+
+    /* ── FOOTER ── */
+    .footer { background: #111827; padding: 20px 32px; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { color: rgba(255,255,255,0.5); font-size: 12px; transition: color 0.15s; }
+    .footer-links a:hover { color: #fff; text-decoration: none; }
+    .footer-eu { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); border-radius: 6px; padding: 6px 14px; }
+    .funded-sm { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.6); line-height: 1.3; }
+
+    @media (max-width: 768px) {
+      .docs-grid { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 28px; }
+    }
+    @media (max-width: 500px) {
+      .docs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="mailto:cnv@centrovolontariato.it">cnv@centrovolontariato.it</a>
+      <span>|</span>
+      <a href="tel:+390583419500">0583 419500</a>
+      <span>|</span>
+      <span data-it="Lun–Ven 9:00–13:00" data-en="Mon–Fri 9:00–13:00">Lun–Ven 9:00–13:00</span>
+    </div>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('it')" id="btn-it">IT</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="cnv-website.html" class="logo">
+      <svg width="42" height="46" viewBox="0 0 200 215" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="12,12 100,200 68,12" fill="#2D9A47"/>
+        <polygon points="132,12 100,200 188,12" fill="#2D9A47"/>
+        <circle cx="100" cy="12" r="30" fill="#9B9B9B"/>
+      </svg>
+      <div class="logo-text">
+        <div class="org">Centro Nazionale per il Volontariato</div>
+        <div class="sub" data-it="Lucca · Toscana" data-en="Lucca · Tuscany">Lucca · Toscana</div>
+      </div>
+    </a>
+    <a href="cnv-website.html" class="back-link">
+      ‹ <span data-it="Torna al sito" data-en="Back to site">Torna al sito</span>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-badge" data-it="TRASPARENZA · D.LGS. 117/2017" data-en="TRANSPARENCY · D.LGS. 117/2017">TRASPARENZA · D.LGS. 117/2017</div>
+    <h1 data-it="Obblighi di Pubblicità" data-en="Transparency &amp; Disclosure">Obblighi di Pubblicità</h1>
+    <p class="subtitle" data-it="Documenti pubblicati ai sensi del Codice del Terzo Settore · Centro Nazionale per il Volontariato" data-en="Documents published pursuant to the Third Sector Code · Centro Nazionale per il Volontariato">Documenti pubblicati ai sensi del Codice del Terzo Settore · Centro Nazionale per il Volontariato</p>
+    <div class="page-meta-row">
+      <div class="page-meta-item">📍 <strong>Via A. Catalani 158, 55100 Lucca</strong></div>
+      <div class="page-meta-item">✉ <strong>cnv@centrovolontariato.it</strong></div>
+      <div class="page-meta-item" data-it="🗓 Aggiornato: 2026" data-en="🗓 Updated: 2026">🗓 <strong data-it="Aggiornato: 2026" data-en="Updated: 2026">Aggiornato: 2026</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page-body">
+
+  <div class="legal-notice" data-it="⚖️ Ai sensi dell'art. 57 e seguenti del D.Lgs. 117/2017 (Codice del Terzo Settore), gli enti del terzo settore sono tenuti a pubblicare sul proprio sito web le informazioni relative agli emolumenti dei dirigenti, i contributi ricevuti da soggetti pubblici o privati superiori a 10.000 €, e il proprio atto costitutivo o statuto." data-en="⚖️ Pursuant to art. 57 et seq. of D.Lgs. 117/2017 (Third Sector Code), third-sector organisations are required to publish on their websites information on executive compensation, contributions received from public or private entities exceeding €10,000, and their founding deed or statute.">⚖️ Ai sensi dell'art. 57 e seguenti del D.Lgs. 117/2017 (Codice del Terzo Settore), gli enti del terzo settore sono tenuti a pubblicare sul proprio sito web le informazioni relative agli emolumenti dei dirigenti, i contributi ricevuti da soggetti pubblici o privati superiori a 10.000 €, e il proprio atto costitutivo o statuto.</div>
+
+  <div class="docs-grid">
+
+    <div class="doc-card">
+      <div class="doc-icon">📄</div>
+      <div class="doc-type" data-it="Atto Costitutivo" data-en="Founding document">Atto Costitutivo</div>
+      <h4 data-it="Statuto CNV" data-en="CNV Statute">Statuto CNV</h4>
+      <p data-it="Statuto ufficiale del Centro Nazionale per il Volontariato. Copia conforme su supporto informatico ai sensi dell'art. 23 D.Lgs. 82/2005, certificata il 25 giugno 2024." data-en="Official statute of Centro Nazionale per il Volontariato. Certified digital copy pursuant to art. 23 of D.Lgs. 82/2005, certified on 25 June 2024.">Statuto ufficiale del Centro Nazionale per il Volontariato. Copia conforme su supporto informatico ai sensi dell'art. 23 D.Lgs. 82/2005, certificata il 25 giugno 2024.</p>
+      <div class="doc-date" data-it="Certificato: 25 giugno 2024" data-en="Certified: 25 June 2024">Certificato: 25 giugno 2024</div>
+      <a href="statuto-cnv.pdf" class="doc-download" target="_blank" rel="noopener">
+        ⬇ <span data-it="Scarica PDF" data-en="Download PDF">Scarica PDF</span>
+      </a>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-icon">💼</div>
+      <div class="doc-type" data-it="Retribuzione Dirigente" data-en="Executive Compensation">Retribuzione Dirigente</div>
+      <h4 data-it="Retribuzione annuale – Paolo Bicocchi" data-en="Annual compensation – Paolo Bicocchi">Retribuzione annuale – Paolo Bicocchi</h4>
+      <p data-it="Retribuzione lorda annuale del Direttore pubblicata ai sensi degli obblighi di trasparenza. Dati disponibili dal 2016 al 2025 (retribuzione 2025: € 32.830,00)." data-en="Annual gross compensation of the Director published pursuant to transparency obligations. Data available from 2016 to 2025 (2025 compensation: € 32,830.00).">Retribuzione lorda annuale del Direttore pubblicata ai sensi degli obblighi di trasparenza. Dati disponibili dal 2016 al 2025 (retribuzione 2025: € 32.830,00).</p>
+      <div class="doc-date" data-it="Aggiornato: 2026 · Dati: 2016–2025" data-en="Updated: 2026 · Data: 2016–2025">Aggiornato: 2026 · Dati: 2016–2025</div>
+      <a href="retribuzione-paolo-bicocchi.pdf" class="doc-download" target="_blank" rel="noopener">
+        ⬇ <span data-it="Scarica PDF" data-en="Download PDF">Scarica PDF</span>
+      </a>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-icon">📊</div>
+      <div class="doc-type" data-it="Contributi ricevuti" data-en="Contributions received">Contributi ricevuti</div>
+      <h4 data-it="Contributi e finanziamenti 2025" data-en="2025 Contributions &amp; Funding">Contributi e finanziamenti 2025</h4>
+      <p data-it="Prospetto dei contributi ricevuti da Comuni, Istituti Comprensivi e altri enti pubblici nell'anno 2025 per la gestione di volontari in Servizio Civile, pubblicato ai sensi degli obblighi di trasparenza." data-en="Schedule of contributions received from municipalities, schools and other public bodies in 2025 for the management of civic service volunteers, published pursuant to transparency obligations.">Prospetto dei contributi ricevuti da Comuni, Istituti Comprensivi e altri enti pubblici nell'anno 2025 per la gestione di volontari in Servizio Civile, pubblicato ai sensi degli obblighi di trasparenza.</p>
+      <div class="doc-date" data-it="Anno di riferimento: 2025" data-en="Reference year: 2025">Anno di riferimento: 2025</div>
+      <a href="contributi-2025.pdf" class="doc-download" target="_blank" rel="noopener">
+        ⬇ <span data-it="Scarica PDF" data-en="Download PDF">Scarica PDF</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-bottom">
+    <span data-it="© 2026 Centro Nazionale per il Volontariato – Lucca." data-en="© 2026 Centro Nazionale per il Volontariato – Lucca.">© 2026 Centro Nazionale per il Volontariato – Lucca.</span>
+    <div class="footer-links">
+      <a href="cnv-website.html" data-it="Torna al sito" data-en="Back to site">Torna al sito</a>
+      <a href="cnv-gdpr.html" data-it="Privacy & GDPR" data-en="Privacy & GDPR">Privacy & GDPR</a>
+    </div>
+    <div class="footer-eu">
+      <svg width="38" height="26" viewBox="0 0 38 26" xmlns="http://www.w3.org/2000/svg">
+        <rect width="38" height="26" fill="#003399"/>
+        <g fill="#FFCC00" transform="translate(19,13)">
+          <g transform="rotate(0)   translate(0,-8.67) rotate(0)  "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(30)  translate(0,-8.67) rotate(-30) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(60)  translate(0,-8.67) rotate(-60) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(90)  translate(0,-8.67) rotate(-90) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(120) translate(0,-8.67) rotate(-120)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(150) translate(0,-8.67) rotate(-150)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(180) translate(0,-8.67) rotate(-180)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(210) translate(0,-8.67) rotate(-210)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(240) translate(0,-8.67) rotate(-240)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(270) translate(0,-8.67) rotate(-270)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(300) translate(0,-8.67) rotate(-300)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(330) translate(0,-8.67) rotate(-330)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+        </g>
+      </svg>
+      <div class="funded-sm" data-it="Finanziato dall'<br>Unione Europea" data-en="Funded by<br>the European Union">Finanziato dall'<br>Unione Europea</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-it][data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text !== null) el.innerHTML = text;
+    });
+    document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    localStorage.setItem('cnv-lang', lang);
+  }
+  (function() {
+    const saved = localStorage.getItem('cnv-lang');
+    const browser = navigator.language.startsWith('en') ? 'en' : 'it';
+    setLang(saved || browser);
+  })();
+</script>
+</body>
+</html>
