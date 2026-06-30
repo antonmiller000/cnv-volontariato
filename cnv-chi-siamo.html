@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="it" data-lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chi Siamo – Centro Nazionale per il Volontariato</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #f7f8fa; font-size: 16px; line-height: 1.75; }
+    a { color: #2D9A47; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* TOP BAR */
+    .topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; }
+    .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .topbar-left { display: flex; gap: 20px; align-items: center; }
+    .topbar-left a { color: rgba(255,255,255,0.8); }
+    .topbar-left a:hover { color: #fff; text-decoration: none; }
+    .topbar-left span { opacity: 0.5; }
+    .lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
+    .lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
+    .lang-btn.active { background: #fff; color: #2D9A47; }
+
+    /* HEADER */
+    .header { background: #fff; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .logo-text .org { font-size: 16px; font-weight: 800; color: #1a1a1a; line-height: 1.2; }
+    .logo-text .sub { font-size: 11px; color: #2D9A47; font-weight: 600; }
+    .back-link { display: flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; color: #555; padding: 7px 14px; border-radius: 8px; border: 1px solid #e0e0e0; transition: background 0.15s, color 0.15s; }
+    .back-link:hover { background: #f4faf5; color: #2D9A47; text-decoration: none; }
+
+    /* HERO */
+    .page-hero { background: linear-gradient(135deg, #1a6b30 0%, #2D9A47 60%, #3ab85a 100%); color: #fff; padding: 56px 32px 52px; }
+    .page-hero-inner { max-width: 900px; margin: 0 auto; }
+    .page-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 18px; }
+    .page-hero h1 { font-size: 40px; font-weight: 900; line-height: 1.05; margin-bottom: 12px; }
+    .page-hero .subtitle { font-size: 17px; opacity: 0.82; max-width: 600px; }
+
+    /* CONTENT */
+    .page-body { max-width: 900px; margin: 0 auto; padding: 52px 32px 80px; display: flex; flex-direction: column; gap: 48px; }
+
+    /* SECTION */
+    .cs-section { background: #fff; border: 1px solid #e0ece0; border-radius: 16px; padding: 36px 40px; }
+    .cs-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #2D9A47; margin-bottom: 6px; }
+    .cs-divider { width: 36px; height: 3px; background: #2D9A47; border-radius: 2px; margin-bottom: 16px; }
+    .cs-section h2 { font-size: 22px; font-weight: 800; color: #1a1a1a; margin-bottom: 16px; line-height: 1.2; }
+    .cs-section p { font-size: 15px; color: #444; line-height: 1.75; margin-bottom: 12px; }
+    .cs-section p:last-child { margin-bottom: 0; }
+
+    /* STATS ROW */
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: #f4faf5; border-radius: 12px; overflow: hidden; border: 1px solid #d4ead8; margin-top: 24px; }
+    .stat-cell { padding: 20px 16px; text-align: center; border-right: 1px solid #d4ead8; }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell .num { font-size: 28px; font-weight: 900; color: #2D9A47; line-height: 1; }
+    .stat-cell .lbl { font-size: 12px; color: #666; margin-top: 4px; }
+
+    /* GOVERNANCE */
+    .people-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    .person-card { background: #f4faf5; border: 1px solid #d4ead8; border-radius: 12px; padding: 22px 24px; }
+    .person-role { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #2D9A47; margin-bottom: 4px; }
+    .person-name { font-size: 17px; font-weight: 800; color: #1a1a1a; }
+
+    /* LEGAL */
+    .legal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+    .legal-item { background: #f8faf8; border-radius: 10px; padding: 14px 18px; }
+    .legal-item .k { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #999; margin-bottom: 3px; }
+    .legal-item .v { font-size: 14.5px; font-weight: 600; color: #1a1a1a; font-family: 'Courier New', monospace; }
+
+    /* ACCREDITATIONS */
+    .accred-list { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+    .accred-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; background: #f4faf5; border-radius: 10px; border: 1px solid #d4ead8; }
+    .accred-icon { font-size: 22px; flex-shrink: 0; }
+    .accred-text h4 { font-size: 14.5px; font-weight: 700; color: #1a1a1a; margin-bottom: 2px; }
+    .accred-text p { font-size: 13px; color: #666; line-height: 1.5; margin: 0; }
+
+    /* CONTACT BOX */
+    .contact-box { background: #1a1a1a; border-radius: 14px; padding: 30px 36px; color: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 0; }
+    .contact-box h3 { font-size: 17px; font-weight: 700; margin-bottom: 16px; grid-column: 1 / -1; }
+    .cbox-item { font-size: 13.5px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+    .cbox-item strong { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: rgba(255,255,255,0.4); margin-bottom: 2px; }
+    .cbox-item a { color: rgba(255,255,255,0.75); }
+    .cbox-item a:hover { color: #fff; text-decoration: none; }
+
+    /* FOOTER */
+    .footer { background: #111827; padding: 20px 32px; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { color: rgba(255,255,255,0.5); font-size: 12px; transition: color 0.15s; }
+    .footer-links a:hover { color: #fff; text-decoration: none; }
+    .footer-eu { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); border-radius: 6px; padding: 6px 14px; }
+    .funded-sm { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.6); line-height: 1.3; }
+
+    @media (max-width: 700px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .people-grid, .legal-grid, .contact-box { grid-template-columns: 1fr; }
+      .contact-box h3 { grid-column: 1; }
+      .page-hero h1 { font-size: 30px; }
+      .cs-section { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="mailto:cnv@centrovolontariato.it">cnv@centrovolontariato.it</a>
+      <span>|</span>
+      <a href="tel:+390583419500">0583 419500</a>
+      <span>|</span>
+      <span data-it="Lun–Ven 9:00–13:00" data-en="Mon–Fri 9:00–13:00">Lun–Ven 9:00–13:00</span>
+    </div>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('it')" id="btn-it">IT</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="cnv-website.html" class="logo" style="text-decoration:none;">
+      <svg width="42" height="46" viewBox="0 0 200 215" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="12,12 100,200 68,12" fill="#2D9A47"/>
+        <polygon points="132,12 100,200 188,12" fill="#2D9A47"/>
+        <circle cx="100" cy="12" r="30" fill="#9B9B9B"/>
+      </svg>
+      <div class="logo-text">
+        <div class="org">Centro Nazionale per il Volontariato</div>
+        <div class="sub" data-it="Lucca · Toscana" data-en="Lucca · Tuscany">Lucca · Toscana</div>
+      </div>
+    </a>
+    <a href="cnv-website.html" class="back-link">
+      ‹ <span data-it="Torna al sito" data-en="Back to site">Torna al sito</span>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-badge" data-it="DAL 1985 · LUCCA, TOSCANA" data-en="SINCE 1985 · LUCCA, TUSCANY">DAL 1985 · LUCCA, TOSCANA</div>
+    <h1 data-it="Chi Siamo" data-en="About Us">Chi Siamo</h1>
+    <p class="subtitle" data-it="Un'organizzazione di volontariato nata a Lucca nel 1985 per promuovere il volontariato, il servizio civile e la mobilità giovanile internazionale." data-en="A volunteering organisation founded in Lucca in 1985 to promote volunteering, civic service and international youth mobility.">Un'organizzazione di volontariato nata a Lucca nel 1985 per promuovere il volontariato, il servizio civile e la mobilità giovanile internazionale.</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page-body">
+
+  <!-- STORIA E MISSIONE -->
+  <div class="cs-section">
+    <div class="cs-label" data-it="La nostra storia" data-en="Our history">La nostra storia</div>
+    <div class="cs-divider"></div>
+    <h2 data-it="40 anni al servizio del volontariato" data-en="40 years serving volunteering">40 anni al servizio del volontariato</h2>
+    <p data-it="Il Centro Nazionale per il Volontariato (CNV) è un'Organizzazione di Volontariato (OdV) fondata a Lucca nel 1985. Da oltre quattro decenni promuoviamo la cultura del volontariato e del servizio civile come strumenti di crescita personale, coesione sociale e trasformazione comunitaria." data-en="Centro Nazionale per il Volontariato (CNV) is a Volunteering Organisation (OdV) founded in Lucca in 1985. For over four decades we have promoted volunteering and civic service as tools for personal growth, social cohesion and community transformation.">Il Centro Nazionale per il Volontariato (CNV) è un'Organizzazione di Volontariato (OdV) fondata a Lucca nel 1985. Da oltre quattro decenni promuoviamo la cultura del volontariato e del servizio civile come strumenti di crescita personale, coesione sociale e trasformazione comunitaria.</p>
+    <p data-it="Operiamo nella provincia di Lucca e in tutta la Toscana, collaborando con enti locali, scuole, comuni e organizzazioni europee per offrire ai giovani percorsi significativi di impegno civico. Dalla Garfagnana alle capitali europee, il CNV apre porte e costruisce ponti tra persone, comunità e culture." data-en="We operate in the province of Lucca and across Tuscany, working with local authorities, schools, municipalities and European organisations to offer young people meaningful civic engagement pathways. From the Garfagnana to European capitals, CNV opens doors and builds bridges between people, communities and cultures.">Operiamo nella provincia di Lucca e in tutta la Toscana, collaborando con enti locali, scuole, comuni e organizzazioni europee per offrire ai giovani percorsi significativi di impegno civico. Dalla Garfagnana alle capitali europee, il CNV apre porte e costruisce ponti tra persone, comunità e culture.</p>
+    <p data-it="Siamo ente accreditato per il Corpo Europeo di Solidarietà (ESC), ente di Servizio Civile Universale iscritto all'albo del Dipartimento per le Politiche Giovanili, titolari di progetti di Servizio Civile Regionale in Toscana, e partner del Centro Servizi Volontariato Toscana (Cesvot)." data-en="We are an accredited body for the European Solidarity Corps (ESC), a Universal Civic Service organisation registered with the Department for Youth Policies, holders of Regional Civic Service projects in Tuscany, and a partner of the Tuscany Volunteering Services Centre (Cesvot).">Siamo ente accreditato per il Corpo Europeo di Solidarietà (ESC), ente di Servizio Civile Universale iscritto all'albo del Dipartimento per le Politiche Giovanili, titolari di progetti di Servizio Civile Regionale in Toscana, e partner del Centro Servizi Volontariato Toscana (Cesvot).</p>
+
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="num">40+</div>
+        <div class="lbl" data-it="Anni di attività" data-en="Years active">Anni di attività</div>
+      </div>
+      <div class="stat-cell">
+        <div class="num">34</div>
+        <div class="lbl" data-it="Posizioni SCR 2026" data-en="SCR positions 2026">Posizioni SCR 2026</div>
+      </div>
+      <div class="stat-cell">
+        <div class="num">30+</div>
+        <div class="lbl" data-it="Volontari ESC ospitati" data-en="ESC volunteers hosted">Volontari ESC ospitati</div>
+      </div>
+      <div class="stat-cell">
+        <div class="num">6</div>
+        <div class="lbl" data-it="Progetti civili attivi" data-en="Active civic projects">Progetti civili attivi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOVERNANCE -->
+  <div class="cs-section">
+    <div class="cs-label" data-it="Organi sociali" data-en="Governance">Organi sociali</div>
+    <div class="cs-divider"></div>
+    <h2 data-it="Organigramma" data-en="Leadership">Organigramma</h2>
+    <p data-it="Il Centro Nazionale per il Volontariato è governato da un Consiglio di Amministrazione. Le cariche sono ricoperte da volontari e professionisti del settore nonprofit." data-en="Centro Nazionale per il Volontariato is governed by a Board of Directors. Roles are held by volunteers and non-profit sector professionals.">Il Centro Nazionale per il Volontariato è governato da un Consiglio di Amministrazione. Le cariche sono ricoperte da volontari e professionisti del settore nonprofit.</p>
+
+    <div class="people-grid">
+      <div class="person-card">
+        <div class="person-role" data-it="Presidente del Consiglio di Amministrazione" data-en="President of the Board">Presidente del Consiglio di Amministrazione</div>
+        <div class="person-name">Pier Giorgio Licheri</div>
+      </div>
+      <div class="person-card">
+        <div class="person-role" data-it="Direttore" data-en="Director">Direttore</div>
+        <div class="person-name">Paolo Bicocchi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDENTITÀ LEGALE -->
+  <div class="cs-section">
+    <div class="cs-label" data-it="Identità giuridica" data-en="Legal identity">Identità giuridica</div>
+    <div class="cs-divider"></div>
+    <h2 data-it="Dati legali e fiscali" data-en="Legal & fiscal details">Dati legali e fiscali</h2>
+    <p data-it="CNV è iscritto al RUNTS (Registro Unico Nazionale del Terzo Settore) nella sezione Organizzazioni di Volontariato (OdV), ai sensi del D.Lgs. 117/2017." data-en="CNV is registered in the RUNTS (National Single Register of the Third Sector) in the Volunteering Organisations (OdV) section, pursuant to D.Lgs. 117/2017.">CNV è iscritto al RUNTS (Registro Unico Nazionale del Terzo Settore) nella sezione Organizzazioni di Volontariato (OdV), ai sensi del D.Lgs. 117/2017.</p>
+
+    <div class="legal-grid">
+      <div class="legal-item">
+        <div class="k" data-it="Denominazione" data-en="Full name">Denominazione</div>
+        <div class="v" style="font-family:inherit; font-size:13px;">Centro Nazionale per il Volontariato OdV</div>
+      </div>
+      <div class="legal-item">
+        <div class="k" data-it="Forma giuridica" data-en="Legal form">Forma giuridica</div>
+        <div class="v" style="font-family:inherit; font-size:13px;" data-it="Organizzazione di Volontariato (OdV)" data-en="Volunteering Organisation (OdV)">Organizzazione di Volontariato (OdV)</div>
+      </div>
+      <div class="legal-item">
+        <div class="k">Codice Fiscale / P.IVA</div>
+        <div class="v">01128090469</div>
+      </div>
+      <div class="legal-item">
+        <div class="k">Organization PIC (ESC)</div>
+        <div class="v">937200615</div>
+      </div>
+      <div class="legal-item">
+        <div class="k" data-it="Sede legale" data-en="Registered office">Sede legale</div>
+        <div class="v" style="font-family:inherit; font-size:13px;">Via A. Catalani, 158 – 55100 Lucca (LU)</div>
+      </div>
+      <div class="legal-item">
+        <div class="k" data-it="Fondata" data-en="Founded">Fondata</div>
+        <div class="v" style="font-family:inherit; font-size:13px;">1985, Lucca</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCREDITAMENTI -->
+  <div class="cs-section">
+    <div class="cs-label" data-it="Riconoscimenti e accreditamenti" data-en="Accreditations & recognitions">Riconoscimenti e accreditamenti</div>
+    <div class="cs-divider"></div>
+    <h2 data-it="Accreditamenti istituzionali" data-en="Institutional accreditations">Accreditamenti istituzionali</h2>
+
+    <div class="accred-list">
+      <div class="accred-item">
+        <div class="accred-icon">🇪🇺</div>
+        <div class="accred-text">
+          <h4 data-it="Corpo Europeo di Solidarietà (ESC) – Accreditato" data-en="European Solidarity Corps (ESC) – Accredited">Corpo Europeo di Solidarietà (ESC) – Accreditato</h4>
+          <p data-it="Ente accreditato dall'Agenzia Esecutiva per l'Istruzione, l'Audiovisivo e la Cultura (EACEA) per l'ospitalità e l'invio di volontari ESC. PIC: 937200615. Progetto attivo: Trail Angels 2022-1-EACEA-VTHPA-101093414." data-en="Accredited by the European Education and Culture Executive Agency (EACEA) for hosting and sending ESC volunteers. PIC: 937200615. Active project: Trail Angels 2022-1-EACEA-VTHPA-101093414.">Ente accreditato dall'Agenzia Esecutiva per l'Istruzione, l'Audiovisivo e la Cultura (EACEA) per l'ospitalità e l'invio di volontari ESC. PIC: 937200615. Progetto attivo: Trail Angels 2022-1-EACEA-VTHPA-101093414.</p>
+        </div>
+      </div>
+      <div class="accred-item">
+        <div class="accred-icon">🎓</div>
+        <div class="accred-text">
+          <h4 data-it="Erasmus+ Youth – Accreditato" data-en="Erasmus+ Youth – Accredited">Erasmus+ Youth – Accreditato</h4>
+          <p data-it="Accreditati per programmi Erasmus+ nell'ambito della mobilità giovanile internazionale." data-en="Accredited for Erasmus+ programmes in the scope of international youth mobility.">Accreditati per programmi Erasmus+ nell'ambito della mobilità giovanile internazionale.</p>
+        </div>
+      </div>
+      <div class="accred-item">
+        <div class="accred-icon">🇮🇹</div>
+        <div class="accred-text">
+          <h4 data-it="Servizio Civile Universale (SCU) – Ente accreditato" data-en="Universal Civic Service (SCU) – Accredited body">Servizio Civile Universale (SCU) – Ente accreditato</h4>
+          <p data-it="Iscritti all'albo del Dipartimento per le Politiche Giovanili e il Servizio Civile Universale (DPGSCU). Le selezioni per i volontari SCU vengono pubblicate periodicamente sul portale nazionale." data-en="Registered with the Department for Youth Policies and Universal Civic Service (DPGSCU). Selections for SCU volunteers are published periodically on the national portal.">Iscritti all'albo del Dipartimento per le Politiche Giovanili e il Servizio Civile Universale (DPGSCU). Le selezioni per i volontari SCU vengono pubblicate periodicamente sul portale nazionale.</p>
+        </div>
+      </div>
+      <div class="accred-item">
+        <div class="accred-icon">🏠</div>
+        <div class="accred-text">
+          <h4 data-it="Servizio Civile Regionale Toscana (SCR) – Ente titolare" data-en="Tuscany Regional Civic Service (SCR) – Project holder">Servizio Civile Regionale Toscana (SCR) – Ente titolare</h4>
+          <p data-it="Titolari di 6 progetti di Servizio Civile Regionale 2026/27 nella provincia di Lucca, con 34 posizioni disponibili per giovani 18–28 anni residenti o domiciliati in Toscana." data-en="Holders of 6 Regional Civic Service projects 2026/27 in the province of Lucca, with 34 positions available for young people aged 18–28 residing or domiciled in Tuscany.">Titolari di 6 progetti di Servizio Civile Regionale 2026/27 nella provincia di Lucca, con 34 posizioni disponibili per giovani 18–28 anni residenti o domiciliati in Toscana.</p>
+        </div>
+      </div>
+      <div class="accred-item">
+        <div class="accred-icon">🌱</div>
+        <div class="accred-text">
+          <h4 data-it="Partner Cesvot" data-en="Cesvot Partner">Partner Cesvot</h4>
+          <p data-it="Partner del Centro Servizi Volontariato Toscana per la promozione e il supporto del volontariato locale nella provincia di Lucca." data-en="Partner of the Tuscany Volunteering Services Centre for the promotion and support of local volunteering in the province of Lucca.">Partner del Centro Servizi Volontariato Toscana per la promozione e il supporto del volontariato locale nella provincia di Lucca.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTATTI -->
+  <div class="contact-box">
+    <h3 data-it="Contattaci" data-en="Get in touch">Contattaci</h3>
+    <div class="cbox-item">
+      <strong data-it="Sede" data-en="Address">Sede</strong>
+      Via A. Catalani, 158<br>55100 Lucca (LU) · Italia
+    </div>
+    <div class="cbox-item">
+      <strong data-it="Telefono" data-en="Phone">Telefono</strong>
+      <a href="tel:+390583419500">0583 419500</a><br>
+      <span style="font-size:12px; opacity:0.6;" data-it="Lun–Ven 9:00–13:00" data-en="Mon–Fri 9:00–13:00">Lun–Ven 9:00–13:00</span>
+    </div>
+    <div class="cbox-item">
+      <strong>Email</strong>
+      <a href="mailto:cnv@centrovolontariato.it">cnv@centrovolontariato.it</a><br>
+      <a href="mailto:centrovolontariato@pec.it" style="font-size:12.5px; opacity:0.7;">PEC: centrovolontariato@pec.it</a>
+    </div>
+    <div class="cbox-item">
+      <strong data-it="ESC / Internazionale" data-en="ESC / International">ESC / Internazionale</strong>
+      <a href="mailto:esc.centrovolontariato@gmail.com">esc.centrovolontariato@gmail.com</a><br>
+      <a href="tel:+393513349977">+39 351 334 9977</a>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-bottom">
+    <span data-it="© 2026 Centro Nazionale per il Volontariato – Lucca." data-en="© 2026 Centro Nazionale per il Volontariato – Lucca.">© 2026 Centro Nazionale per il Volontariato – Lucca.</span>
+    <div class="footer-links">
+      <a href="cnv-website.html" data-it="Torna al sito" data-en="Back to site">Torna al sito</a>
+      <a href="cnv-trasparenza.html" data-it="Trasparenza" data-en="Transparency">Trasparenza</a>
+      <a href="cnv-gdpr.html" data-it="Privacy & GDPR" data-en="Privacy & GDPR">Privacy & GDPR</a>
+    </div>
+    <div class="footer-eu">
+      <svg width="38" height="26" viewBox="0 0 38 26" xmlns="http://www.w3.org/2000/svg">
+        <rect width="38" height="26" fill="#003399"/>
+        <g fill="#FFCC00" transform="translate(19,13)">
+          <g transform="rotate(0)   translate(0,-8.67) rotate(0)  "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(30)  translate(0,-8.67) rotate(-30) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(60)  translate(0,-8.67) rotate(-60) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(90)  translate(0,-8.67) rotate(-90) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(120) translate(0,-8.67) rotate(-120)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(150) translate(0,-8.67) rotate(-150)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(180) translate(0,-8.67) rotate(-180)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(210) translate(0,-8.67) rotate(-210)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(240) translate(0,-8.67) rotate(-240)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(270) translate(0,-8.67) rotate(-270)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(300) translate(0,-8.67) rotate(-300)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+          <g transform="rotate(330) translate(0,-8.67) rotate(-330)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
+        </g>
+      </svg>
+      <div class="funded-sm" data-it="Finanziato dall'<br>Unione Europea" data-en="Funded by<br>the European Union">Finanziato dall'<br>Unione Europea</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-it][data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text !== null) el.innerHTML = text;
+    });
+    document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    localStorage.setItem('cnv-lang', lang);
+  }
+  (function() {
+    const saved = localStorage.getItem('cnv-lang');
+    const browser = navigator.language.startsWith('en') ? 'en' : 'it';
+    setLang(saved || browser);
+  })();
+</script>
+</body>
+</html>
