@@ -799,6 +799,62 @@
 </div><!-- end page-body -->
 
 
+<!-- ══════════════════════════════════
+     TRAIL ANGELS BLOG
+══════════════════════════════════ -->
+<div style="background: #f4faf5; padding: 72px 32px;" id="blog">
+  <div style="max-width: 780px; margin: 0 auto;">
+    <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #2D9A47; margin-bottom: 8px;">Trail Angels Blog</div>
+    <div style="width: 36px; height: 4px; background: #2D9A47; border-radius: 2px; margin-bottom: 14px;"></div>
+    <h2 style="font-size: 28px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px;">Volunteer Editions</h2>
+    <p style="font-size: 15px; color: #666; margin-bottom: 36px;">Stories, updates and reflections from our volunteers on the ground.</p>
+
+    <div id="blog-editions">
+      <!-- ═══ EDITION — duplicate this block to add a new edition ═══
+      <div class="edition-item">
+        <button class="edition-toggle" onclick="toggleEdition(this)">
+          <span class="edition-num">Edition N · Month YYYY</span>
+          <span class="edition-arrow">▾</span>
+        </button>
+        <div class="edition-body">
+          <p>Content goes here.</p>
+        </div>
+      </div>
+      ═══ END EDITION ═══ -->
+    </div>
+  </div>
+</div>
+
+<style>
+  .edition-item { background: #fff; border: 1px solid #e0ece0; border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
+  .edition-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; background: none; border: none; cursor: pointer; text-align: left; font-family: inherit; }
+  .edition-toggle:hover { background: #f8fbf8; }
+  .edition-num { font-size: 15px; font-weight: 700; color: #1a1a1a; }
+  .edition-arrow { font-size: 18px; color: #2D9A47; transition: transform 0.2s; }
+  .edition-toggle.open .edition-arrow { transform: rotate(180deg); }
+  .edition-body { display: none; padding: 0 22px 22px; font-size: 14.5px; color: #444; line-height: 1.75; }
+  .edition-body.open { display: block; }
+  .edition-body p { margin-bottom: 14px; }
+  .edition-body p:last-child { margin-bottom: 0; }
+  .edition-body h4 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin: 18px 0 6px; }
+  .edition-body img { max-width: 100%; border-radius: 8px; margin: 12px 0; }
+</style>
+
+<script>
+  function toggleEdition(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    document.querySelectorAll('.edition-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.edition-toggle').forEach(b => b.classList.remove('open'));
+    if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const first = document.querySelector('.edition-toggle');
+    if (first) { first.classList.add('open'); first.nextElementSibling.classList.add('open'); }
+  });
+</script>
+
+
 <!-- WHO CAN APPLY — full bleed blue -->
 <div class="apply-bg">
   <div class="apply-grid">
