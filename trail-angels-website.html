@@ -12,28 +12,15 @@
     /* ════════════════════════════
        CNV TOP BAR
     ════════════════════════════ */
-    .cnv-topbar {
-      background: #2D9A47;
-      color: rgba(255,255,255,0.85);
-      font-size: 12.5px;
-      padding: 6px 0;
-    }
-    .cnv-topbar-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .cnv-topbar a { color: rgba(255,255,255,0.75); }
-    .cnv-topbar a:hover { color: #fff; }
-    .topbar-links { display: flex; gap: 20px; }
-    .topbar-lang { display: flex; gap: 10px; }
-    .topbar-lang span { cursor: pointer; }
-    .topbar-lang span.active { color: #fff; font-weight: 600; }
+    .topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; }
+    .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .topbar-left { display: flex; gap: 20px; align-items: center; }
+    .topbar-left a { color: rgba(255,255,255,0.8); }
+    .topbar-left a:hover { color: #fff; text-decoration: none; }
+    .topbar-left span { opacity: 0.5; }
+    .lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
+    .lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
+    .lang-btn.active { background: #fff; color: #2D9A47; }
 
     /* ════════════════════════════
        CNV HEADER / NAV
@@ -466,18 +453,18 @@
 <!-- ════════════════════════════════
      CNV TOP BAR
 ════════════════════════════════ -->
-<div class="cnv-topbar">
-  <div class="cnv-topbar-inner">
-    <div class="topbar-links">
-      <a href="#">Intranet</a>
-      <a href="#">Volunteer Portal</a>
-      <a href="#">Press</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="topbar-lang">
-      <span>IT</span>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="mailto:cnv@centrovolontariato.it">cnv@centrovolontariato.it</a>
       <span>|</span>
-      <span class="active">EN</span>
+      <a href="tel:+390583419500">0583 419500</a>
+      <span>|</span>
+      <span style="opacity:0.5;">Mon–Fri 9:00–13:00</span>
+    </div>
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="window.location.href='index.html'" style="cursor:pointer;">IT</button>
+      <button class="lang-btn active">EN</button>
     </div>
   </div>
 </div>
