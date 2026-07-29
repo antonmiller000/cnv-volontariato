@@ -60,6 +60,32 @@
       line-height: 1.4;
     }
     .eu-bar-info strong { color: #333; }
+    /* ── CONSORTIUM & PARTNERS ── */
+    .partner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 26px; }
+    .partner-card { background: #fff; border: 1px solid #e0e8e0; border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; }
+    .partner-card.lead { border-color: #2D9A47; border-width: 2px; }
+    .partner-role { display: inline-block; align-self: flex-start; font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #2D9A47; background: #edf7f0; border-radius: 20px; padding: 4px 12px; margin-bottom: 14px; }
+    .partner-card.lead .partner-role { color: #fff; background: #2D9A47; }
+    .partner-name { font-size: 17px; font-weight: 800; color: #1a1a1a; line-height: 1.25; margin-bottom: 4px; }
+    .partner-short { font-size: 12.5px; font-weight: 600; color: #2D9A47; margin-bottom: 14px; }
+    .partner-card p { font-size: 13.5px; color: #555; line-height: 1.65; flex: 1; margin-bottom: 16px; }
+    .partner-meta { border-top: 1px solid #f0f0f0; padding-top: 12px; display: flex; flex-direction: column; gap: 7px; }
+    .partner-meta div { display: flex; gap: 10px; align-items: baseline; }
+    .partner-meta dt { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #aaa; min-width: 94px; flex-shrink: 0; }
+    .partner-meta dd { font-size: 12.5px; color: #333; font-weight: 500; }
+
+    .grant-facts { background: #f7f9fc; border: 1px solid #dde5f0; border-radius: 14px; padding: 24px 26px; }
+    .grant-facts-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: #003399; margin-bottom: 16px; }
+    .grant-facts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 32px; }
+    .grant-facts-grid > div { display: flex; flex-direction: column; gap: 2px; }
+    .grant-facts-grid .k { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #8a97ab; }
+    .grant-facts-grid .v { font-size: 14px; font-weight: 600; color: #1a2b45; }
+
+    @media (max-width: 900px) {
+      .partner-grid { grid-template-columns: 1fr; }
+      .grant-facts-grid { grid-template-columns: 1fr; }
+    }
+
     /* Official European Solidarity Corps logo lockup */
     .esc-logo { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
     .esc-logo .esc-words {
@@ -402,6 +428,16 @@
 .site-nav .nav-cta:hover { background: #238038; color: #fff; }
 @media (max-width: 1100px) { .site-nav { display: none; } }
 @media print { .topbar, .site-header { display: none; } }
+
+/* ══ OFFICIAL EU / ESC LOGO PANEL — identical on every page ══ */
+.eu-logo-panel { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; background: #fff; border-radius: 8px; padding: 11px 16px; }
+.eu-lock, .esc-lock { display: flex; align-items: center; gap: 10px; }
+.eu-lock .eu-t { font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 12.5px; color: #003399; line-height: 1.18; }
+.esc-lock .esc-t { font-family: Arial, Helvetica, sans-serif; font-weight: 800; font-size: 12.5px; line-height: 1.04; letter-spacing: -0.01em; }
+.esc-lock .esc-t span { display: block; }
+.esc-lock .esc-t .e { color: #003399; }
+.esc-lock .esc-t .s { color: #D2117E; }
+.esc-lock .esc-t .c { color: #00AEEF; }
   </style>
 </head>
 <body>
@@ -705,6 +741,66 @@
       <div class="tag">🇺🇦 Ukraine</div>
       <div class="tag">🇮🇹 Italy</div>
       <div class="tag">+ More countries</div>
+    </div>
+  </div>
+
+  <!-- CONSORTIUM -->
+  <div class="section" id="consortium">
+    <div class="section-title">Consortium &amp; Partner Organisations</div>
+    <div class="section-sub">Trail Angels is delivered by a transnational consortium of three organisations under Grant Agreement No. 101093414.</div>
+
+    <div class="partner-grid">
+
+      <div class="partner-card lead">
+        <div class="partner-role">Coordinator</div>
+        <div class="partner-name">Centro Nazionale per il Volontariato</div>
+        <div class="partner-short">CNV · Italy</div>
+        <p>Founded in Lucca in 1985, CNV is an accredited Italian volunteering organisation and the coordinating beneficiary of Trail Angels. It is responsible for overall project management, volunteer recruitment and selection, hosting and mentoring the international teams in Tuscany, and reporting to the granting authority.</p>
+        <dl class="partner-meta">
+          <div><dt>PIC</dt><dd>937200615</dd></div>
+          <div><dt>Country</dt><dd>Italy (IT)</dd></div>
+          <div><dt>Registered office</dt><dd>Via A. Catalani 158, 55100 Lucca</dd></div>
+        </dl>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-role">Beneficiary</div>
+        <div class="partner-name">Studio Progetto Società Cooperativa Sociale</div>
+        <div class="partner-short">Studio Progetto · Italy</div>
+        <p>An Italian social cooperative based in the Veneto region, contributing to the project as a partner beneficiary in volunteer preparation, support and the wider dissemination of the project's results.</p>
+        <dl class="partner-meta">
+          <div><dt>PIC</dt><dd>946503109</dd></div>
+          <div><dt>Country</dt><dd>Italy (IT)</dd></div>
+          <div><dt>Registered office</dt><dd>Via Monte Ortigara 115 B, 36073 Cornedo Vicentino (VI)</dd></div>
+        </dl>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-role">Beneficiary</div>
+        <div class="partner-name">Internationaler Bund Polska</div>
+        <div class="partner-short">IBP · Poland</div>
+        <p>A Polish youth and social-work organisation, part of the Internationaler Bund network. As a partner beneficiary it acts as a sending organisation, preparing and supporting volunteers travelling to Italy for their solidarity placements.</p>
+        <dl class="partner-meta">
+          <div><dt>PIC</dt><dd>946132181</dd></div>
+          <div><dt>Country</dt><dd>Poland (PL)</dd></div>
+          <div><dt>Registered office</dt><dd>Al. Daszyńskiego 22, 31-534 Kraków</dd></div>
+        </dl>
+      </div>
+
+    </div>
+
+    <div class="grant-facts">
+      <div class="grant-facts-title">Grant Agreement — key facts</div>
+      <div class="grant-facts-grid">
+        <div><span class="k">Project number</span><span class="v">101093414</span></div>
+        <div><span class="k">Project name</span><span class="v">TRAIL ANGELS</span></div>
+        <div><span class="k">Call &amp; topic</span><span class="v">ESC-SOLID-2022-VTHPA</span></div>
+        <div><span class="k">Type of action</span><span class="v">ESC Solidarity Volunteering Unit Grants</span></div>
+        <div><span class="k">Granting authority</span><span class="v">European Education and Culture Executive Agency (EACEA)</span></div>
+        <div><span class="k">Project duration</span><span class="v">36 months</span></div>
+        <div><span class="k">Consortium agreement</span><span class="v">Yes</span></div>
+        <div><span class="k">Maximum grant amount</span><span class="v">€ 378 400,00</span></div>
+      </div>
     </div>
   </div>
 
@@ -1065,6 +1161,7 @@
         <li><a href="#apply">Who Can Apply</a></li>
         <li><a href="#apply">How to Apply</a></li>
         <li><a href="#blog">Volunteer Stories</a></li>
+        <li><a href="#consortium">Consortium &amp; Partners</a></li>
       </ul>
     </div>
 
@@ -1094,9 +1191,9 @@
 
   <div class="cnv-footer-bottom">
     <div>© 2025–2026 Centro Nazionale per il Volontariato – Lucca. All rights reserved. · Trail Angels Project No. 101093414</div>
-    <div class="footer-bottom-eu">
-      <svg width="40" height="27" viewBox="0 0 810 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of the European Union"><rect width="810" height="540" fill="#003399"/><g fill="#FFCC00"><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,90.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,114.12)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(585.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,450.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(225.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,114.12)"/></g></svg>
-      <div class="funded-sm">Funded by<br>the European Union</div>
+    <div class="eu-logo-panel">
+      <div class="eu-lock"><svg width="52" height="35" viewBox="0 0 810 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of the European Union"><rect width="810" height="540" fill="#003399"/><g fill="#FFCC00"><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,90.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,114.12)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(585.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,450.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(225.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,114.12)"/></g></svg><div class="eu-t" data-it="Finanziato dall'<br>Unione Europea" data-en="Funded by<br>the European Union">Finanziato dall'<br>Unione Europea</div></div>
+      <div class="esc-lock"><svg width="52" height="35" viewBox="0 0 810 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of the European Union"><rect width="810" height="540" fill="#003399"/><g fill="#FFCC00"><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,90.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,114.12)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(585.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,450.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(225.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,114.12)"/></g></svg><div class="esc-t"><span class="e">EUROPEAN</span><span class="s">SOLIDARITY</span><span class="c">CORPS</span></div></div>
     </div>
   </div>
 </footer>
