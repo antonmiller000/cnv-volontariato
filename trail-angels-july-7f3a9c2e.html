@@ -376,9 +376,34 @@
     [data-deck-active] .fx-cascade>*:nth-child(6){animation-delay:.64s;}
     @keyframes fxRise{from{transform:translateY(36px) scale(.965);}to{transform:none;}}
   }
+  /* ── CNV TOPBAR ── */
+  #cnv-site-topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; position: relative; z-index: 9999; flex-shrink: 0; }
+  #cnv-site-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  #cnv-site-topbar .tb-left { display: flex; gap: 20px; align-items: center; }
+  #cnv-site-topbar .tb-left a { color: rgba(255,255,255,0.8); text-decoration: none; }
+  #cnv-site-topbar .tb-left a:hover { color: #fff; }
+  #cnv-site-topbar .tb-left span { opacity: 0.5; }
+  #cnv-site-topbar .lang-sw { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
+  #cnv-site-topbar .lb { border: none; background: transparent; cursor: default; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; font-family: inherit; }
+  #cnv-site-topbar .lb.active { background: #fff; color: #2D9A47; }
 </style>
 </head>
 <body>
+<div id="cnv-site-topbar">
+  <div id="cnv-site-topbar-inner">
+    <div class="tb-left">
+      <a href="mailto:cnv@centrovolontariato.it">cnv@centrovolontariato.it</a>
+      <span>|</span>
+      <a href="tel:+390583419500">0583 419500</a>
+      <span>|</span>
+      <span>Mon–Fri 9:00–13:00</span>
+    </div>
+    <div class="lang-sw">
+      <button class="lb" onclick="window.location.href='index.html'">IT</button>
+      <button class="lb active">EN</button>
+    </div>
+  </div>
+</div>
 <deck-stage width="1920" height="1080">
 
   <!-- 01 · COVER -->
