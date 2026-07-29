@@ -9,30 +9,6 @@
     body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #fff; font-size: 16px; line-height: 1.7; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── TOP BAR ── */
-    .topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; }
-    .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .topbar-left { display: flex; gap: 20px; align-items: center; }
-    .topbar-left a { color: rgba(255,255,255,0.8); }
-    .topbar-left a:hover { color: #fff; }
-    .topbar-left span { opacity: 0.5; }
-    .lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
-    .lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
-    .lang-btn.active { background: #fff; color: #2D9A47; }
-
-    /* ── HEADER ── */
-    .header { background: #fff; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
-    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
-    .logo { display: flex; align-items: center; gap: 13px; flex-shrink: 0; }
-    .logo-svg { width: 48px; height: 52px; }
-    .logo-text .org { font-size: 17px; font-weight: 800; color: #1a1a1a; line-height: 1.2; }
-    .logo-text .sub { font-size: 11.5px; color: #2D9A47; font-weight: 600; }
-    nav { display: flex; align-items: center; gap: 2px; }
-    nav a { font-size: 14px; font-weight: 600; color: #333; padding: 7px 13px; border-radius: 6px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
-    nav a:hover { background: #f0faf3; color: #2D9A47; }
-    .nav-cta { background: #2D9A47 !important; color: #fff !important; border-radius: 8px !important; margin-left: 6px; }
-    .nav-cta:hover { background: #238038 !important; }
-
     /* ── HERO ── */
     .hero { background: linear-gradient(135deg, #1a6b30 0%, #2D9A47 55%, #3ab85a 100%); color: #fff; padding: 76px 32px 0; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; right: -120px; top: -120px; width: 600px; height: 600px; border-radius: 50%; background: rgba(255,255,255,0.04); pointer-events: none; }
@@ -201,20 +177,44 @@
       .events-grid { grid-template-columns: 1fr; }
       .hero-stats { grid-template-columns: repeat(2, 1fr); }
       .footer-inner { grid-template-columns: 1fr 1fr; }
-      nav { display: none; }
       .hero h1 { font-size: 34px; }
     }
     @media (max-width: 600px) {
       .news-grid, .docs-grid { grid-template-columns: 1fr; }
     }
+/* ══════════════════════════════════════════════════════
+   CNV STANDARD TOP PANEL — identical on every page.
+   Do not edit per-page. Keep byte-for-byte in sync.
+   ══════════════════════════════════════════════════════ */
+.topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; }
+.topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.topbar-left { display: flex; gap: 20px; align-items: center; }
+.topbar-left a { color: rgba(255,255,255,0.8); text-decoration: none; }
+.topbar-left a:hover { color: #fff; text-decoration: none; }
+.topbar-left span { opacity: 0.5; }
+.lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
+.lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
+.lang-btn.active { background: #fff; color: #2D9A47; }
+
+.site-header { background: #fff; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 500; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.site-header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
+.site-logo { display: flex; align-items: center; gap: 13px; flex-shrink: 0; text-decoration: none; }
+.site-logo:hover { text-decoration: none; }
+.site-logo svg { width: 48px; height: 52px; flex-shrink: 0; }
+.site-logo .org { font-size: 17px; font-weight: 800; color: #1a1a1a; line-height: 1.2; }
+.site-logo .sub { font-size: 11.5px; color: #2D9A47; font-weight: 600; }
+.site-nav { display: flex; align-items: center; gap: 2px; }
+.site-nav a { font-size: 13.5px; font-weight: 600; color: #333; padding: 7px 11px; border-radius: 6px; transition: background 0.15s, color 0.15s; white-space: nowrap; text-decoration: none; }
+.site-nav a:hover { background: #f0faf3; color: #2D9A47; text-decoration: none; }
+.site-nav a.active { color: #2D9A47; background: #e6f5eb; }
+.site-nav .nav-cta { background: #2D9A47; color: #fff; border-radius: 8px; margin-left: 6px; }
+.site-nav .nav-cta:hover { background: #238038; color: #fff; }
+@media (max-width: 1100px) { .site-nav { display: none; } }
+@media print { .topbar, .site-header { display: none; } }
   </style>
 </head>
 <body>
-
-
-<!-- ══════════════════════════════════
-     TOP BAR
-══════════════════════════════════ -->
+<!-- ══ CNV STANDARD TOP PANEL — identical on every page ══ -->
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-left">
@@ -231,31 +231,25 @@
   </div>
 </div>
 
-
-<!-- ══════════════════════════════════
-     HEADER
-══════════════════════════════════ -->
-<header class="header">
-  <div class="header-inner">
-    <a href="#" class="logo" style="text-decoration:none;">
-      <svg class="logo-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="0,0 62,0 100,215" fill="#2D9A47"/>
-        <polygon points="138,0 200,0 100,215" fill="#2D9A47"/>
-        <circle cx="100" cy="34" r="36" fill="#9B9B9B"/>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo">
+      <svg viewBox="45.49 164.63 1892.28 1970.78" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#31A246" d="M1469.27 164.63L1937.76 164.63L995.56 2135.41L45.49 164.63L521.84 164.63L675.71 455.16C675.71 455.16 974.62 1044.05 1319.83 455.16Z"/><circle fill="#ACB0B8" cx="996.87" cy="395.93" r="229.38"/>
       </svg>
-      <div class="logo-text">
+      <div>
         <div class="org">Centro Nazionale per il Volontariato</div>
         <div class="sub" data-it="Lucca · Toscana" data-en="Lucca · Tuscany">Lucca · Toscana</div>
       </div>
     </a>
-    <nav>
-      <a href="#notizie" data-it="Notizie" data-en="News">Notizie</a>
+    <nav class="site-nav">
+      <a href="index.html#notizie" data-it="Notizie" data-en="News">Notizie</a>
       <a href="cnv-chi-siamo.html" data-it="Chi Siamo" data-en="About">Chi Siamo</a>
-      <a href="#programmi" data-it="Programmi" data-en="Programmes">Programmi</a>
-      <a href="#international" data-it="Internazionale" data-en="International">Internazionale</a>
-      <a href="#eventi" data-it="Eventi" data-en="Events">Eventi</a>
-      <a href="#contatti" data-it="Contatti" data-en="Contact">Contatti</a>
-      <a href="#servizio" class="nav-cta" data-it="Candidati" data-en="Apply Now">Candidati</a>
+      <a href="index.html#programmi" data-it="Programmi" data-en="Programmes">Programmi</a>
+      <a href="trail-angels-website.html" data-it="Trail Angels" data-en="Trail Angels">Trail Angels</a>
+      <a href="cnv-trasparenza.html" data-it="Trasparenza" data-en="Transparency">Trasparenza</a>
+      <a href="index.html#contatti" data-it="Contatti" data-en="Contact">Contatti</a>
+      <a href="index.html#servizio" class="nav-cta" data-it="Candidati" data-en="Apply Now">Candidati</a>
     </nav>
   </div>
 </header>
@@ -558,23 +552,7 @@
         </div>
       </div>
       <div class="intl-badge">
-        <svg width="80" height="54" viewBox="0 0 80 54" xmlns="http://www.w3.org/2000/svg">
-          <rect width="80" height="54" fill="#003399"/>
-          <g fill="#FFCC00" transform="translate(40,27)">
-            <g transform="rotate(0)   translate(0,-18) rotate(0)  "><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(30)  translate(0,-18) rotate(-30) "><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(60)  translate(0,-18) rotate(-60) "><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(90)  translate(0,-18) rotate(-90) "><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(120) translate(0,-18) rotate(-120)"><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(150) translate(0,-18) rotate(-150)"><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(180) translate(0,-18) rotate(-180)"><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(210) translate(0,-18) rotate(-210)"><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(240) translate(0,-18) rotate(-240)"><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(270) translate(0,-18) rotate(-270)"><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(300) translate(0,-18) rotate(-300)"><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-            <g transform="rotate(330) translate(0,-18) rotate(-330)"><polygon points="0,-3 0.67,-0.93 2.85,-0.93 1.09,0.36 1.76,2.43 0,1.15 -1.76,2.43 -1.09,0.36 -2.85,-0.93 -0.67,-0.93"/></g>
-          </g>
-        </svg>
+        <svg width="80" height="54" viewBox="0 0 810 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of the European Union"><rect width="810" height="540" fill="#003399"/><g fill="#FFCC00"><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,90.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,114.12)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(585.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,450.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(225.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,114.12)"/></g></svg>
         <div class="funded-mini" data-it="Finanziato dall'<br>Unione Europea" data-en="Funded by<br>the European Union">Finanziato dall'<br>Unione Europea</div>
         <div style="font-size:11px; opacity:0.6; margin-top:6px;">ESC Project 101093414</div>
       </div>
@@ -693,10 +671,8 @@
   <div class="footer-inner">
     <div>
       <div class="footer-logo">
-        <svg width="42" height="46" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="0,0 62,0 100,215" fill="#2D9A47"/>
-          <polygon points="138,0 200,0 100,215" fill="#2D9A47"/>
-          <circle cx="100" cy="34" r="36" fill="#9B9B9B"/>
+        <svg width="42" height="46" viewBox="45.49 164.63 1892.28 1970.78" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#31A246" d="M1469.27 164.63L1937.76 164.63L995.56 2135.41L45.49 164.63L521.84 164.63L675.71 455.16C675.71 455.16 974.62 1044.05 1319.83 455.16Z"/><circle fill="#ACB0B8" cx="996.87" cy="395.93" r="229.38"/>
         </svg>
         <div>
           <div class="org">Centro Nazionale per il Volontariato</div>
@@ -747,23 +723,7 @@
     <span data-it="© 2026 Centro Nazionale per il Volontariato – Lucca. Tutti i diritti riservati." data-en="© 2026 Centro Nazionale per il Volontariato – Lucca. All rights reserved.">© 2026 Centro Nazionale per il Volontariato – Lucca. Tutti i diritti riservati.</span>
     <a href="cnv-gdpr.html" style="color:rgba(255,255,255,0.45); font-size:12px; text-decoration:none; transition:color 0.15s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'" data-it="Privacy & GDPR" data-en="Privacy & GDPR">Privacy & GDPR</a>
     <div class="footer-eu">
-      <svg width="38" height="26" viewBox="0 0 38 26" xmlns="http://www.w3.org/2000/svg">
-        <rect width="38" height="26" fill="#003399"/>
-        <g fill="#FFCC00" transform="translate(19,13)">
-          <g transform="rotate(0)   translate(0,-8.67) rotate(0)  "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(30)  translate(0,-8.67) rotate(-30) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(60)  translate(0,-8.67) rotate(-60) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(90)  translate(0,-8.67) rotate(-90) "><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(120) translate(0,-8.67) rotate(-120)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(150) translate(0,-8.67) rotate(-150)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(180) translate(0,-8.67) rotate(-180)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(210) translate(0,-8.67) rotate(-210)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(240) translate(0,-8.67) rotate(-240)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(270) translate(0,-8.67) rotate(-270)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(300) translate(0,-8.67) rotate(-300)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-          <g transform="rotate(330) translate(0,-8.67) rotate(-330)"><polygon points="0,-1.44 0.33,-0.44 1.37,-0.44 0.52,0.17 0.84,1.16 0,0.55 -0.84,1.16 -0.52,0.17 -1.37,-0.44 -0.33,-0.44"/></g>
-        </g>
-      </svg>
+      <svg width="38" height="26" viewBox="0 0 810 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag of the European Union"><rect width="810" height="540" fill="#003399"/><g fill="#FFCC00"><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,90.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,114.12)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(585.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(560.88,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(495.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(405.00,450.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,425.88)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,360.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(225.00,270.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(249.12,180.00)"/><polygon points="0.00,-30.00 6.74,-9.27 28.53,-9.27 10.90,3.54 17.63,24.27 0.00,11.46 -17.63,24.27 -10.90,3.54 -28.53,-9.27 -6.74,-9.27" transform="translate(315.00,114.12)"/></g></svg>
       <div class="funded-sm" data-it="Finanziato dall'<br>Unione Europea" data-en="Funded by<br>the European Union">Finanziato dall'<br>Unione Europea</div>
     </div>
   </div>
@@ -771,22 +731,24 @@
 
 
 <script>
-  function setLang(lang) {
-    document.documentElement.setAttribute('data-lang', lang);
-    document.documentElement.setAttribute('lang', lang);
-    document.querySelectorAll('[data-it][data-en]').forEach(el => {
-      const text = el.getAttribute('data-' + lang);
-      if (text !== null) el.innerHTML = text;
-    });
-    document.getElementById('btn-it').classList.toggle('active', lang === 'it');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    localStorage.setItem('cnv-lang', lang);
-  }
-  (function() {
-    const saved = localStorage.getItem('cnv-lang');
-    const browser = navigator.language.startsWith('en') ? 'en' : 'it';
-    setLang(saved || browser);
-  })();
+/* ══ CNV STANDARD TOP PANEL — language switcher. Identical on every page. ══ */
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+  document.querySelectorAll('[data-it][data-en]').forEach(function (el) {
+    var t = el.getAttribute('data-' + lang);
+    if (t !== null) el.innerHTML = t;
+  });
+  var bi = document.getElementById('btn-it'), be = document.getElementById('btn-en');
+  if (bi) bi.classList.toggle('active', lang === 'it');
+  if (be) be.classList.toggle('active', lang === 'en');
+  try { localStorage.setItem('cnv-lang', lang); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('cnv-lang'); } catch (e) {}
+  setLang(saved || (navigator.language.indexOf('en') === 0 ? 'en' : 'it'));
+})();
 </script>
 
 </body>

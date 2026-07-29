@@ -376,19 +376,40 @@
     [data-deck-active] .fx-cascade>*:nth-child(6){animation-delay:.64s;}
     @keyframes fxRise{from{transform:translateY(36px) scale(.965);}to{transform:none;}}
   }
-  /* ── CNV TOPBAR ── */
-  .topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; position: relative; z-index: 9999; }
-  .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-  .topbar-left { display: flex; gap: 20px; align-items: center; }
-  .topbar-left a { color: rgba(255,255,255,0.8); text-decoration: none; }
-  .topbar-left a:hover { color: #fff; }
-  .topbar-left span { opacity: 0.5; }
-  .lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
-  .lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
-  .lang-btn.active { background: #fff; color: #2D9A47; }
+/* ══════════════════════════════════════════════════════
+   CNV STANDARD TOP PANEL — identical on every page.
+   Do not edit per-page. Keep byte-for-byte in sync.
+   ══════════════════════════════════════════════════════ */
+.topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; }
+.topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.topbar-left { display: flex; gap: 20px; align-items: center; }
+.topbar-left a { color: rgba(255,255,255,0.8); text-decoration: none; }
+.topbar-left a:hover { color: #fff; text-decoration: none; }
+.topbar-left span { opacity: 0.5; }
+.lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
+.lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
+.lang-btn.active { background: #fff; color: #2D9A47; }
+
+.site-header { background: #fff; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 500; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.site-header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
+.site-logo { display: flex; align-items: center; gap: 13px; flex-shrink: 0; text-decoration: none; }
+.site-logo:hover { text-decoration: none; }
+.site-logo svg { width: 48px; height: 52px; flex-shrink: 0; }
+.site-logo .org { font-size: 17px; font-weight: 800; color: #1a1a1a; line-height: 1.2; }
+.site-logo .sub { font-size: 11.5px; color: #2D9A47; font-weight: 600; }
+.site-nav { display: flex; align-items: center; gap: 2px; }
+.site-nav a { font-size: 13.5px; font-weight: 600; color: #333; padding: 7px 11px; border-radius: 6px; transition: background 0.15s, color 0.15s; white-space: nowrap; text-decoration: none; }
+.site-nav a:hover { background: #f0faf3; color: #2D9A47; text-decoration: none; }
+.site-nav a.active { color: #2D9A47; background: #e6f5eb; }
+.site-nav .nav-cta { background: #2D9A47; color: #fff; border-radius: 8px; margin-left: 6px; }
+.site-nav .nav-cta:hover { background: #238038; color: #fff; }
+@media (max-width: 1100px) { .site-nav { display: none; } }
+@media print { .topbar, .site-header { display: none; } }
+.site-header { position: static; }
 </style>
 </head>
 <body>
+<!-- ══ CNV STANDARD TOP PANEL — identical on every page ══ -->
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-left">
@@ -396,14 +417,37 @@
       <span>|</span>
       <a href="tel:+390583419500">0583 419500</a>
       <span>|</span>
-      <span data-it="Lun–Ven 9:00–13:00" data-en="Mon–Fri 9:00–13:00">Mon–Fri 9:00–13:00</span>
+      <span data-it="Lun–Ven 9:00–13:00" data-en="Mon–Fri 9:00–13:00">Lun–Ven 9:00–13:00</span>
     </div>
     <div class="lang-switch">
-      <button class="lang-btn" onclick="setLang('it')" id="btn-it">IT</button>
-      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+      <button class="lang-btn active" onclick="setLang('it')" id="btn-it">IT</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
     </div>
   </div>
 </div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo">
+      <svg viewBox="45.49 164.63 1892.28 1970.78" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#31A246" d="M1469.27 164.63L1937.76 164.63L995.56 2135.41L45.49 164.63L521.84 164.63L675.71 455.16C675.71 455.16 974.62 1044.05 1319.83 455.16Z"/><circle fill="#ACB0B8" cx="996.87" cy="395.93" r="229.38"/>
+      </svg>
+      <div>
+        <div class="org">Centro Nazionale per il Volontariato</div>
+        <div class="sub" data-it="Lucca · Toscana" data-en="Lucca · Tuscany">Lucca · Toscana</div>
+      </div>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html#notizie" data-it="Notizie" data-en="News">Notizie</a>
+      <a href="cnv-chi-siamo.html" data-it="Chi Siamo" data-en="About">Chi Siamo</a>
+      <a href="index.html#programmi" data-it="Programmi" data-en="Programmes">Programmi</a>
+      <a href="trail-angels-website.html" class="active" data-it="Trail Angels" data-en="Trail Angels">Trail Angels</a>
+      <a href="cnv-trasparenza.html" data-it="Trasparenza" data-en="Transparency">Trasparenza</a>
+      <a href="index.html#contatti" data-it="Contatti" data-en="Contact">Contatti</a>
+      <a href="index.html#servizio" class="nav-cta" data-it="Candidati" data-en="Apply Now">Candidati</a>
+    </nav>
+  </div>
+</header>
 <deck-stage width="1920" height="1080">
 
   <!-- 01 · COVER -->
@@ -3479,17 +3523,26 @@
     customElements.define('deck-stage', DeckStage);
   }
 })();
-
+</script>
+<script>
+/* ══ CNV STANDARD TOP PANEL — language switcher. Identical on every page. ══ */
 function setLang(lang) {
-  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  localStorage.setItem('cnv-lang', lang);
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+  document.querySelectorAll('[data-it][data-en]').forEach(function (el) {
+    var t = el.getAttribute('data-' + lang);
+    if (t !== null) el.innerHTML = t;
+  });
+  var bi = document.getElementById('btn-it'), be = document.getElementById('btn-en');
+  if (bi) bi.classList.toggle('active', lang === 'it');
+  if (be) be.classList.toggle('active', lang === 'en');
+  try { localStorage.setItem('cnv-lang', lang); } catch (e) {}
 }
-(function() {
-  const saved = localStorage.getItem('cnv-lang');
-  if (saved) setLang(saved);
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('cnv-lang'); } catch (e) {}
+  setLang(saved || (navigator.language.indexOf('en') === 0 ? 'en' : 'it'));
 })();
-
 </script>
 </body>
 </html>
