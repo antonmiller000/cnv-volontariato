@@ -170,7 +170,7 @@
 
   /* ---- shared ---- */
   .pad{position:absolute;inset:0;padding:78px 100px;display:flex;flex-direction:column;}
-  .topbar{display:flex;align-items:center;justify-content:space-between;font-size:20px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--muted);}
+  .slide-hdr{display:flex;align-items:center;justify-content:space-between;font-size:20px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--muted);}
   .brand{display:flex;align-items:center;gap:13px;color:var(--reed);}
   .brand .mk{width:24px;height:24px;flex:0 0 auto;}
   .kicker{font-size:21px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--reed);}
@@ -377,30 +377,30 @@
     @keyframes fxRise{from{transform:translateY(36px) scale(.965);}to{transform:none;}}
   }
   /* ── CNV TOPBAR ── */
-  #cnv-site-topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; position: relative; z-index: 9999; flex-shrink: 0; }
-  #cnv-site-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-  #cnv-site-topbar .tb-left { display: flex; gap: 20px; align-items: center; }
-  #cnv-site-topbar .tb-left a { color: rgba(255,255,255,0.8); text-decoration: none; }
-  #cnv-site-topbar .tb-left a:hover { color: #fff; }
-  #cnv-site-topbar .tb-left span { opacity: 0.5; }
-  #cnv-site-topbar .lang-sw { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
-  #cnv-site-topbar .lb { border: none; background: transparent; cursor: default; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; font-family: inherit; }
-  #cnv-site-topbar .lb.active { background: #fff; color: #2D9A47; }
+  .topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; position: relative; z-index: 9999; }
+  .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .topbar-left { display: flex; gap: 20px; align-items: center; }
+  .topbar-left a { color: rgba(255,255,255,0.8); text-decoration: none; }
+  .topbar-left a:hover { color: #fff; }
+  .topbar-left span { opacity: 0.5; }
+  .lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
+  .lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
+  .lang-btn.active { background: #fff; color: #2D9A47; }
 </style>
 </head>
 <body>
-<div id="cnv-site-topbar">
-  <div id="cnv-site-topbar-inner">
-    <div class="tb-left">
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
       <a href="mailto:cnv@centrovolontariato.it">cnv@centrovolontariato.it</a>
       <span>|</span>
       <a href="tel:+390583419500">0583 419500</a>
       <span>|</span>
-      <span>Mon–Fri 9:00–13:00</span>
+      <span data-it="Lun–Ven 9:00–13:00" data-en="Mon–Fri 9:00–13:00">Mon–Fri 9:00–13:00</span>
     </div>
-    <div class="lang-sw">
-      <button class="lb" onclick="window.location.href='index.html'">IT</button>
-      <button class="lb active">EN</button>
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLang('it')" id="btn-it">IT</button>
+      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
     </div>
   </div>
 </div>
@@ -411,7 +411,7 @@
     <div class="wash" data-parallax data-depth="18"></div>
     <canvas class="fx-field" data-fireflies width="1920" height="1080" data-fx-color="150,200,222" data-count-motes="44"></canvas>
     <div class="pad">
-      <div class="topbar">
+      <div class="slide-hdr">
         <span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span>
         <span>Volunteer Handbook · July Edition</span>
       </div>
@@ -432,7 +432,7 @@
   <!-- 02 · WELCOME -->
   <section data-screen-label="02 Welcome">
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Welcome</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Welcome</span></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1;">
         <div>
           <div class="kicker anim">Why we're here</div>
@@ -462,7 +462,7 @@
     <div class="wash" data-parallax data-depth="16"></div>
     <canvas class="fx-field" data-fireflies width="1920" height="1080" data-fx-color="127,191,216" data-count-motes="42"></canvas>
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Where you'll live</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Where you'll live</span></div>
       <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:60px;align-items:center;flex:1;">
         <div>
           <div class="kicker anim">Fucecchio · Padule di Fucecchio</div>
@@ -482,7 +482,7 @@
   <!-- 04 · WHERE YOU'LL STAY -->
   <section data-screen-label="04 Accommodation">
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Your homes</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Your homes</span></div>
       <div class="kicker anim">Where you'll stay</div>
       <h2 class="anim2" style="font-size:56px;margin:12px 0 0;">Two houses, <span class="serif-it" style="color:var(--lake);">one group</span></h2>
       <div class="stay anim3">
@@ -512,7 +512,7 @@
   <section data-screen-label="05 What is ESC" style="background:linear-gradient(160deg,#eef4f2 0%,#e3eef0 100%);">
     <div class="wash"></div>
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>The programme</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>The programme</span></div>
       <div class="kicker anim">European Solidarity Corps</div>
       <div class="esc-split">
         <div>
@@ -545,7 +545,7 @@
     <div class="wash-warm" data-parallax data-depth="16"></div>
     <canvas class="fx-field" data-fireflies width="1920" height="1080" data-fx-color="224,176,96" data-count-motes="40"></canvas>
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>A little kindness game</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>A little kindness game</span></div>
       <div class="kicker anim">Introducing · Secret Friend</div>
       <h2 class="anim2" style="font-size:56px;margin:12px 0 0;">Someone is quietly <span class="serif-it" style="color:var(--clay);">rooting for you</span></h2>
       <div class="sf-split">
@@ -574,7 +574,7 @@
   <!-- 07 · SKILL EXCHANGE DAY -->
   <section data-screen-label="07 Skill exchange">
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Learn from each other</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Learn from each other</span></div>
       <div class="kicker anim">Skill exchange day</div>
       <h2 class="anim2" style="font-size:58px;margin:12px 0 6px;">Everyone teaches <span class="serif-it" style="color:var(--lake);">one thing</span></h2>
       <p class="anim2" style="font-size:24px;color:#33402d;max-width:62ch;line-height:1.48;">One day this month, each of you brings a skill — big or small — and shares it with the group.</p>
@@ -605,7 +605,7 @@
   <!-- 08 · DAY TRIPS -->
   <section data-screen-label="08 Day trips">
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Explore Tuscany</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Explore Tuscany</span></div>
       <div class="kicker anim">Places around you</div>
       <h2 class="anim2" style="font-size:56px;margin:12px 0 0;">Three cities, <span class="serif-it" style="color:var(--lake);">one train line</span></h2>
       <div class="trips anim3">
@@ -641,7 +641,7 @@
   <section data-screen-label="09 Lucca CNV day" style="background:linear-gradient(165deg,#eef4ec 0%,#e4eef0 100%);">
     <div class="wash"></div>
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>A special day</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>A special day</span></div>
       <div class="lucca-split">
         <div>
           <div class="kicker anim">The Lucca day</div>
@@ -669,7 +669,7 @@
   <!-- 10 · EMERGENCY -->
   <section data-screen-label="10 Emergency">
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Stay safe</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Stay safe</span></div>
       <div class="kicker anim" style="color:var(--clay);">In an emergency</div>
       <h2 class="anim2" style="font-size:54px;margin:12px 0 0;">Keep this page handy</h2>
       <div class="em-grid">
@@ -699,7 +699,7 @@
   <section data-screen-label="11 Safe space" style="background:linear-gradient(160deg,#eef4f2 0%,#e3eef0 100%);">
     <div class="wash"></div>
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>You matter here</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>You matter here</span></div>
       <div class="safe-split">
         <div>
           <div class="kicker anim">The Safe Space form</div>
@@ -725,7 +725,7 @@
   <!-- 12 · PADLET ACTIVITY -->
   <section data-screen-label="12 Activity">
     <div class="pad">
-      <div class="topbar"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Let's begin</span></div>
+      <div class="slide-hdr"><span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span><span>Let's begin</span></div>
       <div class="kicker anim">An activity to start</div>
       <h2 class="anim2" style="font-size:50px;margin:12px 0 4px;">What would make this <span class="serif-it" style="color:var(--lake);">valuable for you?</span></h2>
       <p class="anim2" style="font-size:22px;color:#33402d;max-width:60ch;">Scan the code and leave a comment on our Padlet. Be honest — this shapes our month together.</p>
@@ -750,7 +750,7 @@
     <div class="wash" data-parallax data-depth="18"></div>
     <canvas class="fx-field" data-fireflies width="1920" height="1080" data-fx-color="150,200,222" data-count-motes="46"></canvas>
     <div class="pad">
-      <div class="topbar">
+      <div class="slide-hdr">
         <span class="brand"><svg class="mk" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 .3-5.5 4.4 2 6.9L12 16.8 5.5 20.6l2-6.9L2 9.3 9 9z" fill="currentColor"/></svg>Trail Angels</span>
         <span>July Edition</span>
       </div>
@@ -3478,6 +3478,16 @@
   if (!customElements.get('deck-stage')) {
     customElements.define('deck-stage', DeckStage);
   }
+})();
+
+function setLang(lang) {
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  localStorage.setItem('cnv-lang', lang);
+}
+(function() {
+  const saved = localStorage.getItem('cnv-lang');
+  if (saved) setLang(saved);
 })();
 
 </script>

@@ -374,31 +374,31 @@
       .session-card, .agenda-table { page-break-inside: avoid; }
     }
   /* ── CNV TOPBAR ── */
-  #cnv-topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; }
-  #cnv-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-  #cnv-topbar .tb-left { display: flex; gap: 20px; align-items: center; }
-  #cnv-topbar .tb-left a { color: rgba(255,255,255,0.8); text-decoration: none; }
-  #cnv-topbar .tb-left a:hover { color: #fff; }
-  #cnv-topbar .tb-left span { opacity: 0.5; }
-  #cnv-topbar .lang-sw { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
-  #cnv-topbar .lb { border: none; background: transparent; cursor: default; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; font-family: inherit; }
-  #cnv-topbar .lb.active { background: #fff; color: #2D9A47; }
-  @media print { #cnv-topbar { display: none; } }
+  .topbar { background: #2D9A47; color: rgba(255,255,255,0.85); font-size: 12.5px; padding: 7px 0; }
+  .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .topbar-left { display: flex; gap: 20px; align-items: center; }
+  .topbar-left a { color: rgba(255,255,255,0.8); text-decoration: none; }
+  .topbar-left a:hover { color: #fff; }
+  .topbar-left span { opacity: 0.5; }
+  .lang-switch { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 5px; }
+  .lang-btn { border: none; background: transparent; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 15px; transition: background 0.15s, color 0.15s; font-family: inherit; }
+  .lang-btn.active { background: #fff; color: #2D9A47; }
+  @media print { .topbar { display: none; } }
   </style>
 </head>
 <body>
-<div id="cnv-topbar">
-  <div id="cnv-topbar-inner">
-    <div class="tb-left">
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
       <a href="mailto:cnv@centrovolontariato.it">cnv@centrovolontariato.it</a>
       <span>|</span>
       <a href="tel:+390583419500">0583 419500</a>
       <span>|</span>
-      <span>Mon–Fri 9:00–13:00</span>
+      <span data-it="Lun–Ven 9:00–13:00" data-en="Mon–Fri 9:00–13:00">Mon–Fri 9:00–13:00</span>
     </div>
-    <div class="lang-sw">
-      <button class="lb" onclick="window.location.href='index.html'">IT</button>
-      <button class="lb active">EN</button>
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLang('it')" id="btn-it">IT</button>
+      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
     </div>
   </div>
 </div>
@@ -1032,5 +1032,16 @@
   </div>
 
 </div><!-- /page -->
+<script>
+function setLang(lang) {
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  localStorage.setItem('cnv-lang', lang);
+}
+(function() {
+  const saved = localStorage.getItem('cnv-lang');
+  if (saved) setLang(saved);
+})();
+</script>
 </body>
 </html>

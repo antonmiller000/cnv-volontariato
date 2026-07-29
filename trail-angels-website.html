@@ -463,8 +463,8 @@
       <span style="opacity:0.5;">Mon–Fri 9:00–13:00</span>
     </div>
     <div class="lang-switch">
-      <button class="lang-btn" onclick="window.location.href='index.html'" style="cursor:pointer;">IT</button>
-      <button class="lang-btn active">EN</button>
+      <button class="lang-btn" onclick="setLang('it')" id="btn-it">IT</button>
+      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
     </div>
   </div>
 </div>
@@ -1210,5 +1210,16 @@
   </div>
 </footer>
 
+<script>
+function setLang(lang) {
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  localStorage.setItem('cnv-lang', lang);
+}
+(function() {
+  const saved = localStorage.getItem('cnv-lang');
+  if (saved) setLang(saved); else setLang('en');
+})();
+</script>
 </body>
 </html>
