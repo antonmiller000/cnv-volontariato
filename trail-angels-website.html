@@ -60,6 +60,22 @@
       line-height: 1.4;
     }
     .eu-bar-info strong { color: #333; }
+    /* ── LANGUAGE PICKER (24 EU languages) ── */
+    .ta-lang-bar { background: #fff; border: 1px solid #e0ece0; border-radius: 12px; padding: 16px 18px; margin-bottom: 22px; }
+    .ta-lang-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+    .ta-lang-head span:first-child { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.1px; color: #2D9A47; }
+    .ta-lang-count { font-size: 11px; font-weight: 600; color: #aaa; }
+    .ta-lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 6px; }
+    .ta-lang { display: flex; align-items: center; gap: 6px; font-family: inherit; font-size: 12.5px; font-weight: 600; color: #444;
+               background: #f7faf8; border: 1px solid #e4ece5; border-radius: 8px; padding: 7px 9px; cursor: pointer;
+               text-align: left; transition: background .13s, border-color .13s, color .13s; }
+    .ta-lang:hover:not(:disabled) { background: #edf7f0; border-color: #2D9A47; color: #1a6b30; }
+    .ta-lang[aria-pressed="true"] { background: #2D9A47; border-color: #2D9A47; color: #fff; }
+    .ta-lang:disabled { opacity: .42; cursor: not-allowed; }
+    .ta-lang .code { font-size: 10px; font-weight: 800; letter-spacing: .5px; opacity: .6; margin-left: auto; }
+    .ta-lang-note { margin-top: 11px; font-size: 12.5px; color: #7a6a2a; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 9px 12px; }
+    .ta-loading { opacity: .45; transition: opacity .15s; }
+
     /* ── CONSORTIUM & PARTNERS ── */
     .partner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 26px; }
     .partner-card { background: #fff; border: 1px solid #e0e8e0; border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; }
@@ -804,9 +820,20 @@
   <div style="max-width: 780px; margin: 0 auto;">
     <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #2D9A47; margin-bottom: 8px;">Trail Angels Blog</div>
     <div style="width: 36px; height: 4px; background: #2D9A47; border-radius: 2px; margin-bottom: 14px;"></div>
-    <h2 style="font-size: 28px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px;">Volunteer Teams</h2>
-    <p style="font-size: 15px; color: #666; margin-bottom: 20px;">Trail Angels is a single project that ran from 2023 to 2026. Over that time a succession of international volunteer teams took part, each staying for one month. Below are their stories, in the order the teams arrived — start with the full project story, or open any individual team.</p>
-    <a href="trail-angels-stories.pdf" download style="display:inline-flex; align-items:center; gap:8px; background:#2D9A47; color:#fff; font-size:13px; font-weight:700; padding:10px 20px; border-radius:9px; margin-bottom:32px; text-decoration:none;">⬇ Download all stories (PDF)</a>
+    <h2 id="ta-heading" style="font-size: 28px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px;">Volunteer Teams</h2>
+    <p id="ta-intro" style="font-size: 15px; color: #666; margin-bottom: 20px;">Trail Angels is a single project that ran from 2023 to 2026. Over that time a succession of international volunteer teams took part, each staying for one month. Below are their stories, in the order the teams arrived — start with the full project story, or open any individual team.</p>
+
+    <!-- ══ LANGUAGE PICKER — 24 official EU languages ══ -->
+    <div class="ta-lang-bar">
+      <div class="ta-lang-head">
+        <span id="ta-lang-label">Read these stories in</span>
+        <span class="ta-lang-count"><span id="ta-lang-ready">1</span> / 24 <span id="ta-lang-avail">available</span></span>
+      </div>
+      <div class="ta-lang-grid" id="ta-lang-grid"></div>
+      <div class="ta-lang-note" id="ta-lang-note" hidden></div>
+    </div>
+
+    <a id="ta-download" href="trail-angels-stories-en.pdf" download style="display:inline-flex; align-items:center; gap:8px; background:#2D9A47; color:#fff; font-size:13px; font-weight:700; padding:10px 20px; border-radius:9px; margin-bottom:32px; text-decoration:none;">⬇ Download all stories (PDF)</a>
 
     <div id="blog-teams">
 
@@ -1202,6 +1229,108 @@ function setLang(lang) {
   if (be) be.classList.toggle('active', lang === 'en');
   try { localStorage.setItem('cnv-lang', lang); } catch (e) {}
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   Trail Angels stories — 24 official EU languages.
+   Each language lives in stories/<code>.js which calls TA_REGISTER().
+   Loaded on demand via script injection so it also works over file://.
+   Languages not yet translated stay disabled and English is kept.
+   ══════════════════════════════════════════════════════════════════ */
+var TA_LANGS = [
+  ['bg','Български'],['es','Español'],['cs','Čeština'],['da','Dansk'],
+  ['de','Deutsch'],['et','Eesti'],['el','Ελληνικά'],['en','English'],
+  ['fr','Français'],['ga','Gaeilge'],['hr','Hrvatski'],['it','Italiano'],
+  ['lv','Latviešu'],['lt','Lietuvių'],['hu','Magyar'],['mt','Malti'],
+  ['nl','Nederlands'],['pl','Polski'],['pt','Português'],['ro','Română'],
+  ['sk','Slovenčina'],['sl','Slovenščina'],['fi','Suomi'],['sv','Svenska']
+];
+var TA_STORE = {}, TA_CURRENT = 'en';
+function TA_REGISTER(d) { TA_STORE[d.lang] = d; }
+
+(function () {
+  var grid = document.getElementById('ta-lang-grid');
+  if (!grid) return;
+  function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function render(d) {
+    document.getElementById('ta-heading').textContent = d.ui.heading;
+    document.getElementById('ta-intro').textContent   = d.ui.intro;
+    document.getElementById('ta-lang-label').textContent = d.ui.picker || 'Read these stories in';
+    var dl = document.getElementById('ta-download');
+    dl.textContent = '⬇ ' + d.ui.download;
+    dl.setAttribute('href', 'trail-angels-stories-' + d.lang + '.pdf');
+    var host = document.getElementById('blog-teams'), html = '';
+    d.teams.forEach(function (t, i) {
+      var star = i === 0 ? '⭐ ' : '';
+      var style = i === 0 ? ' style="border-color:#2D9A47; border-width:2px;"' : '';
+      html += '<div class="team-item"' + style + '>'
+           +  '<button class="team-toggle" onclick="toggleTeam(this)">'
+           +  '<span class="team-label">' + star + esc(t.kicker) + ' · ' + esc(t.title) + '</span>'
+           +  '<span class="team-arrow">▾</span></button><div class="team-body">'
+           +  t.paragraphs.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('')
+           +  '</div></div>';
+    });
+    host.innerHTML = html;
+    var first = host.querySelector('.team-toggle');
+    if (first) { first.classList.add('open'); first.nextElementSibling.classList.add('open'); }
+    document.documentElement.setAttribute('data-stories-lang', d.lang);
+    TA_CURRENT = d.lang; paint();
+  }
+  function paint() {
+    [].forEach.call(grid.querySelectorAll('.ta-lang'), function (b) {
+      b.setAttribute('aria-pressed', b.dataset.lang === TA_CURRENT ? 'true' : 'false');
+    });
+  }
+  function note(msg) {
+    var n = document.getElementById('ta-lang-note');
+    if (!msg) { n.hidden = true; return; }
+    n.textContent = msg; n.hidden = false;
+  }
+  function mark(code) {
+    var b = grid.querySelector('[data-lang="' + code + '"]');
+    if (b) b.disabled = true;
+  }
+  function select(code, name) {
+    if (TA_STORE[code]) { note(''); render(TA_STORE[code]); try { localStorage.setItem('ta-stories-lang', code); } catch (e) {} return; }
+    var host = document.getElementById('blog-teams');
+    host.classList.add('ta-loading');
+    var s = document.createElement('script');
+    s.src = 'stories/' + code + '.js';
+    s.onload = function () {
+      host.classList.remove('ta-loading');
+      if (TA_STORE[code]) { note(''); render(TA_STORE[code]); try { localStorage.setItem('ta-stories-lang', code); } catch (e) {} }
+      else note(name + ' could not be loaded — showing English.');
+    };
+    s.onerror = function () {
+      host.classList.remove('ta-loading');
+      note('The ' + name + ' translation is not published yet — showing English.');
+      mark(code);
+    };
+    document.head.appendChild(s);
+  }
+  TA_LANGS.forEach(function (L) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'ta-lang'; b.dataset.lang = L[0];
+    b.setAttribute('aria-pressed', L[0] === 'en' ? 'true' : 'false');
+    b.innerHTML = '<span>' + L[1] + '</span><span class="code">' + L[0].toUpperCase() + '</span>';
+    b.addEventListener('click', function () { select(L[0], L[1]); });
+    grid.appendChild(b);
+  });
+  var man = document.createElement('script');
+  man.src = 'stories/available.js';
+  man.onload = function () {
+    var ready = (window.TA_AVAILABLE || ['en']);
+    TA_LANGS.forEach(function (L) { if (ready.indexOf(L[0]) === -1) mark(L[0]); });
+    document.getElementById('ta-lang-ready').textContent = ready.length;
+    var saved = null; try { saved = localStorage.getItem('ta-stories-lang'); } catch (e) {}
+    if (saved && ready.indexOf(saved) !== -1 && saved !== 'en') {
+      var nm = (TA_LANGS.filter(function (L) { return L[0] === saved; })[0] || [saved, saved])[1];
+      select(saved, nm);
+    }
+  };
+  man.onerror = function () { TA_LANGS.forEach(function (L) { if (L[0] !== 'en') mark(L[0]); }); };
+  document.head.appendChild(man);
+})();
 (function () {
   var saved = null;
   try { saved = localStorage.getItem('cnv-lang'); } catch (e) {}
