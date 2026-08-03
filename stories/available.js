@@ -1,1 +1,1 @@
-window.TA_AVAILABLE=["en"];
+window.TA_AVAILABLE=["en", "it"];
