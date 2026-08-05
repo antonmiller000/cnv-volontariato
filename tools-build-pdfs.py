@@ -152,10 +152,18 @@ def build(path):
         PageTemplate(id='body',  frames=[fr], onPage=body),
     ])
     story = [NextPageTemplate('body'), PageBreak()]
+    META = ParagraphStyle('M', fontName=F, fontSize=8.6, leading=12,
+                          textColor=colors.HexColor('#7d8c80'), spaceAfter=4)
     for i, t in enumerate(d['teams']):
         if i: story.append(PageBreak())
         story.append(Paragraph(t['kicker'].upper(), KICK))
         story.append(Paragraph(t['title'], H1))
+        if t.get('period'):
+            bits = [t['period']]
+            if t.get('location'): bits.append(t['location'])
+            if t.get('participants'):
+                bits.append(f"{t['participants']} {d['ui'].get('volunteers','volunteers')}")
+            story.append(Paragraph(' · '.join(bits), META))
         story.append(Spacer(1, 7))
         for p in t['paragraphs']:
             story.append(Paragraph(p, BODY))

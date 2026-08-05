@@ -4,11 +4,11 @@
  "endonym": "English",
  "ui": {
   "heading": "Volunteer Teams",
-  "intro": "Trail Angels is a single project that ran from 2023 to 2026. Over that time a succession of international volunteer teams took part, each staying for one month. Below are their stories, in the order the teams arrived — start with the full project story, or open any individual team.",
+  "intro": "Trail Angels is a single project that ran from 2023 to 2026. Over four implementation years, ten international volunteering teams took part — three in 2023, two in 2024, two in 2025 and three in 2026 — each staying about a month and each working its own section of the Via Francigena and the trails of the Garfagnana. Team numbering restarts each year, as in the project's official reporting. Below is every team that took place, with its dates, working area and size.",
   "download": "Download all stories (PDF)",
   "picker": "Language",
   "pdf_title": "Volunteer Stories 2023–2026",
-  "pdf_sub": "One project · eight international volunteer teams · Via Francigena, Tuscany",
+  "pdf_sub": "One project · ten international volunteer teams · 2023–2026 · Tuscany",
   "pdf_running": "Volunteer Stories",
   "funded1": "Funded by",
   "funded2": "the European Union",
@@ -57,7 +57,12 @@
    ]
   },
   {
-   "kicker": "Team 1 · 2023",
+   "year": 2023,
+   "team": 1,
+   "location": "Camaiore – Lucca",
+   "period": "12 June – 22 July 2023",
+   "participants": 8,
+   "kicker": "2023 · Team 1",
    "title": "The Trail Angels Journey Begins",
    "paragraphs": [
     "In 2023, a new adventure began in Tuscany as the first team of Trail Angels came together through the European Solidarity Corps. Young people from different countries and backgrounds arrived with the same goal: to spend their time doing something meaningful for the environment while discovering a new place and experiencing international community life.",
@@ -70,7 +75,12 @@
    ]
   },
   {
-   "kicker": "Team 2 · 2023",
+   "year": 2023,
+   "team": 2,
+   "location": "Lucca – Altopascio",
+   "period": "21 August – 2 October 2023",
+   "participants": 13,
+   "kicker": "2023 · Team 2",
    "title": "A New Team Continues the Trail Angels Journey",
    "paragraphs": [
     "The Trail Angels journey continues in Tuscany as a new international group of volunteers comes together to contribute to the protection of the Via Francigena and its surrounding environment.",
@@ -84,7 +94,31 @@
    ]
   },
   {
-   "kicker": "Team 3 · 2024",
+   "year": 2023,
+   "team": 3,
+   "location": "Massa – Camaiore",
+   "period": "9 October – 10 November 2023",
+   "participants": 15,
+   "kicker": "2023 · Team 3",
+   "title": "Closing the First Year on the Via Francigena",
+   "paragraphs": [
+    "The final volunteering group of 2023 arrived in October, when the Tuscan light softens and the hills turn towards autumn. Fifteen volunteers from across Europe came together to close the project's first year along the Massa–Camaiore section of the Via Francigena.",
+    "The first days were given to arrival and orientation. The group settled into the accommodation, learned the objectives of the project and the safety procedures for outdoor work, and got to know the area they would be caring for. For most of them it was a first experience of both Tuscany and international volunteering.",
+    "Fieldwork began in the second week. The team inspected the trail, collected litter, carried out basic maintenance on the path and documented the route in photographs. Working in autumn brought its own conditions: fallen leaves and branches after the first rains, and shorter days that shaped how the group planned each session.",
+    "As the weeks went on, the volunteers grew more confident with the tools and with each other. What had started as a group of strangers following instructions became a team that divided the work by itself and knew how to organise a working day.",
+    "The group also spent time with people from the surrounding area, meeting local organisations and taking part in community activities. These encounters gave a context to the physical work: the paths being cleared were not abstract routes but part of everyday life for the towns along them.",
+    "Living together was as much a part of the month as the trail work. Meals were cooked and shared, responsibilities were divided, and evenings turned into long conversations across several languages. Cultural differences surfaced in small everyday things and usually ended in laughter.",
+    "The final week was given to finishing the planned activities and to evaluation. The volunteers reflected on what had worked and what had been difficult, and put together recommendations for the groups who would come after them.",
+    "Those recommendations mattered. This was the team that closed the first year of Trail Angels, and much of what they learned in October 2023 shaped how the following years were organised."
+   ]
+  },
+  {
+   "year": 2024,
+   "team": 1,
+   "location": "San Gimignano – Monteriggioni",
+   "period": "2 May – 22 June 2024",
+   "participants": 14,
+   "kicker": "2024 · Team 1",
    "title": "Stories from the Via Francigena",
    "paragraphs": [
     "In 2024, a new international team of Trail Angels came together in Tuscany to continue caring for the historic paths of the Via Francigena. Surrounded by the Tuscan countryside, the volunteers spent their time helping to keep the routes clean and accessible while also discovering the stories of the people who walk them.",
@@ -98,7 +132,12 @@
    ]
   },
   {
-   "kicker": "Team 4 · 2024",
+   "year": 2024,
+   "team": 2,
+   "location": "San Miniato – Gambassi Terme",
+   "period": "2 May – 22 June 2024",
+   "participants": 12,
+   "kicker": "2024 · Team 2",
    "title": "Keeping Tuscany's Trails Clean",
    "paragraphs": [
     "One of the most visible challenges along popular walking routes is also one of the most preventable: litter. Plastic bottles, food packaging, cans and other waste can quickly accumulate along paths and in natural areas, affecting both the landscape and the people who come to enjoy it.",
@@ -112,7 +151,12 @@
    ]
   },
   {
-   "kicker": "Team 5 · 2025",
+   "year": 2025,
+   "team": 1,
+   "location": "Barga – Castelnuovo di Garfagnana",
+   "period": "1 – 30 September 2025",
+   "participants": 14,
+   "kicker": "2025 · Team 1",
    "title": "Discovering a Different Side of Tuscany",
    "paragraphs": [
     "When people think about Tuscany, they often imagine famous cities, Renaissance art, vineyards and rolling hills. However, beyond these familiar images, there is another side of the region that many visitors never have the opportunity to experience.",
@@ -127,7 +171,31 @@
    ]
   },
   {
-   "kicker": "Team 6 · 2026",
+   "year": 2025,
+   "team": 2,
+   "location": "Castelnuovo di Garfagnana – Argegna",
+   "period": "1 – 30 September 2025",
+   "participants": 12,
+   "kicker": "2025 · Team 2",
+   "title": "Two Teams, One Valley in the Garfagnana",
+   "paragraphs": [
+    "In September 2025 a second group of twelve volunteers worked in the Garfagnana at the same time as the first, based at the Fortezza di Mont'Alfonso in Castelnuovo di Garfagnana. For part of the month the two teams shared the same valley, and occasionally the same trail.",
+    "The opening week combined training with immediate practical work. After the general and specific safety training, the group went straight out onto the routes, covering the stretch from Via Enrico Fermi towards Barga and on to Villetta San Romano — sections that overlapped with the other team's programme.",
+    "From the second week the two calendars separated. This group took on the trail from San Romano to Piazza al Serchio, working its own stretch of the network while the first team continued elsewhere. Two teams in one valley meant more ground covered than either could have managed alone.",
+    "The work continued through the middle of the month between Piazza al Serchio and Argegna. Alongside the clearing and litter collection, the volunteers kept up the social media documentation of the route, building a record of the paths as they found them and as they left them.",
+    "Training ran in parallel with the fieldwork rather than being finished at the start. A second session with the project's trainer gave the group a chance to reflect on what they had already done and to connect the physical work with the wider aims of the European Solidarity Corps.",
+    "Midway through the month both teams travelled to Lucca together to visit the CNV office and meet the staff coordinating the project. Seeing the organisation behind the placement, and meeting the other group properly, gave the volunteers a clearer sense of the project they were part of.",
+    "The last full week closed the fieldwork with a clean-up between Castelnuovo and Cascio, followed by the final social media work. The Garfagnana is steeper and more wooded than the coastal sections of the route, and the group finished the month with a good understanding of what maintaining a mountain trail actually involves.",
+    "Working as a second team taught something the first year of the project could not: that Trail Angels had grown to the point where two international groups could run side by side in the same territory, each with its own stretch of trail and its own month together."
+   ]
+  },
+  {
+   "year": 2026,
+   "team": 1,
+   "location": "Castelnuovo di Garfagnana",
+   "period": "1 – 31 May 2026",
+   "participants": 11,
+   "kicker": "2026 · Team 1",
    "title": "Another Trail Angels Adventure Begins",
    "paragraphs": [
     "In 2026, a new international group of Trail Angels has arrived in Tuscany, ready to continue the project's environmental volunteering activities and contribute to the care of the region's walking routes.",
@@ -142,7 +210,12 @@
    ]
   },
   {
-   "kicker": "Team 7 · 2026",
+   "year": 2026,
+   "team": 2,
+   "location": "Massarosa – Quiesa",
+   "period": "1 – 30 June 2026",
+   "participants": 13,
+   "kicker": "2026 · Team 2",
    "title": "Volunteering Beyond the Trails",
    "paragraphs": [
     "Environmental action is at the heart of the Trail Angels project, but volunteering often creates opportunities that go far beyond the activities originally planned.",
@@ -157,7 +230,12 @@
    ]
   },
   {
-   "kicker": "Team 8 · 2026",
+   "year": 2026,
+   "team": 3,
+   "location": "Fucecchio – Ponte a Cappiano",
+   "period": "1 – 31 July 2026",
+   "participants": 18,
+   "kicker": "2026 · Team 3",
    "title": "Taking Care of the Paths We Share",
    "paragraphs": [
     "Another team of Trail Angels is continuing the project's work in Tuscany, bringing together young people from different countries to contribute to the protection of historic walking routes and the surrounding environment.",
